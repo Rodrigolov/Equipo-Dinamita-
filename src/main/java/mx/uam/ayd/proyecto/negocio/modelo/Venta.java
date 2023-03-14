@@ -19,13 +19,14 @@ public class Venta {
    
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idVenta;
+    private int cantidad;
 
     @OneToMany(targetEntity = Producto.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private final List<Producto> listaProductos = new ArrayList<Producto>();
 
     
-    private int total;
+    private float total;
     private LocalDate fecha;
    
 

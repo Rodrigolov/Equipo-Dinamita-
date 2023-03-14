@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
+import mx.uam.ayd.proyecto.negocio.modelo.Producto;
+import mx.uam.ayd.proyecto.datos.ProductoRepository;
+import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
+
 import mx.uam.ayd.proyecto.datos.GrupoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Grupo;
 import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
@@ -28,6 +32,12 @@ public class ProyectoApplication {
 	
 	@Autowired
 	GrupoRepository grupoRepository;
+
+	@Autowired
+	ControlVenta controlVenta;
+
+	@Autowired
+	ProductoRepository productoRepository;
 	
 	/**
 	 * 
@@ -65,6 +75,39 @@ public class ProyectoApplication {
 	 * 
 	 */
 	public void inicializaBD() {
+
+		Producto leche = new Producto();
+        Producto Nutella = new Producto();
+        Producto Pan = new Producto();
+        Producto Ramen = new Producto();
+
+        leche.setNombre("Galon de leche");
+        leche.setIdProducto(3243);
+        leche.setFecha(052124);
+        leche.setPrecio(60);
+        leche.setStock(2);
+        productoRepository.save(leche);
+
+        Nutella.setNombre("Nutella");
+        Nutella.setIdProducto(3564);
+        Nutella.setFecha(052025);
+        Nutella.setPrecio(80);
+        Nutella.setStock(3);
+        productoRepository.save(Nutella);
+
+        Pan.setNombre("Pan grande");
+        Pan.setIdProducto(3765);
+        Pan.setFecha(042123);
+        Pan.setPrecio(40);
+        Pan.setStock(3);
+        productoRepository.save(Pan);
+
+        Ramen.setNombre("Sopa ramen");
+        Ramen.setIdProducto(9877);
+        Ramen.setFecha(021227);
+        Ramen.setPrecio(20);
+        Ramen.setStock(3);
+        productoRepository.save(Ramen);
 		
 		// Vamos a crear los dos grupos de usuarios
 		

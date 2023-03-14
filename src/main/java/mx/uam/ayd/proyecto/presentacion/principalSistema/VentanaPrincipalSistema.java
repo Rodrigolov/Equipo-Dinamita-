@@ -79,6 +79,12 @@ public class VentanaPrincipalSistema extends JFrame {
 			}
 		});
 		
+		btnSales.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.venta();
+			}
+		});
+
 		JButton btnCreditShopping = new JButton("Compras");
 		btnCreditShopping.setFont(new Font("Gadugi", Font.PLAIN, 12));
 		

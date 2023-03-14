@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.presentacion.principalInventario.ControlPrincipalInventario;
 
+import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
+
 
 /**
  * Esta clase lleva el flujo de control de la ventana principal
@@ -20,6 +22,9 @@ public class ControlPrincipalSistema {
 	
 	@Autowired
 	private VentanaPrincipalSistema ventana;
+
+	@Autowired
+	private ControlVenta controlVenta;
 	
 	/**
 	 * Inicia el flujo de control de la ventana principal
@@ -38,6 +43,10 @@ public class ControlPrincipalSistema {
 		
 		controlPrincipalInventario.inicia();
 		
+	}
+
+	public void venta() {
+		controlVenta.inicia();
 	}
 
 }

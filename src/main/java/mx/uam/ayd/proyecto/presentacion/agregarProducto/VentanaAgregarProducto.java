@@ -196,6 +196,20 @@ public class VentanaAgregarProducto extends JFrame{
 		contentPane.setLayout(gl_contentPane);
 		
 	}
+	
+	//Listeners
+	
+	 btnAddProduct.addActionListener(new ActionListener() {
+		 public void actionPerformed(ActionEvent e) {
+			 
+			 if(verificaCamposVacios() == false) {
+				 
+			 }
+			 else {
+				 control.agregarProducto();
+			 }
+		 }
+	 });
 		
 		public void muestra(ControlAgregarProducto control) {
 			

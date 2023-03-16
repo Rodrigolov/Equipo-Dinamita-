@@ -37,6 +37,7 @@ public class ControlPrincipal {
 	public void principalSistema() {
 		
 		controlPrincipalSistema.inicia();
+		
 	}
 	
 }

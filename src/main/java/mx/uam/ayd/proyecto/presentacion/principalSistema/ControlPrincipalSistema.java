@@ -7,6 +7,8 @@ import mx.uam.ayd.proyecto.presentacion.principalInventario.ControlPrincipalInve
 
 import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
 
+import mx.uam.ayd.proyecto.presentacion.agregarProveedor.ControlAgregarProveedor;
+
 
 /**
  * Esta clase lleva el flujo de control de la ventana principal
@@ -25,6 +27,9 @@ public class ControlPrincipalSistema {
 
 	@Autowired
 	private ControlVenta controlVenta;
+
+	@Autowired
+	private ControlAgregarProveedor controlAgregarProveedor;
 	
 	/**
 	 * Inicia el flujo de control de la ventana principal
@@ -47,6 +52,17 @@ public class ControlPrincipalSistema {
 
 	public void venta() {
 		controlVenta.inicia();
+	}
+
+	/**
+	 * Método que arranca la historia de usuario "agregar proveedor"
+	 * 
+	 */
+
+	public void iniciaAgregarProveedor() {
+		
+		controlAgregarProveedor.inicia();
+	
 	}
 
 }

@@ -8,4 +8,6 @@ public interface VentaRepository extends CrudRepository <Venta, Long> {
     
     public Venta findByid(int id);
 
+    public List<Venta> findByFecha(LocalDate fecha);
+
 }

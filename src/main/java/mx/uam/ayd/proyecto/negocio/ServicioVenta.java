@@ -22,6 +22,35 @@ public class ServicioVenta {
     @Autowired
     private ProductoRepository productoRepository;
 
+    /**
+	 * 
+	 * Recupera todos los productos de las Venta
+	 * 
+	 * @return
+	 */
+	public List<Producto> recuperaProductosDeVenta(LocalDate fecha) {
+		List<Producto> productos = new ArrayList<>();
+		List<Venta> ventas = ventaRepository.findByFecha(fecha);
+		
+		for (Venta venta : ventas) {
+			List<Producto> productosVenta = venta.getProductos();
+			for (Producto producto : productosVenta) {
+				productos.add(producto);
+			}
+		}
+		
+		return productos;
+	}
+	
+	public float recuperaImporte(LocalDate fecha) {
+		float importeTotal = 0f;
+	    List<Producto> productosVendidos = recuperaProductosDeVenta(fecha);
+	    for (Producto producto : productosVendidos) {
+	        importeTotal += producto.getPrecio();
+	    }
+	    return importeTotal;
+	}
+
 public Venta CrearVenta()
 {
     Venta venta = new Venta();

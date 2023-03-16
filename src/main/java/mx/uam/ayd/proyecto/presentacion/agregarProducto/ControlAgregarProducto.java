@@ -34,7 +34,7 @@ public class ControlAgregarProducto {
 	
 	
 	/**
-	 * Termina la historia de usuario
+	 * Termina la histria de usuario
 	 * 
 	 */
 	

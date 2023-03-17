@@ -91,6 +91,12 @@ public class VentanaPrincipalSistema extends JFrame {
 			}
 		});
 
+		btnProviders.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.iniciaAgregarProveedor();
+			}
+		});
+
 		JButton btnCreditShopping = new JButton("Compras");
 		btnCreditShopping.setFont(new Font("Gadugi", Font.PLAIN, 12));
 		

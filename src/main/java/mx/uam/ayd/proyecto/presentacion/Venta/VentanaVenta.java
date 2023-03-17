@@ -41,6 +41,9 @@ public class VentanaVenta extends JPanel {
     JComboBox<String>  comboBoxProd;
     JTextField pagoCliente = new JTextField();
 
+    /**
+     * 
+     */
     public VentanaVenta()
     {
         

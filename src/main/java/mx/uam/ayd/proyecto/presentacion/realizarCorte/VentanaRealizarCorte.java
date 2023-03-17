@@ -291,7 +291,7 @@ public class VentanaRealizarCorte extends JFrame {
 	public void actualizaTabla(List<Producto> productos) {
 		model.setRowCount(0);
         for (Producto p : productos) {
-            Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), p.getCantidad(), p.getPrecio()};
+            Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), p.getStock(), p.getPrecio()};
             model.addRow(fila);
         }
 	}

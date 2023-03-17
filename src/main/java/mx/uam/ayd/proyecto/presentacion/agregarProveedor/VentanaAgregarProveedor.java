@@ -62,7 +62,7 @@ public class VentanaAgregarProveedor extends JFrame {
 		btnAgregar.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnAgregar.setBounds(87, 32, 264, 127);
 		contentPane.add(btnAgregar);
-		btnAgregar.setIcon(new ImageIcon("C:\\Users\\alfon\\OneDrive\\Documentos\\GitHub\\Equipo-Dinamita-\\img\\inventario-2.png"));
+		btnAgregar.setIcon(new ImageIcon("C:\\Users\\Ludwi\\OneDrive\\Documentos\\GitHub\\Equipo-Dinamita-\\img\\inventario-2.png"));
 		
 		btnEliminar = new JButton("");
 		btnEliminar.setEnabled(false);
@@ -70,14 +70,14 @@ public class VentanaAgregarProveedor extends JFrame {
 		btnEliminar.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnEliminar.setBounds(87, 209, 264, 127);
 		contentPane.add(btnEliminar);
-		btnEliminar.setIcon(new ImageIcon("C:\\Users\\alfon\\OneDrive\\Documentos\\GitHub\\Equipo-Dinamita-\\img\\devolver-2.png"));
+		btnEliminar.setIcon(new ImageIcon("C:\\Users\\Ludwi\\OneDrive\\Documentos\\GitHub\\Equipo-Dinamita-\\devolver-2.png"));
 
 		btnAtras = new JButton("");
 		btnAtras.setBackground(UIManager.getColor("InternalFrame.borderHighlight"));
 		btnAtras.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnAtras.setBounds(24, 32, 41, 39);
 		contentPane.add(btnAtras);
-		btnAtras.setIcon(new ImageIcon("C:\\Users\\alfon\\OneDrive\\Documentos\\GitHub\\Equipo-Dinamita-\\img\\flecha-izquierda-2.png"));
+		btnAtras.setIcon(new ImageIcon("C:\\Users\\Ludwi\\OneDrive\\Documentos\\GitHub\\Equipo-Dinamita-\\img\\flecha-izquierda-2.png"));
 		
 		JLabel lblAgregarProveedor = new JLabel("Agregar Proveedor");
 		lblAgregarProveedor.setFont(new Font("Tahoma", Font.BOLD, 18));

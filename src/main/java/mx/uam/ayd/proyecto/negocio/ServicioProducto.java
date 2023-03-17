@@ -52,7 +52,7 @@ public class ServicioProducto {
     public Producto agregarProducto(String productID, String name, String price, String date, String stock ) {
 		
 		long id = Long.parseLong(productID);
-		Double precio = Double.parseDouble(price);
+		int precio = Integer.parseInt(price);
 		int cantidad = Integer.parseInt(stock);
 		
 		
@@ -72,14 +72,14 @@ public class ServicioProducto {
 			throw new IllegalArgumentException("Este producto ya existe");
 		}
 			
-		log.info("Agregando producto id: "+id+" nombre:"+name+" precio:"+precio+" fecha:"+date1+" cantidad:"+stock);
+		//log.info("Agregando producto id: "+id+" nombre:"+name+" precio:"+precio+" fecha:"+date1+" cantidad:"+stock);
 			
 		producto = new Producto();
 		producto.setIdProducto(id);
 		producto.setNombre(name);
 		producto.setPrecio(precio);
 		producto.setFecha(date1);
-		producto.setCantidad(cantidad);
+		producto.setStock(cantidad);
 			
 		productoRepository.save(producto);
 		

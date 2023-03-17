@@ -1,5 +1,8 @@
 package mx.uam.ayd.proyecto;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,30 +84,34 @@ public class ProyectoApplication {
         Producto Pan = new Producto();
         Producto Ramen = new Producto();
 
+		LocalDate fecha = LocalDate.now();
+
+		Date date = Date.valueOf(fecha.toString());
+
         leche.setNombre("Galon de leche");
         leche.setIdProducto(3243);
-        leche.setFecha(052124);
+        leche.setFecha(date);
         leche.setPrecio(60);
         leche.setStock(2);
         productoRepository.save(leche);
 
         Nutella.setNombre("Nutella");
         Nutella.setIdProducto(3564);
-        Nutella.setFecha(052025);
+        Nutella.setFecha(date);
         Nutella.setPrecio(80);
         Nutella.setStock(3);
         productoRepository.save(Nutella);
 
         Pan.setNombre("Pan grande");
         Pan.setIdProducto(3765);
-        Pan.setFecha(042123);
+        Pan.setFecha(date);
         Pan.setPrecio(40);
         Pan.setStock(3);
         productoRepository.save(Pan);
 
         Ramen.setNombre("Sopa ramen");
         Ramen.setIdProducto(9877);
-        Ramen.setFecha(021227);
+        Ramen.setFecha(date);
         Ramen.setPrecio(20);
         Ramen.setStock(3);
         productoRepository.save(Ramen);

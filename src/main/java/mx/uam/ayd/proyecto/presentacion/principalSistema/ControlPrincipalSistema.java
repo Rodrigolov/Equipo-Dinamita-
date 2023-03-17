@@ -30,6 +30,7 @@ public class ControlPrincipalSistema {
 
 	@Autowired
 	private ControlAgregarProveedor controlAgregarProveedor;
+
 	
 	/**
 	 * Inicia el flujo de control de la ventana principal

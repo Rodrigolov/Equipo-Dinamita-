@@ -19,7 +19,7 @@ public class Venta {
    
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idVenta;
+    private long id;
     private int cantidad;
 
     @OneToMany(targetEntity = Producto.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)

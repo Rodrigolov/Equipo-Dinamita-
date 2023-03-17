@@ -61,7 +61,7 @@ public class VentanaPrincipalSistema extends JFrame {
 		JLabel lblTitle = new JLabel("Tienda Mary ");
 		lblTitle.setFont(new Font("Gadugi", Font.BOLD, 25));
 		
-		JButton btnSales = new JButton("Ventas");
+		JButton btnSales = new JButton("Venta");
 		btnSales.setFont(new Font("Gadugi", Font.PLAIN, 12));
 		
 		JButton btnEmployees = new JButton("Empleados");
@@ -79,6 +79,12 @@ public class VentanaPrincipalSistema extends JFrame {
 			}
 		});
 		
+		btnProviders.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.iniciaAgregarProveedor();
+			}
+		});
+
 		btnSales.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.venta();

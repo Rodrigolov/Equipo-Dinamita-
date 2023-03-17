@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 import mx.uam.ayd.proyecto.negocio.modelo.Venta;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
@@ -33,7 +36,7 @@ public class ServicioVenta {
 		List<Venta> ventas = ventaRepository.findByFecha(fecha);
 		
 		for (Venta venta : ventas) {
-			List<Producto> productosVenta = venta.getProductos();
+			List<Producto> productosVenta = venta.getListaProductos();
 			for (Producto producto : productosVenta) {
 				productos.add(producto);
 			}
@@ -90,7 +93,7 @@ public int finalizarVenta(int PagoCliente,Venta venta)
     int cambio = 0;
     if(venta.getTotal()>PagoCliente)
     { throw new IllegalArgumentException("El pago del cliente debe cublir el total de la venta");}
-    else{cambio = PagoCliente - venta.getTotal();
+    else{cambio = (int) (PagoCliente - venta.getTotal());
         ventaRepository.save(venta);
         if(cambio < 0){cambio = 0;}
          return cambio;}

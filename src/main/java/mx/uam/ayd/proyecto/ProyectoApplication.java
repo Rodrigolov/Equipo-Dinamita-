@@ -10,7 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
+import mx.uam.ayd.proyecto.negocio.modelo.Venta;
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
+import mx.uam.ayd.proyecto.datos.VentaRepository;
 import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
 
 import mx.uam.ayd.proyecto.datos.GrupoRepository;
@@ -41,6 +43,9 @@ public class ProyectoApplication {
 
 	@Autowired
 	ProductoRepository productoRepository;
+	
+	@Autowired
+	VentaRepository ventaRepository;
 	
 	/**
 	 * 
@@ -83,6 +88,9 @@ public class ProyectoApplication {
         Producto Nutella = new Producto();
         Producto Pan = new Producto();
         Producto Ramen = new Producto();
+        
+        Venta venta1 = new Venta();
+        Venta venta2 = new Venta();
 
 		LocalDate fecha = LocalDate.now();
 
@@ -115,6 +123,19 @@ public class ProyectoApplication {
         Ramen.setPrecio(20);
         Ramen.setStock(3);
         productoRepository.save(Ramen);
+        
+        venta1.agregarProducto(Ramen);
+        venta1.setId(1);
+        venta1.setCantidad(4);
+        venta1.setFecha(fecha);
+        venta1.setTotal(50);
+        
+        venta2.agregarProducto(Pan);
+        venta2.setId(2);
+        venta2.setCantidad(1);
+        venta2.setFecha(fecha);
+        venta2.setTotal(40);
+        
 		
 		// Vamos a crear los dos grupos de usuarios
 		

@@ -40,6 +40,7 @@ public class VentanaRealizarCorte extends JFrame {
 	private JPanel contentPane;
 	private ControlRealizarCorte control;
 	private JComboBox <String> comboBoxEfectivo;
+	private VentanaRealizarCorteEfectivo ventana;
 	private JTable table;
 	private JTextField txtProducto;
 	private JTextField txtProducto_1;
@@ -47,8 +48,6 @@ public class VentanaRealizarCorte extends JFrame {
 	private JTextField txtPrecio;
 	private DefaultTableModel model;
 	JFrame frame = new JFrame();
-	private JButton btnRealizarCorte;
-	private JButton Aceptar;
 	
 	
 	public static void main(String[] args) {
@@ -79,7 +78,6 @@ public class VentanaRealizarCorte extends JFrame {
 		JButton btnRealizarCorte = new JButton("Actualizar");
 		btnRealizarCorte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-                control.inicia();
             }
 		});
 		
@@ -98,8 +96,9 @@ public class VentanaRealizarCorte extends JFrame {
 		
         model = new DefaultTableModel(new Object[][]{}, new String[]{"ID Producto", "Producto", "Cantidad", "Precio"});
         table = new JTable(model);
+        table.setModel(model);
         JScrollPane scrollPane = new JScrollPane(table);
-        getContentPane().add(scrollPane, BorderLayout.CENTER);
+        contentPane.add(scrollPane);
         
 		
 		txtProducto = new JTextField();
@@ -183,7 +182,8 @@ public class VentanaRealizarCorte extends JFrame {
 				JComboBox comboBoxEfectivo = (JComboBox)e.getSource();
 		        String selectedOption = (String)comboBoxEfectivo.getSelectedItem();
 		        if (selectedOption.equals("Efectivo")) {
-		        	openNextWindow();
+		        	ventana = new VentanaRealizarCorteEfectivo();
+		        	ventana.setVisible(true);
 		        } else {
 		            pesta.setSelectedIndex(0); 
 		        }
@@ -194,109 +194,22 @@ public class VentanaRealizarCorte extends JFrame {
 	}
 	
 	
-	public void openNextWindow() {
-		JFrame nextFrame = new JFrame();
-	    nextFrame.setTitle("Efectivo");
-	    nextFrame.setSize(500, 400);
-	    nextFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	    String[] headers = {"Tipo", "Denominacion", "Cantidad", "Importe"};
-	    Object[][] data = {
-	        {"Billete", 1000, 0, 0f},
-	        {"Billete", 500, 0, 0f},
-	        {"Billete", 200, 0, 0f},
-	        {"Billete", 100, 0, 0f},
-	        {"Billete", 50, 0, 0f},
-	        {"Billete", 20, 0, 0f},
-	        {"Moneda", 10, 0, 0f},
-	        {"Moneda", 5, 0, 0f},
-	        {"Moneda", 2, 0, 0f},
-	        {"Moneda", 1, 0, 0f},
-	        {"Moneda", 0.5, 0, 0f},
-	        {"Total", null, 0, 0f}
-	    };
-
-	    JTable table = new JTable(data, headers) {
-	        @Override
-	        public boolean isCellEditable(int row, int column) {
-	            return column == 2; 
-	        }
-	    };
-	    
-	    table.getColumnModel().getColumn(0).setCellRenderer(new DefaultTableCellRenderer());
-
-	    table.getColumnModel().getColumn(1).setCellRenderer(new DefaultTableCellRenderer());
-
-	    table.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(new JTextField()));
-
-	    table.getModel().addTableModelListener(new TableModelListener() {
-	        @Override
-	        public void tableChanged(TableModelEvent e) {
-	            int numRows = table.getRowCount();
-	            for (int i = 0; i < numRows; i++) {
-	                int cantidad = (int) table.getValueAt(i, 2);
-	                float denominacion = (float) table.getValueAt(i, 1);
-	                float importe = cantidad * denominacion;
-	                table.setValueAt(importe, i, 3);
-	            }
-
-	            float total = 0f;
-	            for (int i = 0; i < numRows; i++) {
-	                total += (float) table.getValueAt(i, 3);
-	            }
-	            table.setValueAt(total, numRows - 1, 3);
-	        }
-	    });
-	    
-	    
-
-	    JScrollPane scrollPane = new JScrollPane(table);
-	    nextFrame.getContentPane().add(scrollPane, BorderLayout.CENTER);
-
-	    JButton acceptButton = new JButton("Aceptar");
-	    acceptButton.addActionListener(new ActionListener() {
-	        public void actionPerformed(ActionEvent e) {
-	        	float importeTotalTabla = 0f;
-	    	    TableModel model = table.getModel();
-	    	    int numRows = model.getRowCount();
-	    	    for (int i = 0; i < numRows; i++) {
-	    	        float importe = (float) model.getValueAt(i, 3);
-	    	        importeTotalTabla += importe;
-	    	    }
-	        	
-	        	float importeTotalCorte =control.realizarCorte();
-	        	float diferencia = importeTotalTabla - importeTotalCorte;
-	        	JOptionPane.showMessageDialog(null, "Importe total: " + importeTotalTabla +
-	        	        "\nImporte esperado: " + importeTotalCorte +
-	        	        "\nDiferencia: " + diferencia);
-	            
-	        }
-	    });
-	    JPanel buttonPanel = new JPanel();
-	    buttonPanel.add(acceptButton);
-	    nextFrame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
-
-	    nextFrame.setVisible(true);
-	}
-	
-	
-	public void muestra(ControlRealizarCorte control) {
+	public void muestra(ControlRealizarCorte control, List<Producto> productos) {
 		
 		this.control = control;
-	
 		
-		setVisible(true);
-
-	}
-	public void actualizaTabla(List<Producto> productos) {
-		model.setRowCount(0);
         for (Producto p : productos) {
-            Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), p.getCantidad(), p.getPrecio()};
+            Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), 1, p.getPrecio()};
             model.addRow(fila);
         }
+		
+		setVisible(true);
+		setLocationRelativeTo(null);
+
 	}
 	
+	
 	public void muestraDialogoConMensaje(String mensaje ) {
-		JOptionPane.showMessageDialog(this , mensaje);
+		JOptionPane.showMessageDialog(this, mensaje);
 	}
 }

@@ -28,11 +28,13 @@ public class ControlRealizarCorte {
 	
 	public void inicia() {
 		
+		
 		LocalDate fecha = LocalDate.now();
 
         List<Producto> productosVendidos = servicioVenta.recuperaProductosDeVenta(fecha);
-
-        ventana.actualizaTabla(productosVendidos);
+        
+        ventana.muestra(this,productosVendidos);
+        
     }
 
 	public float realizarCorte() {

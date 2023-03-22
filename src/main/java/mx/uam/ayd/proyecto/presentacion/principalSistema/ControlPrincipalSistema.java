@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.presentacion.principalInventario.ControlPrincipalInventario;
-
+import mx.uam.ayd.proyecto.presentacion.realizarCorte.ControlRealizarCorte;
 import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
 
 import mx.uam.ayd.proyecto.presentacion.agregarProveedor.ControlAgregarProveedor;
@@ -30,6 +30,9 @@ public class ControlPrincipalSistema {
 
 	@Autowired
 	private ControlAgregarProveedor controlAgregarProveedor;
+	@Autowired
+	private ControlRealizarCorte control;
+
 	
 	/**
 	 * Inicia el flujo de control de la ventana principal
@@ -64,5 +67,17 @@ public class ControlPrincipalSistema {
 		controlAgregarProveedor.inicia();
 	
 	}
+	
+	/**
+	 * Método que arranca la historia de usuario "realizar Corte"
+	 * 
+	 */
 
+	
+	public void realizarCorte() {
+		
+		control.inicia();
+	
+	}
+	
 }

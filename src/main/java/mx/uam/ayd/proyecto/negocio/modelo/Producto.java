@@ -1,5 +1,6 @@
 package mx.uam.ayd.proyecto.negocio.modelo;
 
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,7 +30,7 @@ private long idProducto;
 
 private Venta venta;
 private String nombre;
-private int precio;
+private int Precio;
 private Date fecha; 
 private int stock;
 

@@ -1,6 +1,6 @@
-package mx.uam.ayd.proyecto.presentacion.Empleado;
+package mx.uam.ayd.proyecto.presentacion.empleado;
 
-import mx.uam.ayd.proyecto.presentacion.DardealtaEmpleado.ControlDardealtaEmpleado;
+import mx.uam.ayd.proyecto.presentacion.altaEmpleado.ControlDardealtaEmpleado;
 
 public class ControlEmpleado {
 

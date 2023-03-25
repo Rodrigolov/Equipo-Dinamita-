@@ -16,7 +16,7 @@ public class Empleado {
 
 	private int idempleado;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	//@ManyToOne(fetch = FetchType.LAZY)
 	
 	private String nombre;
 	

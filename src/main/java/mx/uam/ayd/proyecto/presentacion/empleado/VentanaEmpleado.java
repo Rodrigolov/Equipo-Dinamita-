@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.Empleado;
+package mx.uam.ayd.proyecto.presentacion.empleado;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;

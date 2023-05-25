@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
+/*package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
 import org.springframework.beans.factory.annotation.Autowired;
 import mx.uam.ayd.proyecto.negocio.ServicioEmpleado;
 
@@ -50,3 +50,4 @@ public class ControlDardealtaEmpleado {
     }
     
 }
+*/

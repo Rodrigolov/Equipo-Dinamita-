@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.empleado;
+/*package mx.uam.ayd.proyecto.presentacion.empleado;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -94,4 +94,4 @@ public class VentanaEmpleado extends JFrame{
 		JOptionPane.showMessageDialog(this , mensaje);
 	}
 
-}
+}*/

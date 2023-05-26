@@ -1,5 +1,9 @@
 package mx.uam.ayd.proyecto.negocio;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,4 +52,22 @@ public class ServicioProveedor {
 		return proveedor;
 	}
 
+	public List<Proveedor> recuperaProductosDeVenta() {
+        List<Proveedor> proveedores = new ArrayList<>();
+
+        for (Proveedor proveedor : proveedorRepository.findAll()) {
+           proveedores.add(proveedor);
+        }
+
+        return proveedores;
+	}
+
+	public Proveedor RecuperarProveedor(Long ID) {
+		return proveedorRepository.findByidProveedor(ID);
+	}
+
+	public void guardarProveedor(Proveedor proveedor) {
+        proveedorRepository.save(proveedor);
+    }
 }
+

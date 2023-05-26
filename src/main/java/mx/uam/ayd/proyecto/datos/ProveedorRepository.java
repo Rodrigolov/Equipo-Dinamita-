@@ -11,6 +11,8 @@ public interface ProveedorRepository extends CrudRepository <Proveedor, Long> {
 	public Proveedor findByNombreAndMarca(String nombre, String marca);
 	
 	public List <Proveedor> findAll();
+
+	public Proveedor findByidProveedor(Long ID);
 	
 
 }

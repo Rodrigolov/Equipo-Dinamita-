@@ -1,5 +1,6 @@
 package mx.uam.ayd.proyecto.presentacion.EditarProveedor;
 
+
 import java.awt.EventQueue;
 
 import javax.swing.JButton;
@@ -9,6 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import org.springframework.stereotype.Component;
+@SuppressWarnings("serial")
+@Component
 public class VentanaEditarProveedor extends JFrame {
 
 	private JPanel contentPane;

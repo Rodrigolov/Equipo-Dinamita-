@@ -52,10 +52,12 @@ public class ServicioProveedor {
 		return proveedor;
 	}
 
-	public List<Proveedor> recuperaProductosDeVenta() {
+	public List<Proveedor> recuperaProvedores() {
+		System.out.println("proveedorRespository="+ proveedorRepository);
         List<Proveedor> proveedores = new ArrayList<>();
 
         for (Proveedor proveedor : proveedorRepository.findAll()) {
+			System.out.println(proveedor.getNombre());
            proveedores.add(proveedor);
         }
 

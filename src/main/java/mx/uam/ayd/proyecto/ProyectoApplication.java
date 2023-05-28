@@ -13,6 +13,7 @@ import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.Venta;
 import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
+import mx.uam.ayd.proyecto.datos.ProveedorRepository;
 import mx.uam.ayd.proyecto.datos.VentaRepository;
 import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
 
@@ -47,6 +48,9 @@ public class ProyectoApplication {
 	
 	@Autowired
 	VentaRepository ventaRepository;
+
+	@Autowired
+	ProveedorRepository proveedorRepository;
 	
 	/**
 	 * 
@@ -155,30 +159,40 @@ public class ProyectoApplication {
 		grupoRepository.save(grupoOps);
 
 		//Proveedores
+		proveedor1.setIdProveedor(43454);
 		proveedor1.setNombre("Juan Perez");
 		proveedor1.setMarca("Samsung");
 		proveedor1.setTelefono(1234567890);
 		proveedor1.setCorreo("juanperez@samsung.com");
+		proveedorRepository.save(proveedor1);
 
+		proveedor2.setIdProveedor(54546);
 		proveedor2.setNombre("Maria Garcia");
 		proveedor2.setMarca("Apple");
 		proveedor2.setTelefono(234567890);
 		proveedor2.setCorreo("mariagarcia@apple.com");
+		proveedorRepository.save(proveedor2);
 
+		proveedor3.setIdProveedor(67865);
 		proveedor3.setNombre("Pedro Hernandez");
 		proveedor3.setMarca("LG");
 		proveedor3.setTelefono(345678901);
 		proveedor3.setCorreo("pedrohernandez@lg.com");
+		proveedorRepository.save(proveedor3);
 
+		proveedor4.setIdProveedor(54353);
 		proveedor4.setNombre("Ana Torres");
 		proveedor4.setMarca("Sony");
 		proveedor4.setTelefono(456789012);
 		proveedor4.setCorreo("anatorres@sony.com");
+		proveedorRepository.save(proveedor4);
 
+		proveedor5.setIdProveedor(78953);
 		proveedor5.setNombre("Luisa Martinez");
 		proveedor5.setMarca("Motorola");
 		proveedor5.setTelefono(567890123);
 		proveedor5.setCorreo("luisamartinez@motorola.com");
+		proveedorRepository.save(proveedor5);
 
 
 	

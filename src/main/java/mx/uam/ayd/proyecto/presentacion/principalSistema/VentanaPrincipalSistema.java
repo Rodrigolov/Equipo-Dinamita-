@@ -64,7 +64,7 @@ public class VentanaPrincipalSistema extends JFrame {
 		JButton btnSales = new JButton("Venta");
 		btnSales.setFont(new Font("Gadugi", Font.PLAIN, 12));
 		
-		JButton btnEmployees = new JButton("Empleados");
+		JButton btnEmployees = new JButton("Lista Proveedores");
 		btnEmployees.setFont(new Font("Gadugi", Font.PLAIN, 12));
 		
 		JButton btnProviders = new JButton("Proveedores");
@@ -90,12 +90,16 @@ public class VentanaPrincipalSistema extends JFrame {
 				control.venta();
 			}
 		});
-
-		btnProviders.addActionListener(new ActionListener() {
+		btnEmployees.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.iniciaListaProveedores();
+			}
+		});
+		/*btnProviders.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.iniciaAgregarProveedor();
 			}
-		});
+		});*/
 		
 		JButton Realizar = new JButton("Realizar Corte");
 		Realizar.addActionListener(new ActionListener() {

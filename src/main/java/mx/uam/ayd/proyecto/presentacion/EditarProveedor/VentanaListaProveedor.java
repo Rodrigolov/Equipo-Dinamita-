@@ -2,6 +2,9 @@ package mx.uam.ayd.proyecto.presentacion.EditarProveedor;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,13 +14,25 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import java.awt.EventQueue;
 
+import org.springframework.stereotype.Component;
+
+import mx.uam.ayd.proyecto.negocio.modelo.Producto;
+import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
+
+import java.awt.EventQueue;
+@SuppressWarnings("serial")
+@Component
 public class VentanaListaProveedor extends JFrame {
+	ControlProveedor controlProveedor;
+
+	DefaultTableModel tablaProveedores = new DefaultTableModel();
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTable table;
+	private JTable tableProveedores;
+
+	
 
 	/**
 	 * Launch the application.
@@ -60,22 +75,15 @@ public class VentanaListaProveedor extends JFrame {
 		scrollPane.setBounds(34, 194, 1198, 338);
 		contentPane.add(scrollPane);
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-			},
+		tableProveedores = new JTable();
+		scrollPane.setViewportView(tableProveedores);
+		tableProveedores.setModel(new DefaultTableModel(
+			new Object[][] {	},
 			new String[] {
 				"ID", "Nombre", "Marca", "Telefono", "Correo"
 			}
 		));
-		
+
 		JLabel lblSeleccionaUnProveedor = new JLabel("Selecciona un proveedor de la lista para editarlo");
 		lblSeleccionaUnProveedor.setBounds(34, 172, 313, 14);
 		contentPane.add(lblSeleccionaUnProveedor);
@@ -99,6 +107,27 @@ public class VentanaListaProveedor extends JFrame {
 		JButton btnNewButton_2 = new JButton("Editar");
 		btnNewButton_2.setBounds(1144, 638, 89, 23);
 		contentPane.add(btnNewButton_2);
+	}
+
+	public void muestra(ControlProveedor control, List<Proveedor> proveedores) 
+    {
+        this.controlProveedor= control;
+        try {
+			VentanaListaProveedor frame = new VentanaListaProveedor();
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        for(Proveedor proveedor:proveedores) {
+			System.out.println(proveedor.getIdProveedor());
+			tablaProveedores.addRow(new Object[]{
+				String.valueOf(proveedor.getIdProveedor()),proveedor.getNombre(),proveedor.getMarca(),String.valueOf(proveedor.getTelefono()),proveedor.getCorreo()});
+
+		}  
+    }
+
+    public void termina() {
+		contentPane.setVisible(false);		
 	}
 }
 

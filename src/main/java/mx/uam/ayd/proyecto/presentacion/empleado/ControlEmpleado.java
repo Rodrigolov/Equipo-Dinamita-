@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.empleado;
+/*package mx.uam.ayd.proyecto.presentacion.empleado;
 
 import mx.uam.ayd.proyecto.presentacion.altaEmpleado.ControlDardealtaEmpleado;
 
@@ -29,4 +29,4 @@ public class ControlEmpleado {
         
     }
     
-}
+}*/

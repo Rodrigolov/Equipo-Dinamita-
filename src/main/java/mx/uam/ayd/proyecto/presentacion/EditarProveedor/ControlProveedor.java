@@ -19,10 +19,19 @@ public class ControlProveedor {
     @Autowired
     private VentanaEditarProveedor ventanaEditarProveedor;
     
-    public void inicia() {
+    public void iniciaLista() {
         
         List <Proveedor> proveedores = servicioProveedor.recuperaProvedores();
 
         ventanaListaProveedor.muestra(this, proveedores);
+    }
+    public void iniciaEdicion(Proveedor proveedor) {
+        
+        ventanaEditarProveedor.muestra(this, proveedor);
+    }
+
+    public Proveedor getProveedor(Long ID)
+    {
+        return servicioProveedor.RecuperarProveedor(ID);
     }
 }

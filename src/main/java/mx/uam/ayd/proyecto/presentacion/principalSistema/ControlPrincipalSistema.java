@@ -75,7 +75,7 @@ public class ControlPrincipalSistema {
 
 	public void iniciaListaProveedores() {
 		
-		controlProveedor.inicia();
+		controlProveedor.iniciaLista();
 	
 	}
 	

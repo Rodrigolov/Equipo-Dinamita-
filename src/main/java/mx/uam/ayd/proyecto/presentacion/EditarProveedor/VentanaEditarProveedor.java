@@ -2,24 +2,32 @@ package mx.uam.ayd.proyecto.presentacion.EditarProveedor;
 
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import org.springframework.stereotype.Component;
+
+import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
 @SuppressWarnings("serial")
 @Component
 public class VentanaEditarProveedor extends JFrame {
+
+	ControlProveedor controlProveedor;
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	JLabel lblNewLabel_2 = new JLabel("000000000000");
 
 	/**
 	 * Launch the application.
@@ -58,7 +66,7 @@ public class VentanaEditarProveedor extends JFrame {
 		lblNewLabel_1.setBounds(10, 68, 94, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("000000000000");
+		
 		lblNewLabel_2.setBounds(101, 68, 166, 14);
 		contentPane.add(lblNewLabel_2);
 		
@@ -102,8 +110,36 @@ public class VentanaEditarProveedor extends JFrame {
 		btnNewButton.setBounds(10, 382, 89, 23);
 		contentPane.add(btnNewButton);
 		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent o) {
+				termina();
+			}});
+		
 		JButton btnNewButton_1 = new JButton("Guardar cambios");
 		btnNewButton_1.setBounds(142, 382, 127, 23);
 		contentPane.add(btnNewButton_1);
+	}
+
+	public void muestra(ControlProveedor control, Proveedor proveedor) {
+		this.controlProveedor = control;
+		FillFields(proveedor);
+		setVisible(true);
+	}
+
+	private void FillFields(Proveedor proveedor)
+	{
+		lblNewLabel_2.setText(" "+String.valueOf(proveedor.getIdProveedor()));
+		textField.setText(proveedor.getNombre());
+		textField_1.setText(proveedor.getMarca());
+		textField_2.setText(String.valueOf(proveedor.getTelefono()));
+		textField_3.setText(proveedor.getCorreo());
+	}
+
+	public void muestraDialogoConMensaje(String mensaje ) {
+		JOptionPane.showMessageDialog(this , mensaje);
+	}
+	
+	public void termina() {
+		setVisible(false);		
 	}
 }

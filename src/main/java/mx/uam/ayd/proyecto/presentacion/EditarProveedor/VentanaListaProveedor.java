@@ -8,6 +8,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -17,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 import org.springframework.stereotype.Component;
 
+import mx.uam.ayd.proyecto.negocio.ServicioProveedor;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
 
@@ -67,6 +69,7 @@ public class VentanaListaProveedor extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		
 		JLabel lblNewLabel_1 = new JLabel("Introduce el ID del Proveedor y preciona Enter para buscarlo");
 		lblNewLabel_1.setBounds(34, 93, 323, 14);
 		contentPane.add(lblNewLabel_1);
@@ -95,39 +98,64 @@ public class VentanaListaProveedor extends JFrame {
 		JButton btnNewButton = new JButton("Enter");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String texto = textField.getText();
+				try {
+					long number = Long.parseLong(texto);
+					Proveedor prov =controlProveedor.getProveedor(number);
+
+					controlProveedor.iniciaEdicion(prov);
+				} catch (NumberFormatException id) {
+					muestraDialogoConMensaje("El id solo puede contener numeros");
 			}
-		});
+		}});
 		btnNewButton.setBounds(300, 117, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Salir");
 		btnNewButton_1.setBounds(34, 638, 89, 23);
 		contentPane.add(btnNewButton_1);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				termina();}
+			});
 		
 		JButton btnNewButton_2 = new JButton("Editar");
 		btnNewButton_2.setBounds(1144, 638, 89, 23);
 		contentPane.add(btnNewButton_2);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				long id = Long.parseLong(tableProveedores.getValueAt(tableProveedores.getSelectedRow(), 0).toString());
+				Proveedor prov =controlProveedor.getProveedor(id);
+				controlProveedor.iniciaEdicion(prov);
+
+			}});
 	}
 
-	public void muestra(ControlProveedor control, List<Proveedor> proveedores) 
-    {
-        this.controlProveedor= control;
-        try {
-			VentanaListaProveedor frame = new VentanaListaProveedor();
-			frame.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
+	public void muestra(ControlProveedor control, List<Proveedor> proveedores) {
+		this.controlProveedor = control;
+		setProveedores(proveedores);
+		setVisible(true);
+	}
+	
+	private void setProveedores(List<Proveedor> proveedores) {
+		DefaultTableModel model = (DefaultTableModel) tableProveedores.getModel();
+		model.setRowCount(0); // Limpia la tabla antes de agregar los proveedores
+	
+		for (Proveedor proveedor : proveedores) {
+			model.addRow(new Object[]{
+					String.valueOf(proveedor.getIdProveedor()), proveedor.getNombre(), proveedor.getMarca(),
+					String.valueOf(proveedor.getTelefono()), proveedor.getCorreo()
+			});
 		}
-        for(Proveedor proveedor:proveedores) {
-			System.out.println(proveedor.getIdProveedor());
-			tablaProveedores.addRow(new Object[]{
-				String.valueOf(proveedor.getIdProveedor()),proveedor.getNombre(),proveedor.getMarca(),String.valueOf(proveedor.getTelefono()),proveedor.getCorreo()});
-
-		}  
-    }
+	}
+	
+	public void muestraDialogoConMensaje(String mensaje ) {
+		JOptionPane.showMessageDialog(this , mensaje);
+	}
 
     public void termina() {
-		contentPane.setVisible(false);		
+		setVisible(false);	
 	}
 }
 

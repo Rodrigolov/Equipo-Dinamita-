@@ -28,6 +28,7 @@ public class VentanaEditarProveedor extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	JLabel lblNewLabel_2 = new JLabel("000000000000");
+	Proveedor proveedorSelec;
 
 	/**
 	 * Launch the application.
@@ -118,11 +119,17 @@ public class VentanaEditarProveedor extends JFrame {
 		JButton btnNewButton_1 = new JButton("Guardar cambios");
 		btnNewButton_1.setBounds(142, 382, 127, 23);
 		contentPane.add(btnNewButton_1);
+
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent o) {
+					VerificarInfo(textField.getText(), textField_1.getText(), textField_2.getText(), textField_3.getText());
+			}});
 	}
 
 	public void muestra(ControlProveedor control, Proveedor proveedor) {
 		this.controlProveedor = control;
 		FillFields(proveedor);
+		proveedorSelec = proveedor;
 		setVisible(true);
 	}
 
@@ -133,7 +140,60 @@ public class VentanaEditarProveedor extends JFrame {
 		textField_1.setText(proveedor.getMarca());
 		textField_2.setText(String.valueOf(proveedor.getTelefono()));
 		textField_3.setText(proveedor.getCorreo());
+		
 	}
+
+	private void VerificarInfo(String Nombre, String Marca,String telefono,String Correo)
+	{
+		
+		if(Nombre.isEmpty()| Marca.isEmpty()||telefono.isEmpty()||Correo.isEmpty())
+		{
+			muestraDialogoConMensaje("Ningun campo debe estar vacio");
+		}else{
+		try {long number = Long.parseLong(telefono);
+		
+			proveedorSelec.setNombre(Nombre);
+			proveedorSelec.setMarca(Marca);
+			proveedorSelec.setTelefono(number);
+			proveedorSelec.setCorreo(Correo);
+
+			if(DialogoConfirmacion(Nombre,Marca,telefono,Correo)){
+			if(controlProveedor.SalvarProveedor(proveedorSelec))
+			{
+				muestraDialogoConMensaje("Se guardaron correctamente los datos del Proveedor ");
+				controlProveedor.iniciaLista();
+				termina();
+			}}
+
+		}
+		catch (NumberFormatException tel) {
+			muestraDialogoConMensaje("El telefono solo puede contener numeros");
+		}
+	}
+}
+
+
+    public  boolean DialogoConfirmacion(String Nombre, String Marca,String telefono,String Correo) {
+		String mensaje = "Decea guardar los siguientes datos \n"
+		+ "Nombre: " + Nombre +"\n"
+		+ "Marca: " + Marca+"\n"
+		+ "Telefono: " + telefono+"\n"
+		+ "Correo: "+ Correo+"\n";
+        int opcion = JOptionPane.showConfirmDialog(null, mensaje, "Confirmación", JOptionPane.YES_NO_OPTION);
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            // El usuario ha seleccionado "Aceptar"
+            System.out.println("El usuario ha seleccionado continuar.");
+            // Puedes agregar aquí la lógica que deseas ejecutar si el usuario decide continuar.
+			return true;
+        } else {
+            // El usuario ha seleccionado "Cancelar" o ha cerrado el diálogo
+            System.out.println("El usuario ha seleccionado cancelar.");
+            // Puedes agregar aquí la lógica que deseas ejecutar si el usuario decide cancelar.
+			return false;
+        }
+    }
+
 
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);

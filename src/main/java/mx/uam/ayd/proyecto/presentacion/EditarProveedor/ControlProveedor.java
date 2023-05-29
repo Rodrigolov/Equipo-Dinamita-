@@ -34,4 +34,8 @@ public class ControlProveedor {
     {
         return servicioProveedor.RecuperarProveedor(ID);
     }
+    public boolean SalvarProveedor(Proveedor proveedor)
+    {
+       return servicioProveedor.SaveProveedorr(proveedor);
+    }
 }

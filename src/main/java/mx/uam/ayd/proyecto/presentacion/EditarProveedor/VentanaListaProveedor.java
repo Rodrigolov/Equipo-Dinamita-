@@ -103,8 +103,12 @@ public class VentanaListaProveedor extends JFrame {
 				try {
 					long number = Long.parseLong(texto);
 					Proveedor prov =controlProveedor.getProveedor(number);
-
-					controlProveedor.iniciaEdicion(prov);
+					if(prov == null)
+					{
+						muestraDialogoConMensaje("No se encontro el proveedor con ese id");
+					}
+					else
+					{controlProveedor.iniciaEdicion(prov);}
 				} catch (NumberFormatException id) {
 					muestraDialogoConMensaje("El id solo puede contener numeros");
 			}
@@ -155,6 +159,7 @@ public class VentanaListaProveedor extends JFrame {
 	}
 
     public void termina() {
+		textField.setText("");
 		setVisible(false);	
 	}
 }

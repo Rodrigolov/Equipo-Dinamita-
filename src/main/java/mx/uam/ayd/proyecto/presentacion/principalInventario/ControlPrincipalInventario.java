@@ -42,6 +42,12 @@ public class ControlPrincipalInventario {
 		controlBuscarProducto.inicia();
 	}
 	
+	public void termina() {
+		
+		ventana.setVisible(false);
+	
+	}
+	
 	
 	
 }

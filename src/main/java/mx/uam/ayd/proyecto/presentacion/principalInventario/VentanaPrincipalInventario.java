@@ -4,36 +4,36 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import org.springframework.stereotype.Component;
 
 import java.awt.Color;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 @SuppressWarnings("serial")
 @Component
 public class VentanaPrincipalInventario extends JFrame {
-	
+
 	private JPanel contentPane;
-	
 	private ControlPrincipalInventario control;
 
+	/**
+	 * Launch the application.
+	 *
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaPrincipalInventario frame = new VentanaPrincipalInventario();
+					VentanaPrincipalInventarioII frame = new VentanaPrincipalInventarioII();
 					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -45,100 +45,104 @@ public class VentanaPrincipalInventario extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPrincipalInventario() {
-		setTitle("Tienda Mary");
+		setAlwaysOnTop(true);
+		setResizable(false);
+		setTitle("Inventario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 490, 350);
+		setBounds(100, 100, 519, 462);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		JLabel lblTitle = new JLabel("I N V E N T A R I O");
-		lblTitle.setFont(new Font("Gadugi", Font.BOLD, 25));
+		JLabel lblInventario = new JLabel("INVENTARIO");
+		lblInventario.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblInventario.setBounds(171, 31, 165, 41);
+		contentPane.add(lblInventario);
 		
-		JButton btnAddProduct = new JButton("Agregar producto");
-		//btnAddProduct.setToolTipText("");
-		btnAddProduct.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		JButton btnAddProduct = new JButton("");
+		btnAddProduct.setBounds(72, 114, 145, 82);
+		contentPane.add(btnAddProduct);
+		btnAddProduct.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\Equipo-Dinamita-II\\\\img\\VI-agregar.png"));
 		
+		JButton btnEditProduct = new JButton("");
+		btnEditProduct.setBounds(291, 114, 145, 82);
+		contentPane.add(btnEditProduct);
+		btnEditProduct.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VI-editar.png"));
+		
+		JButton btnDeleteProduct = new JButton("");
+		btnDeleteProduct.setBounds(72, 244, 145, 82);
+		contentPane.add(btnDeleteProduct);
+		btnDeleteProduct.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VI-eliminar.png"));
+		
+		JButton btnSeachProduct = new JButton("");
+		btnSeachProduct.setBounds(291, 244, 145, 82);
+		contentPane.add(btnSeachProduct);
+		btnSeachProduct.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VI-buscar.png"));
+		
+		JButton btnAtras = new JButton("");
+		btnAtras.setBackground(UIManager.getColor("InternalFrame.borderHighlight"));
+		btnAtras.setBounds(72, 375, 41, 39);
+		contentPane.add(btnAtras);
+		btnAtras.setIcon(new ImageIcon("C:\\Users\\alfon\\git\\HU-07\\img\\flecha-izquierda-2.png"));
+		
+		JLabel lblAdd = new JLabel("Agregar Producto");
+		lblAdd.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblAdd.setBounds(72, 199, 145, 28);
+		contentPane.add(lblAdd);
+		
+		JLabel lblEdit = new JLabel("Editar Producto");
+		lblEdit.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblEdit.setBounds(301, 199, 133, 28);
+		contentPane.add(lblEdit);
+		
+		JLabel lblDelete = new JLabel("Eliminar Producto");
+		lblDelete.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblDelete.setBounds(72, 326, 145, 28);
+		contentPane.add(lblDelete);
+		
+		JLabel lblSeach = new JLabel("Inventario Productos");
+		lblSeach.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblSeach.setBounds(280, 326, 177, 28);
+		contentPane.add(lblSeach);
+		
+		JLabel lblIcon = new JLabel("");
+		lblIcon.setBounds(376, 21, 66, 60);
+		contentPane.add(lblIcon);
+		lblIcon.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VI-producto.png"));
+		
+		JLabel lblIcon2 = new JLabel("");
+		lblIcon2.setBounds(72, 21, 66, 60);
+		contentPane.add(lblIcon2);
+		lblIcon2.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VI-producto.png"));
+
 		btnAddProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.agregarProducto();
 			}
 		});
 		
-		JButton btnEditProduct = new JButton("Editar producto");
-		btnEditProduct.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		
-		JButton btnDeleteProduct = new JButton("Eliminar producto");
-		btnDeleteProduct.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		
-		JButton btnSearchProduct = new JButton("Buscar producto");
-		btnSearchProduct.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		
-		JButton btnNewButton = new JButton("<------");
-		btnNewButton.setFont(new Font("Gadugi", Font.PLAIN, 11));
-		
-		btnSearchProduct.addActionListener(new ActionListener() {
-			
-			@Override
+		btnSeachProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.buscarProducto();
-				
 			}
 		});
 		
-		btnNewButton.addActionListener(new ActionListener() {
+		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				control.termina();
 			}
 		});
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addComponent(btnNewButton)
-					.addPreferredGap(ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-					.addComponent(lblTitle)
-					.addGap(120))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(67)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnDeleteProduct)
-						.addComponent(btnAddProduct))
-					.addPreferredGap(ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnEditProduct)
-						.addComponent(btnSearchProduct))
-					.addGap(67))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(19)
-							.addComponent(lblTitle))
-						.addComponent(btnNewButton))
-					.addGap(72)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnAddProduct)
-						.addComponent(btnEditProduct))
-					.addPreferredGap(ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnDeleteProduct)
-						.addComponent(btnSearchProduct))
-					.addGap(54))
-		);
-		contentPane.setLayout(gl_contentPane);
 	}
+		
 	
 	public void muestra(ControlPrincipalInventario control) {
-		
+			
 		this.control = control;
-		
+			
 		setVisible(true);
 		setLocationRelativeTo(null);
 	}
-
 }

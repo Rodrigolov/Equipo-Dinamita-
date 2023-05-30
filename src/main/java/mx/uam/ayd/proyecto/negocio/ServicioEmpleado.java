@@ -3,8 +3,10 @@ package mx.uam.ayd.proyecto.negocio;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import lombok.extern.slf4j.Slf4j;
 import mx.uam.ayd.proyecto.datos.EmpleadoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Empleado;
@@ -13,16 +15,16 @@ import mx.uam.ayd.proyecto.negocio.modelo.Empleado;
 @Service
 public class ServicioEmpleado {
 	
-	@Autowired 
+	@Autowired
 	private EmpleadoRepository EmpleadoRepository;
 	
-	@Autowired
+	
 	public Empleado agregaEmpleado(
-		String idempleado, 
-		String nombre, 
+		int idempleado,
+		String nombre,
 		String apellido,
 		String direccion,
-		String fechainicio, 
+		LocalDate fechainicio,
 		String telefono) {
 		
 		Empleado Empleado = EmpleadoRepository.findByNombreAndApellido(nombre, apellido);
@@ -38,19 +40,14 @@ public class ServicioEmpleado {
 		" fecha:"+fechainicio+
 		" direccion:"+direccion+
 		" telefono:"+telefono);
-		
-		
-    	int entero_idempleado = Integer.parseInt(idempleado);
-        LocalDate localDate_fechainicio = LocalDate.parse(fechainicio);
-        int entero_telefono = Integer.parseInt(telefono);
 
 		Empleado = new Empleado();
-		Empleado.setIdempleado(entero_idempleado);
+		Empleado.setIdEmpleado(idempleado);
 		Empleado.setNombre(nombre);
 		Empleado.setApellido(apellido);
-		Empleado.setFechainico(localDate_fechainicio);
+		Empleado.setFechainico(fechainicio);
 		Empleado.setDireccion(direccion);
-		Empleado.setTelefono(entero_telefono);
+		Empleado.setTelefono(telefono);
 		
 		EmpleadoRepository.save(Empleado);
 		

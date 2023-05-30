@@ -1,15 +1,20 @@
 package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
+<<<<<<< Updated upstream
 import org.springframework.stereotype.Component;
+=======
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+>>>>>>> Stashed changes
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.EventQueue;
+import javax.swing.border.EmptyBorder;
+
+import org.springframework.stereotype.Component;
 
 @SuppressWarnings("serial")
 @Component
@@ -19,40 +24,25 @@ public class VentanaDardealtaEmpleado extends JFrame{
     private JPanel contentPane;
     private ControlDardealtaEmpleado control;
 
-	private JLabel 
-	lblIdempleado , 
-	lblNombre, 
-	lblApellido, 
-	lblDireccion, 
-	lblFechadeinicio, 
+	private JLabel
+	lblIdempleado ,
+	lblNombre,
+	lblApellido,
+	lblDireccion,
+	lblFechadeinicio,
 	lblTelefono;
 
-	private JTextField 
-	textFieldIdempleado, 
-	textFieldNombre, 
-	textFieldApellido, 
-	textFieldDireccion, 
-	textFieldFechadeinicio, 
+	private JTextField
+	textFieldIdempleado,
+	textFieldNombre,
+	textFieldApellido,
+	textFieldDireccion,
+	textFieldFechadeinicio,
 	textFieldTelefono;
 
-	private JButton 
+	private JButton
 	btnDardealatEmpleado,
 	btnEliminarempleado;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					 VentanaDardealtaEmpleado frame = new  VentanaDardealtaEmpleado();
-					 
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
     public VentanaDardealtaEmpleado() {
 		
@@ -126,13 +116,14 @@ public class VentanaDardealtaEmpleado extends JFrame{
 					muestraDialogoConMensaje("Los campos no deben estar vacios");
 				} else {
 					control.agregaEmpleado(
-					textFieldIdempleado.getText(), 
+					textFieldIdempleado.getText(),
 					textFieldNombre.getText(),
-					textFieldApellido.getText(), 
+					textFieldApellido.getText(),
 					textFieldDireccion.getText(),
-					textFieldFechadeinicio.getText(), 
+					textFieldFechadeinicio.getText(),
 					textFieldTelefono.getText()
 					);
+					limpia();
 				}
 			}
 		});
@@ -140,7 +131,10 @@ public class VentanaDardealtaEmpleado extends JFrame{
 		btnEliminarempleado = new JButton("Cancelar");
 		btnEliminarempleado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				control.termina();
+				limpia();
+
 			}
 		});
 		btnEliminarempleado.setBounds(450, 400, 200, 30);
@@ -151,7 +145,13 @@ public class VentanaDardealtaEmpleado extends JFrame{
 	public void muestra(ControlDardealtaEmpleado control) {
 			
 		this.control = control;
-		
+		limpia();
+		setVisible(true);
+
+	}
+
+	public void limpia (){
+
 		textFieldIdempleado.setText("");
 
 		textFieldNombre.setText("");
@@ -163,8 +163,6 @@ public class VentanaDardealtaEmpleado extends JFrame{
 		textFieldFechadeinicio.setText("");
 
 		textFieldTelefono.setText("");
-		
-		setVisible(true);
 
 	}
 

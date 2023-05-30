@@ -79,6 +79,15 @@ public class VentanaPrincipalInventario extends JFrame {
 		JButton btnNewButton = new JButton("<------");
 		btnNewButton.setFont(new Font("Gadugi", Font.PLAIN, 11));
 		
+		btnSearchProduct.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				control.buscarProducto();
+				
+			}
+		});
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

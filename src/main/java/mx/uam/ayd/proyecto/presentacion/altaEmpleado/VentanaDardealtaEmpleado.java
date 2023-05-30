@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
+/*package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
 import org.springframework.stereotype.Component;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -173,3 +173,4 @@ public class VentanaDardealtaEmpleado extends JFrame{
 	}
 
 }
+*/

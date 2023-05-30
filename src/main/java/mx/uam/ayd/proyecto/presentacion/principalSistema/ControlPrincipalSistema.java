@@ -8,6 +8,7 @@ import mx.uam.ayd.proyecto.presentacion.realizarCorte.ControlRealizarCorte;
 import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
 
 import mx.uam.ayd.proyecto.presentacion.agregarProveedor.ControlAgregarProveedor;
+import mx.uam.ayd.proyecto.presentacion.cancelarVenta.ControlCancelarVenta;
 
 
 /**
@@ -32,6 +33,8 @@ public class ControlPrincipalSistema {
 	private ControlAgregarProveedor controlAgregarProveedor;
 	@Autowired
 	private ControlRealizarCorte control;
+	@Autowired
+	private ControlCancelarVenta controlCancelar;
 
 	
 	/**
@@ -77,6 +80,12 @@ public class ControlPrincipalSistema {
 	public void realizarCorte() {
 		
 		control.inicia();
+	
+	}
+	
+	public void cancelarVenta() {
+		
+		controlCancelar.inicia();
 	
 	}
 	

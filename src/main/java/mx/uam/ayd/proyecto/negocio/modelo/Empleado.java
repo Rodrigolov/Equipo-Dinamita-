@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.negocio.modelo;
+/*package mx.uam.ayd.proyecto.negocio.modelo;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,3 +28,4 @@ public class Empleado {
 
 	private int telefono;
 }
+*/

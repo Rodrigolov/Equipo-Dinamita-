@@ -1,5 +1,4 @@
 package mx.uam.ayd.proyecto.negocio.modelo;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,9 +9,7 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
-
 import lombok.Data;
-
 @Entity
 @Data
 public class Venta {
@@ -21,15 +18,12 @@ public class Venta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private int cantidad;
-
     @OneToMany(targetEntity = Producto.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private final List<Producto> listaProductos = new ArrayList<Producto>();
-
     
     private float total;
     private LocalDate fecha;
    
-
     public boolean agregarProducto(Producto producto)
     {
         if (producto.getStock() == 0)
@@ -38,11 +32,9 @@ public class Venta {
         }
         else{return listaProductos.add(producto);}    
     }
-
     public boolean quitarProducto(int lugar)
     {
         listaProductos.remove(lugar);
         return true;
     }
-
 }

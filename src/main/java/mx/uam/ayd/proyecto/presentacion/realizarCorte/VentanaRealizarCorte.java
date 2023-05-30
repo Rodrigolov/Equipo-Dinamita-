@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.realizarCorte;
+ package mx.uam.ayd.proyecto.presentacion.realizarCorte;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -88,7 +88,7 @@ public class VentanaRealizarCorte extends JFrame {
 	public void muestra(ControlRealizarCorte control, List<Producto> productos) {
 		this.control = control;
         for (Producto p : productos) {
-            Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), p.getPrecio(), p.getCantidad() };
+            Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), p.getPrecio(), p.getStock() };
             tableModel.addRow(fila);
         }
 		

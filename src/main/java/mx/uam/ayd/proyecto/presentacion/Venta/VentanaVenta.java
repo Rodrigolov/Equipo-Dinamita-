@@ -1,46 +1,32 @@
 package mx.uam.ayd.proyecto.presentacion.Venta;
-
 import javax.swing.*;
 import java.awt.*;
-
 import java.util.List;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.JTextField;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
 import org.springframework.stereotype.Component;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.Venta;
-
-
 @SuppressWarnings("serial")
 @Component
 public class VentanaVenta extends JPanel {
     ControlVenta controlVenta;
-
     JTable table = new JTable();
     JPanel contentPane;
-
     JFrame window;
     JPanel rightPanel;
     JPanel buttomPanel;
     JPanel centerPanel;
-
     Venta ventaCurso = new Venta();
-
     int pagoDelCliente,cambio;
-
    //TODO ponel el pago del cliente
-
     DefaultTableModel tablaVenta = new DefaultTableModel();
-
     JComboBox<String>  comboBoxProd;
     JTextField pagoCliente = new JTextField();
-
     /**
      * 
      */
@@ -52,14 +38,10 @@ public class VentanaVenta extends JPanel {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(new Dimension(800,600));
         window.setLayout(new BorderLayout());
-
         comboBoxProd = new JComboBox<String>();
-
-
         rightPanel = new JPanel();
         buttomPanel =new JPanel();
         centerPanel = new JPanel();
-
         rightPanel.setLayout(new BoxLayout(rightPanel,BoxLayout.Y_AXIS));
         window.add(rightPanel, BorderLayout.EAST);
         window.add(centerPanel, BorderLayout.CENTER);
@@ -68,11 +50,8 @@ public class VentanaVenta extends JPanel {
         Border borde2 = BorderFactory.createEmptyBorder(10, 10, 10, 230);
         Border borde3 = BorderFactory.createEmptyBorder(250,10,10,10);
         rightPanel.setBorder(borde);
-
-
         rightPanel.add(comboBoxProd);
          comboBoxProd.setMaximumSize(new Dimension(300,20));
-
         Button addProductButton = new Button("Agregar producto");
         JPanel panelAddProductBotton = new JPanel();
         panelAddProductBotton.add(addProductButton);
@@ -85,10 +64,7 @@ public class VentanaVenta extends JPanel {
                 
             }
         });
-
         JLabel texto = new JLabel("Selecciona un objeto de la lista para eliminarlo");
-
-
         Button deleteProductButton = new Button("Quitar producto");
         JPanel panelDeleteProductBotton = new JPanel();
         panelDeleteProductBotton.add(deleteProductButton);
@@ -102,9 +78,6 @@ public class VentanaVenta extends JPanel {
                 controlVenta.seleccionarProducto((String)modelo.getValueAt(table.getSelectedRow(), 0));
             }
         });
-
-
-
         Button cancelButton = new Button("Cancelar");
         JPanel panelCancelButton=new JPanel();
         cancelButton.setMaximumSize(new Dimension(150,20));
@@ -118,12 +91,10 @@ public class VentanaVenta extends JPanel {
             }
         });
 				
-
         Button completeSaleButton = new Button("Completar compra");
         completeSaleButton.setMaximumSize(new Dimension(150,20));
         buttomPanel.add(completeSaleButton);
         completeSaleButton.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 cambio = 0;
@@ -132,17 +103,13 @@ public class VentanaVenta extends JPanel {
         
         
         
-
         table = new JTable();
-
         //tabla
         String[] titulos= new String[]{"Producto","Precio"};
         tablaVenta.setColumnIdentifiers(titulos);
         table.setPreferredSize(new Dimension(340,116576575));
         table.setModel(tablaVenta);
-
         centerPanel.add(table,BorderLayout.CENTER);
-
        
         JPanel panelPagoCliente=new JPanel();
         JLabel pagoClienteTxt = new JLabel();
@@ -160,35 +127,25 @@ public class VentanaVenta extends JPanel {
             
         });
     }
-
-
     
-
     public void muestra(ControlVenta control, List<Producto> productos, Venta venta) 
     {
         this.controlVenta = control;
         
         reset();
         ventaCurso = venta;
-
-
-
         DefaultComboBoxModel <String> comboBoxModel = new DefaultComboBoxModel <>();
         for(Producto producto:productos) {
 			comboBoxModel.addElement(producto.getNombre());
 		}
-
         comboBoxProd.setModel(comboBoxModel);
         window.setVisible(true);
     }
-
     public void termina() {
 		window.setVisible(false);		
 	}
-
     public void agregarProducto(ControlVenta control, Producto producto)
     {
-
         this.controlVenta = control;     
         //Logica de agregar producto a la lista y venta
         if(producto.getStock()!= 0){
@@ -199,17 +156,14 @@ public class VentanaVenta extends JPanel {
         tablaVenta.addRow(new Object[]{"Total",(ventaCurso.getTotal())});
         }
     }
-
     public void finalizarVenta(int pago)
     {
         cambio = 0;
         cambio = controlVenta.completarVenta(pago,ventaCurso);
         
     } 
-
     public void quitarProducto(ControlVenta control, Producto producto)
     {
-
         int fila = table.getSelectedRow();
         tablaVenta.removeRow(fila);
         control.quitaProducto(producto, fila, ventaCurso);
@@ -221,7 +175,6 @@ public class VentanaVenta extends JPanel {
     public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);
 	}
-
     public void reset() {
         pagoDelCliente = 0;
         cambio = 0;

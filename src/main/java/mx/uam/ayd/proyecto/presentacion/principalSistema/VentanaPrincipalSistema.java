@@ -110,18 +110,17 @@ public class VentanaPrincipalSistema extends JFrame {
 		JLabel lblNewLabel = new JLabel("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		lblNewLabel.setFont(new Font("Gadugi", Font.PLAIN, 12));
 		
+		JButton CancelarVenta = new JButton("Cancelar Venta");
+		CancelarVenta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.cancelarVenta();
+			}
+		});
+		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(74, Short.MAX_VALUE)
-					.addComponent(btnSales)
-					.addGap(52)
-					.addComponent(btnEmployees)
-					.addGap(37)
-					.addComponent(btnProviders)
-					.addGap(55))
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(116)
 					.addComponent(btnInventory)
@@ -135,10 +134,21 @@ public class VentanaPrincipalSistema extends JFrame {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addComponent(lblNewLabel)
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addContainerGap(195, Short.MAX_VALUE)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(188, Short.MAX_VALUE)
 					.addComponent(Realizar)
 					.addGap(186))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(74, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addComponent(CancelarVenta)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(btnSales)
+							.addGap(52)
+							.addComponent(btnEmployees)
+							.addGap(37)
+							.addComponent(btnProviders)))
+					.addGap(55))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -152,7 +162,9 @@ public class VentanaPrincipalSistema extends JFrame {
 						.addComponent(btnProviders)
 						.addComponent(btnEmployees)
 						.addComponent(btnSales))
-					.addPreferredGap(ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+					.addGap(18)
+					.addComponent(CancelarVenta)
+					.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnInventory)
 						.addComponent(btnCreditShopping))

@@ -30,6 +30,7 @@ public class ControlPrincipalSistema {
 
 	@Autowired
 	private ControlAgregarProveedor controlAgregarProveedor;
+	
 	@Autowired
 	private ControlRealizarCorte control;
 

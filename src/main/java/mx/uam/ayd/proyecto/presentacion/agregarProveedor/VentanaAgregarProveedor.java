@@ -62,7 +62,7 @@ public class VentanaAgregarProveedor extends JFrame {
 		btnAgregar.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnAgregar.setBounds(87, 32, 264, 127);
 		contentPane.add(btnAgregar);
-		btnAgregar.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\\\inventario-2.png"));
+		btnAgregar.setIcon(new ImageIcon("img/inventario-2.png"));
 		
 		btnLista = new JButton("");
 		//btnLista.setEnabled(false); *Aquí es donde hay que poner el codigo XD >:( yo decia el codigo de mi UH)
@@ -70,14 +70,14 @@ public class VentanaAgregarProveedor extends JFrame {
 		btnLista.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnLista.setBounds(87, 209, 264, 127);
 		contentPane.add(btnLista);
-		btnLista.setIcon(new ImageIcon("C:\\Users\\alfon\\git\\HU-07\\img\\devolver-2.png"));
+		btnLista.setIcon(new ImageIcon("img/distribucion.png"));
 
 		btnAtras = new JButton("");
 		btnAtras.setBackground(UIManager.getColor("InternalFrame.borderHighlight"));
 		btnAtras.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnAtras.setBounds(24, 32, 41, 39);
 		contentPane.add(btnAtras);
-		btnAtras.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\\\flecha-izquierda-2.png"));
+		btnAtras.setIcon(new ImageIcon("img/flecha-izquierda-2.png"));
 		
 		JLabel lblAgregarProveedor = new JLabel("Agregar Proveedor");
 		lblAgregarProveedor.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -85,14 +85,14 @@ public class VentanaAgregarProveedor extends JFrame {
 		contentPane.add(lblAgregarProveedor);
 		
 
-		JLabel lblEliminarProveedor = new JLabel("Editar Proveedor");
+		//JLabel lblEliminarProveedor = new JLabel("Editar Proveedor");
 
 		JLabel lblListaProveedor = new JLabel("Lista de Proveedores");
 
-		lblEliminarProveedor.setEnabled(false);
-		lblEliminarProveedor.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblEliminarProveedor.setBounds(131, 334, 181, 39);
-		contentPane.add(lblEliminarProveedor);
+		//lblListaProveedor.setEnabled(false);
+		lblListaProveedor.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblListaProveedor.setBounds(131, 334, 181, 39);
+		contentPane.add(lblListaProveedor);
 		
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

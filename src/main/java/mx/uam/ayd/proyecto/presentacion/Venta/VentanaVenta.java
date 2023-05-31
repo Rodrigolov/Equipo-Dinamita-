@@ -167,7 +167,7 @@ public class VentanaVenta extends JPanel {
         int fila = table.getSelectedRow();
         tablaVenta.removeRow(fila);
         control.quitaProducto(producto, fila, ventaCurso);
-        if(table.getRowCount()==2){tablaVenta.removeRow(table.getRowCount()-1);}
+        if(table.getRowCount()>=2){tablaVenta.removeRow(table.getRowCount()-1);}
         else{tablaVenta.removeRow(table.getRowCount()-1);}
         tablaVenta.addRow(new Object[]{"Total",(ventaCurso.getTotal())});
     }

@@ -1,31 +1,40 @@
 /*package mx.uam.ayd.proyecto.presentacion.empleado;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import mx.uam.ayd.proyecto.presentacion.altaEmpleado.ControlDardealtaEmpleado;
 
+@Component
 public class ControlEmpleado {
 
-    private ControlDardealtaEmpleado alta;
-    private VentanaEmpleado ventana;
+    @Autowired
+    private ControlDardealtaEmpleado controlDardealtaEmpleado;
+
+    @Autowired
+    private VentanaEmpleado ventanaEmpleado;
 
     public void inicia() {
-		
-		ventana.muestra(this);
+		ventanaEmpleado.agregarDatosEmpleados();
+		ventanaEmpleado.muestra(this);
 		
 	}
 
     public void termina() {
 
-        ventana.setVisible(false);
+        ventanaEmpleado.dispose();
 
     }
 
     public void Dardealtaempleado() {
 
-        alta.inicia();
+        controlDardealtaEmpleado.inicia();
 
     }
 
     public void Eliminarempleado() {
+
+        //tercer spring
         
     }
     

@@ -1,5 +1,6 @@
 package mx.uam.ayd.proyecto.negocio;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,3 +66,31 @@ public class ServicioProveedor {
 	}
 
 }
+
+	public boolean SaveProveedorr(Proveedor proveedor)
+	{
+		return proveedorRepository.save(proveedor) != null;
+	}
+
+	public List<Proveedor> recuperaProvedores() {
+		System.out.println("proveedorRespository="+ proveedorRepository);
+        List<Proveedor> proveedores = new ArrayList<>();
+
+        for (Proveedor proveedor : proveedorRepository.findAll()) {
+			//System.out.println(proveedor.getNombre());
+           proveedores.add(proveedor);
+        }
+
+        return proveedores;
+	}
+
+	public Proveedor RecuperarProveedor(Long ID) {
+		return proveedorRepository.findByidProveedor(ID);
+	}
+
+	public void guardarProveedor(Proveedor proveedor) {
+        proveedorRepository.save(proveedor);
+    }
+}
+
+

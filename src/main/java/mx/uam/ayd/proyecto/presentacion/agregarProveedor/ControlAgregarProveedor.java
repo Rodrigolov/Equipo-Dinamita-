@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.negocio.ServicioProveedor;
+import mx.uam.ayd.proyecto.presentacion.EditarProveedor.ControlProveedor;
 
 /**
  * 
@@ -21,6 +22,9 @@ public class ControlAgregarProveedor {
 
 	@Autowired
 	private FormularioAgregarProveedor formulario;
+
+	@Autowired
+	private ControlProveedor ControlListaProveedores;
 	
 	/**
 	 * Inicia HU
@@ -68,5 +72,10 @@ public class ControlAgregarProveedor {
 		formulario.setVisible(false);		
 	}
 
+	public void iniciaListaProveedores() {
+		
+		ControlListaProveedores.iniciaLista();
+	
+	}
 }
 

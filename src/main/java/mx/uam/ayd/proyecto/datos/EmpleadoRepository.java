@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.datos;
+/*package mx.uam.ayd.proyecto.datos;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -6,9 +6,8 @@ import mx.uam.ayd.proyecto.negocio.modelo.Empleado;
 
 public interface EmpleadoRepository extends CrudRepository <Empleado, Long> {
 	
-	public Empleado findByNombreAndApellido(String nombre, String apellido);
-	
-	
-	
+	public Empleado findById(long idEmpleado);
 
-}
+
+
+}*/

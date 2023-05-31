@@ -61,32 +61,32 @@ public class VentanaPrincipalSistema extends JFrame {
 		JButton btnSales = new JButton("");
 		btnSales.setBackground(Color.WHITE);
 		btnSales.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnSales.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-ventas.png"));
+		btnSales.setIcon(new ImageIcon("img/VP-ventas.png"));
 
 		JButton btnEmployees = new JButton("");
 		btnEmployees.setBackground(Color.WHITE);
 		btnEmployees.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnEmployees.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-empleado.png"));
+		btnEmployees.setIcon(new ImageIcon("img/VP-empleado.png"));
 
 		JButton btnProviders = new JButton("");
 		btnProviders.setBackground(Color.WHITE);
 		btnProviders.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnProviders.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-proveedor.png"));
+		btnProviders.setIcon(new ImageIcon("img/VP-proveedor.png"));
 		
 		JButton btnInventory = new JButton("");
 		btnInventory.setBackground(Color.WHITE);
 		btnInventory.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnInventory.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-inventario.png"));
+		btnInventory.setIcon(new ImageIcon("img/VP-inventario.png"));
 
 		JButton btnCreditShopping = new JButton("");
 		btnCreditShopping.setBackground(Color.WHITE);
 		btnCreditShopping.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnCreditShopping.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-credito.png"));
+		btnCreditShopping.setIcon(new ImageIcon("img/VP-credito.png"));
 		
 		JButton btnCorteCaja = new JButton("");
 		btnCorteCaja.setBackground(Color.WHITE);
 		btnCorteCaja.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnCorteCaja.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\cajero.png"));
+		btnCorteCaja.setIcon(new ImageIcon("img/cajero.png"));
 		
 		
 		btnInventory.addActionListener(new ActionListener() {
@@ -135,10 +135,10 @@ public class VentanaPrincipalSistema extends JFrame {
 		lblCompras.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-tienda.png"));
+		lblLogo.setIcon(new ImageIcon("img/VP-tienda.png"));
 		
 		JLabel lblLogo2 = new JLabel("");
-		lblLogo2.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-abarrotes.png"));
+		lblLogo2.setIcon(new ImageIcon("img/VP-abarrotes.png"));
 		
 		JLabel lblCorteCaja = new JLabel("Corte de Caja");
 		lblCorteCaja.setFont(new Font("Tahoma", Font.BOLD, 16));

@@ -23,6 +23,7 @@ public class ControlAgregarProveedor {
 	@Autowired
 	private FormularioAgregarProveedor formulario;
 
+
 	@Autowired
 	private ControlProveedor ControlListaProveedores;
 	
@@ -71,11 +72,11 @@ public class ControlAgregarProveedor {
 	public void terminaRegistro() {
 		formulario.setVisible(false);		
 	}
-
-	public void iniciaListaProveedores() {
-		
-		ControlListaProveedores.iniciaLista();
 	
+	public void iniciaListaProveedores() {
+
+		ControlListaProveedores.iniciaLista();
+
 	}
 }
 

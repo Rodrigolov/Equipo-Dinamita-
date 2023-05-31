@@ -171,5 +171,5 @@ public class VentanaDardealtaEmpleado extends JFrame{
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);
 	}
+}
 
-}*/

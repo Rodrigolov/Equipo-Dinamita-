@@ -87,7 +87,14 @@ public class ProyectoApplication {
 		Producto leche = new Producto();
         Producto Nutella = new Producto();
         Producto Pan = new Producto();
+        Producto Pan1 = new Producto();
         Producto Ramen = new Producto();
+        Producto Galletas = new Producto();
+        Producto Galletas1 = new Producto();
+        Producto Yogurt = new Producto();
+        Producto Fritura = new Producto();
+        Producto Refresco = new Producto();
+        
         
         Venta venta1 = new Venta();
         Venta venta2 = new Venta();
@@ -96,12 +103,40 @@ public class ProyectoApplication {
 
 		Date date = Date.valueOf(fecha.toString());
 
-        leche.setNombre("Galon de leche");
+		Pan1.setNombre("Pan Tostado");
+		Pan1.setIdProducto(1265);
+		Pan1.setFecha(date);
+		Pan1.setPrecio(26);
+		Pan1.setStock(0);
+        productoRepository.save(Pan1);
+		
+		Yogurt.setNombre("Yogurt Griego");
+		Yogurt.setIdProducto(3486);
+		Yogurt.setFecha(date);
+		Yogurt.setPrecio(17);
+		Yogurt.setStock(0);
+        productoRepository.save(Yogurt);
+		
+		Galletas1.setNombre("Galletas Maria");
+        Galletas1.setIdProducto(5679);
+        Galletas1.setFecha(date);
+        Galletas1.setPrecio(15);
+        Galletas1.setStock(1);
+        productoRepository.save(Galletas1);
+        
+		leche.setNombre("Galon de leche");
         leche.setIdProducto(3243);
         leche.setFecha(date);
         leche.setPrecio(60);
         leche.setStock(2);
         productoRepository.save(leche);
+        
+        Galletas.setNombre("Galletas Emperador");
+        Galletas.setIdProducto(2345);
+        Galletas.setFecha(date);
+        Galletas.setPrecio(18);
+        Galletas.setStock(2);
+        productoRepository.save(Galletas);
 
         Nutella.setNombre("Nutella");
         Nutella.setIdProducto(3564);
@@ -123,6 +158,27 @@ public class ProyectoApplication {
         Ramen.setPrecio(20);
         Ramen.setStock(3);
         productoRepository.save(Ramen);
+        
+        Refresco.setNombre("Fanta");
+        Refresco.setIdProducto(4456);
+        Refresco.setFecha(date);
+        Refresco.setPrecio(25);
+        Refresco.setStock(5);
+        productoRepository.save(Refresco);
+        
+        Fritura.setNombre("Papas Sabritas");
+        Fritura.setIdProducto(1238);
+        Fritura.setFecha(date);
+        Fritura.setPrecio(16);
+        Fritura.setStock(6);
+        productoRepository.save(Fritura);
+        
+        Refresco.setNombre("Coca Cola");
+        Refresco.setIdProducto(1122);
+        Refresco.setFecha(date);
+        Refresco.setPrecio(34);
+        Refresco.setStock(7);
+        productoRepository.save(Refresco);
         
         venta1.agregarProducto(Ramen);
         venta1.setId(1);

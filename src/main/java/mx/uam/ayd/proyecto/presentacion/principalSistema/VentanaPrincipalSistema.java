@@ -240,3 +240,4 @@ public class VentanaPrincipalSistema extends JFrame {
 		setLocationRelativeTo(null);
 	}
 }
+

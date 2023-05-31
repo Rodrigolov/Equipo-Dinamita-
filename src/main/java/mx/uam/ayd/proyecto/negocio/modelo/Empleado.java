@@ -2,12 +2,7 @@ package mx.uam.ayd.proyecto.negocio.modelo;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
-
-import javax.persistence.FetchType;
-
-
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 

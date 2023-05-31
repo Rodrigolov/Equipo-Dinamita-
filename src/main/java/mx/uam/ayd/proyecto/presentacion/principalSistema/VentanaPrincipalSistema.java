@@ -1,21 +1,21 @@
 package mx.uam.ayd.proyecto.presentacion.principalSistema;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import org.springframework.stereotype.Component;
-
-import javax.swing.JLabel;
-import javax.swing.GroupLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
 
 
 @Component
@@ -112,10 +112,22 @@ public class VentanaPrincipalSistema extends JFrame {
 				control.iniciaAgregarProveedor();
 			}
 		});
+
+		btnEmployees.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.iniciaEmpleado();
+			}
+		});
 		
 		btnCorteCaja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.realizarCorte();
+			}
+		});
+
+		btnCreditShopping.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.iniciaCompra();
 			}
 		});
 		

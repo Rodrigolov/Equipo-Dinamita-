@@ -100,7 +100,7 @@ public class VentanaBuscarProducto extends JFrame {
 		btnAtras.setBackground(UIManager.getColor("InternalFrame.borderHighlight"));
 		btnAtras.setFont(new Font("Tahoma", Font.BOLD, 14));
 		contentPane.add(btnAtras);
-		btnAtras.setIcon(new ImageIcon("C:\\Users\\alfon\\git\\HU-07\\img\\flecha-izquierda-2.png"));
+		btnAtras.setIcon(new ImageIcon("img/flecha-izquierda-2.png"));
 		
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -163,7 +163,6 @@ public class VentanaBuscarProducto extends JFrame {
 	            }//Fin del for
 
 	        }
-
 	    });
 	
 	}//Fin del método opciones

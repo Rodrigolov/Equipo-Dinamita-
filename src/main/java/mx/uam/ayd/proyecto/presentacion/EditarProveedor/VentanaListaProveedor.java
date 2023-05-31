@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,8 +17,6 @@ import javax.swing.table.DefaultTableModel;
 
 import org.springframework.stereotype.Component;
 
-import mx.uam.ayd.proyecto.negocio.ServicioProveedor;
-import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
 
 import java.awt.EventQueue;
@@ -161,6 +158,7 @@ public class VentanaListaProveedor extends JFrame {
     public void termina() {
 		textField.setText("");
 		setVisible(false);	
+		
 	}
 }
 

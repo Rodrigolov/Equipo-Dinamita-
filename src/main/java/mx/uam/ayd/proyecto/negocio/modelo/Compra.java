@@ -10,20 +10,22 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Empleado {
+public class Compra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	private int idEmpleado;
-	
-	private String nombre;
-	
-	private String apellido;
-	
-	private LocalDate fechainico;
+    private int idCompra;
 
-	private String direccion;
+    private String Producto;
 
-	private String telefono;
+    private String Proveedor;
+
+    private int Precio;
+
+    private int NumPagos;
+
+    private int Interes;
+    
+    private LocalDate FechaVencimiento;
 
 }

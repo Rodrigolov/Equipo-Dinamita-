@@ -3,12 +3,17 @@ package mx.uam.ayd.proyecto.presentacion.principalSistema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import mx.uam.ayd.proyecto.presentacion.principalInventario.ControlPrincipalInventario;
-import mx.uam.ayd.proyecto.presentacion.realizarCorte.ControlRealizarCorte;
 import mx.uam.ayd.proyecto.presentacion.EditarProveedor.ControlProveedor;
 import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
+
 import mx.uam.ayd.proyecto.presentacion.pagoProveedores.ControlPagoProveedores;
+
+
 import mx.uam.ayd.proyecto.presentacion.agregarProveedor.ControlAgregarProveedor;
+import mx.uam.ayd.proyecto.presentacion.compra.ControlCompra;
+import mx.uam.ayd.proyecto.presentacion.empleado.ControlEmpleado;
+import mx.uam.ayd.proyecto.presentacion.principalInventario.ControlPrincipalInventario;
+import mx.uam.ayd.proyecto.presentacion.realizarCorte.ControlRealizarCorte;
 
 
 /**
@@ -41,6 +46,11 @@ public class ControlPrincipalSistema {
 	@Autowired
 	private ControlRealizarCorte control;
 
+	@Autowired
+	private ControlEmpleado controlEmpleado;
+
+	@Autowired
+	private ControlCompra controlCompra;
 	
 	/**
 	 * Inicia el flujo de control de la ventana principal
@@ -86,9 +96,23 @@ public class ControlPrincipalSistema {
 	
 	}
 
+
 	public void inciaPagoProveedor(){
 
 		controlPagoProveedores.incia();
+
+	public void iniciaEmpleado() {
+		
+		controlEmpleado.inicia();
+	
+	}
+
+	public void iniciaCompra() {
+		
+		controlCompra.inicia();
+	
+
 	}
 	
 }
+

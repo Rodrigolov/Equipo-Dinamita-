@@ -1,3 +1,4 @@
+ 
 package mx.uam.ayd.proyecto;
 
 import java.sql.Date;
@@ -248,10 +249,6 @@ public class ProyectoApplication {
 		proveedor5.setMarca("Motorola");
 		proveedor5.setTelefono(567890123);
 		proveedor5.setCorreo("luisamartinez@motorola.com");
-		proveedorRepository.save(proveedor5);
-
-
-	
-				
+		proveedorRepository.save(proveedor5);	
 	}
 }

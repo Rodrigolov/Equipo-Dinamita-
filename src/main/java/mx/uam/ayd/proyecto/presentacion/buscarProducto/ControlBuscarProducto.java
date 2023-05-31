@@ -1,5 +1,4 @@
 package mx.uam.ayd.proyecto.presentacion.buscarProducto;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,7 @@ import org.springframework.stereotype.Component;
 import lombok.extern.slf4j.Slf4j;
 import mx.uam.ayd.proyecto.negocio.ServicioProducto;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
+
 
 @Slf4j
 @Component
@@ -36,3 +36,4 @@ public class ControlBuscarProducto {
 	}
 
 }
+

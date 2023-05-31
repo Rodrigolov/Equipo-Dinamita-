@@ -1,21 +1,21 @@
 package mx.uam.ayd.proyecto.presentacion.principalSistema;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import org.springframework.stereotype.Component;
-
-import javax.swing.JLabel;
-import javax.swing.GroupLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
 
 
 @Component
@@ -61,32 +61,32 @@ public class VentanaPrincipalSistema extends JFrame {
 		JButton btnSales = new JButton("");
 		btnSales.setBackground(Color.WHITE);
 		btnSales.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnSales.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-ventas.png"));
+		btnSales.setIcon(new ImageIcon("img/VP-ventas.png"));
 
 		JButton btnEmployees = new JButton("");
 		btnEmployees.setBackground(Color.WHITE);
 		btnEmployees.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnEmployees.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-empleado.png"));
+		btnEmployees.setIcon(new ImageIcon("img/VP-empleado.png"));
 
 		JButton btnProviders = new JButton("");
 		btnProviders.setBackground(Color.WHITE);
 		btnProviders.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnProviders.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-proveedor.png"));
+		btnProviders.setIcon(new ImageIcon("img/VP-proveedor.png"));
 		
 		JButton btnInventory = new JButton("");
 		btnInventory.setBackground(Color.WHITE);
 		btnInventory.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnInventory.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-inventario.png"));
+		btnInventory.setIcon(new ImageIcon("img/VP-inventario.png"));
 
 		JButton btnCreditShopping = new JButton("");
 		btnCreditShopping.setBackground(Color.WHITE);
 		btnCreditShopping.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnCreditShopping.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-credito.png"));
+		btnCreditShopping.setIcon(new ImageIcon("img/VP-credito.png"));
 		
 		JButton btnCorteCaja = new JButton("");
 		btnCorteCaja.setBackground(Color.WHITE);
 		btnCorteCaja.setFont(new Font("Gadugi", Font.PLAIN, 12));
-		btnCorteCaja.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\cajero.png"));
+		btnCorteCaja.setIcon(new ImageIcon("img/cajero.png"));
 		
 		
 		btnInventory.addActionListener(new ActionListener() {
@@ -112,10 +112,22 @@ public class VentanaPrincipalSistema extends JFrame {
 				control.iniciaAgregarProveedor();
 			}
 		});
+
+		btnEmployees.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.iniciaEmpleado();
+			}
+		});
 		
 		btnCorteCaja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.realizarCorte();
+			}
+		});
+
+		btnCreditShopping.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.iniciaCompra();
 			}
 		});
 		
@@ -135,10 +147,10 @@ public class VentanaPrincipalSistema extends JFrame {
 		lblCompras.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-tienda.png"));
+		lblLogo.setIcon(new ImageIcon("img/VP-tienda.png"));
 		
 		JLabel lblLogo2 = new JLabel("");
-		lblLogo2.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-abarrotes.png"));
+		lblLogo2.setIcon(new ImageIcon("img/VP-abarrotes.png"));
 		
 		JLabel lblCorteCaja = new JLabel("Corte de Caja");
 		lblCorteCaja.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -239,5 +251,6 @@ public class VentanaPrincipalSistema extends JFrame {
 		setVisible(true);
 		setLocationRelativeTo(null);
 	}
+	
 }
 

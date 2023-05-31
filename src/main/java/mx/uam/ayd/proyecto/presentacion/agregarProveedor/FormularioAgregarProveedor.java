@@ -130,14 +130,14 @@ public class FormularioAgregarProveedor extends JFrame {
 		btnAgregar.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnAgregar.setBounds(85, 226, 120, 70);
 		contentPane.add(btnAgregar);
-		btnAgregar.setIcon(new ImageIcon("C:\\Users\\Ludwi\\OneDrive\\Documentos\\GitHub\\Equipo-Dinamita-\\img\\repartidor-2.png"));
+		btnAgregar.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\\\repartidor-2.png"));
 		
 		btnCancelar = new JButton("");
 		btnCancelar.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnCancelar.setBounds(231, 226, 120, 70);
 		contentPane.add(btnCancelar);
-		btnCancelar.setIcon(new ImageIcon("C:\\Users\\Ludwi\\OneDrive\\Documentos\\GitHub\\Equipo-Dinamita-\\img\\cancelar3.png"));
+		btnCancelar.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\\\\\cancelar3.png"));
 		
 		lblNewLabel = new JLabel("Agregar");
 		lblNewLabel.setEnabled(false);

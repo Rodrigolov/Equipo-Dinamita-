@@ -77,7 +77,6 @@ public class ProyectoApplication {
 		//controlPagoProveedores.incia();
 	}
 	
-	
 	/**
 	 * 
 	 * Inicializa la BD con datos

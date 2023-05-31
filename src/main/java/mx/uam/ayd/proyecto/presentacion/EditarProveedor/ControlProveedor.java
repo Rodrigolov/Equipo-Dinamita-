@@ -10,7 +10,7 @@ import mx.uam.ayd.proyecto.negocio.ServicioProveedor;
 import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
 
 @Component
-public class ControlProveedor {
+public class ControlProveedor { 
     @Autowired 
     private ServicioProveedor servicioProveedor;
     @Autowired

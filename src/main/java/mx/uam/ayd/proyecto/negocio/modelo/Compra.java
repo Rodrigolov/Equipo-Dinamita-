@@ -1,4 +1,4 @@
-/*package mx.uam.ayd.proyecto.negocio.modelo;
+package mx.uam.ayd.proyecto.negocio.modelo;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -23,4 +23,3 @@ public class Compra {
     private LocalDate FechaVencimiento;
 
 }
-*/

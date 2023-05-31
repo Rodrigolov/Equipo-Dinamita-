@@ -1,10 +1,7 @@
 package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
-<<<<<<< Updated upstream
-=======
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
->>>>>>> Stashed changes
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -86,9 +83,5 @@ public class ControlDardealtaEmpleado {
 
         termina();
     }
-<<<<<<< Updated upstream
-    
-=======
 
->>>>>>> Stashed changes
 }

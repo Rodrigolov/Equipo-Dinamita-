@@ -1,10 +1,7 @@
 package mx.uam.ayd.proyecto.presentacion.empleado;
-<<<<<<< Updated upstream
-=======
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
->>>>>>> Stashed changes
 
 import mx.uam.ayd.proyecto.presentacion.altaEmpleado.ControlDardealtaEmpleado;
 

@@ -60,7 +60,7 @@ public class ServicioCompra {
 
 	}
 	
-	public List <Compra> recuperaEmpleados() {
+	public List <Compra> recuperaCompras() {
 
 		System.out.println("CompraRepository = "+CompraRepository);
 		

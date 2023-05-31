@@ -1,12 +1,8 @@
 package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
-<<<<<<< Updated upstream
-import org.springframework.stereotype.Component;
-=======
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
->>>>>>> Stashed changes
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

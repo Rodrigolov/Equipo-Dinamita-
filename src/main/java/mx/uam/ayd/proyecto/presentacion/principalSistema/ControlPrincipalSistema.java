@@ -100,6 +100,7 @@ public class ControlPrincipalSistema {
 	public void inciaPagoProveedor(){
 
 		controlPagoProveedores.incia();
+	}
 
 	public void iniciaEmpleado() {
 		

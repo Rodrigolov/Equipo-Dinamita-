@@ -20,7 +20,7 @@ public class VentanaAgregarProveedor extends JFrame {
 
 	private JPanel contentPane;
 	private JButton btnAgregar;
-	private JButton btnEliminar;
+	private JButton btnLista;
 	private JButton btnAtras;
 	private ControlAgregarProveedor control;
 
@@ -64,13 +64,13 @@ public class VentanaAgregarProveedor extends JFrame {
 		contentPane.add(btnAgregar);
 		btnAgregar.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\\\inventario-2.png"));
 		
-		btnEliminar = new JButton("");
-		btnEliminar.setEnabled(false);
-		btnEliminar.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
-		btnEliminar.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnEliminar.setBounds(87, 209, 264, 127);
-		contentPane.add(btnEliminar);
-		btnEliminar.setIcon(new ImageIcon("C:\\Users\\alfon\\git\\HU-07\\img\\devolver-2.png"));
+		btnLista = new JButton("");
+		btnLista.setEnabled(false);
+		btnLista.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
+		btnLista.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnLista.setBounds(87, 209, 264, 127);
+		contentPane.add(btnLista);
+		btnLista.setIcon(new ImageIcon("C:\\Users\\alfon\\git\\HU-07\\img\\devolver-2.png"));
 
 		btnAtras = new JButton("");
 		btnAtras.setBackground(UIManager.getColor("InternalFrame.borderHighlight"));
@@ -84,7 +84,7 @@ public class VentanaAgregarProveedor extends JFrame {
 		lblAgregarProveedor.setBounds(133, 159, 179, 39);
 		contentPane.add(lblAgregarProveedor);
 		
-		JLabel lblEliminarProveedor = new JLabel("Eliminar Proveedor");
+		JLabel lblEliminarProveedor = new JLabel("Lista de Proveedores");
 		lblEliminarProveedor.setEnabled(false);
 		lblEliminarProveedor.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblEliminarProveedor.setBounds(131, 334, 181, 39);

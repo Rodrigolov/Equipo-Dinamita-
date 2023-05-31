@@ -48,7 +48,7 @@ public class ControlVenta {
             servicioVenta.agregarProducto(producto,venta);
         }catch(Exception ex) 
         {
-            ventanaVenta.muestraDialogoConMensaje("No se puede agregar mas productos de los que hay en stock");
+            ventanaVenta.muestraDialogoConMensaje("Se Ha acabado el stock del producto deceado");
         }
     }
 
@@ -67,7 +67,7 @@ public class ControlVenta {
     }
         catch(Exception ex)
         {
-            ventanaVenta.muestraDialogoConMensaje("El pago del cliente debe cubrir el costo de la compra");
+            /*ventanaVenta.muestraDialogoConMensaje("!!!El pago del cliente debe cubrir el costo de la compra!!!!");"*/
             cambio = 0;
         }
         return cambio;

@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.datos;
+/*package mx.uam.ayd.proyecto.datos;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -8,4 +8,4 @@ public interface EmpleadoRepository extends CrudRepository <Empleado, Long> {
 	
 	public Empleado findById(long idEmpleado);
 
-}
+}*/

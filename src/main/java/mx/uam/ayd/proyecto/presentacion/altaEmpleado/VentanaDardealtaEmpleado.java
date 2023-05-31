@@ -1,8 +1,12 @@
+
 package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+
+import org.springframework.stereotype.Component;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

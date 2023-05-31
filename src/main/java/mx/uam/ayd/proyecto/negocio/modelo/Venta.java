@@ -41,7 +41,14 @@ public class Venta {
 
     public boolean quitarProducto(int lugar)
     {
-        listaProductos.remove(lugar);
+        if (lugar == listaProductos.size()){
+        listaProductos.remove(lugar-1);}
+        else if(lugar == 0)
+        {
+            listaProductos.remove(0);
+        }
+        else{
+        listaProductos.remove(lugar);}
         return true;
     }
 

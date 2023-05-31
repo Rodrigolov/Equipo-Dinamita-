@@ -43,6 +43,22 @@ public class ServicioProducto {
 		return productos;
 
     }
+    
+    public List<Producto> recuperarProductosInsuficentes() {
+		
+        System.out.println("productoRepository ="+productoRepository);
+		
+		List <Producto> productos = new ArrayList<>();
+		
+		for(Producto producto:productoRepository.findAll())
+        {
+			if(producto.getStock()<=2)
+			productos.add(producto);
+        }
+				
+		return productos;
+
+    }
 
     public Producto recuperarProducto(String nombre)
     {

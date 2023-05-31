@@ -7,7 +7,7 @@ import mx.uam.ayd.proyecto.presentacion.principalInventario.ControlPrincipalInve
 import mx.uam.ayd.proyecto.presentacion.realizarCorte.ControlRealizarCorte;
 import mx.uam.ayd.proyecto.presentacion.EditarProveedor.ControlProveedor;
 import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
-
+import mx.uam.ayd.proyecto.presentacion.pagoProveedores.ControlPagoProveedores;
 import mx.uam.ayd.proyecto.presentacion.agregarProveedor.ControlAgregarProveedor;
 
 
@@ -34,6 +34,9 @@ public class ControlPrincipalSistema {
 
 	@Autowired
 	private ControlAgregarProveedor controlAgregarProveedor;
+
+	@Autowired
+	private ControlPagoProveedores controlPagoProveedores;
 	
 	@Autowired
 	private ControlRealizarCorte control;
@@ -81,6 +84,11 @@ public class ControlPrincipalSistema {
 		
 		control.inicia();
 	
+	}
+
+	public void inciaPagoProveedor(){
+
+		controlPagoProveedores.incia();
 	}
 	
 }

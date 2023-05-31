@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.realizarCorte;
+ package mx.uam.ayd.proyecto.presentacion.realizarCorte;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

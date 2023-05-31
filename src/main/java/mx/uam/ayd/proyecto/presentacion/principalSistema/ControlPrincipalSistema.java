@@ -9,9 +9,13 @@ import mx.uam.ayd.proyecto.presentacion.EditarProveedor.ControlProveedor;
 
 import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
 import mx.uam.ayd.proyecto.presentacion.agregarProveedor.ControlAgregarProveedor;
+
 import mx.uam.ayd.proyecto.presentacion.empleado.ControlEmpleado;
 import mx.uam.ayd.proyecto.presentacion.principalInventario.ControlPrincipalInventario;
 import mx.uam.ayd.proyecto.presentacion.realizarCorte.ControlRealizarCorte;
+
+import mx.uam.ayd.proyecto.presentacion.cancelarVenta.ControlCancelarVenta;
+
 
 
 /**
@@ -40,6 +44,8 @@ public class ControlPrincipalSistema {
   
 	@Autowired
 	private ControlRealizarCorte control;
+	@Autowired
+	private ControlCancelarVenta controlCancelar;
 
 	@Autowired
 	private ControlEmpleado controlEmpleado;
@@ -92,6 +98,7 @@ public class ControlPrincipalSistema {
 	
 	}
 	
+
 	public void iniciaEmpleado() {
 		
 		controlEmpleado.inicia();
@@ -103,4 +110,11 @@ public class ControlPrincipalSistema {
 		controlCompra.inicia();
 	
 	}
+
+	public void cancelarVenta() {
+		
+		controlCancelar.inicia();
+	
+	}
+	
 }

@@ -140,8 +140,18 @@ public class VentanaPrincipalSistema extends JFrame {
 		JLabel lblInventario = new JLabel("Inventario");
 		lblInventario.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
+
+		JButton CancelarVenta = new JButton("Cancelar Venta");
+		CancelarVenta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.cancelarVenta();
+			}
+		});
+		
+
 		JLabel lblCompras = new JLabel("Compras");
 		lblCompras.setFont(new Font("Tahoma", Font.BOLD, 16));
+
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-tienda.png"));
@@ -154,6 +164,7 @@ public class VentanaPrincipalSistema extends JFrame {
 
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(64)
@@ -189,6 +200,7 @@ public class VentanaPrincipalSistema extends JFrame {
 									.addGap(18)
 									.addComponent(btnCorteCaja, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)))))
 					.addGap(29))
+
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(84)
 					.addComponent(lblVentas, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -198,9 +210,31 @@ public class VentanaPrincipalSistema extends JFrame {
 					.addComponent(lblLogo, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(lblTitle)
+
+					.addContainerGap(161, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(lblNewLabel)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(188, Short.MAX_VALUE)
+					.addComponent(Realizar)
+					.addGap(186))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(74, Short.MAX_VALUE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addComponent(CancelarVenta)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(btnSales)
+							.addGap(52)
+							.addComponent(btnEmployees)
+							.addGap(37)
+							.addComponent(btnProviders)))
+					.addGap(55))
+
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(lblLogo2, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(113, Short.MAX_VALUE))
+
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -221,6 +255,14 @@ public class VentanaPrincipalSistema extends JFrame {
 						.addComponent(btnSales, GroupLayout.PREFERRED_SIZE, 89, Short.MAX_VALUE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+
+						.addComponent(btnProviders)
+						.addComponent(btnEmployees)
+						.addComponent(btnSales))
+					.addGap(18)
+					.addComponent(CancelarVenta)
+					.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+
 						.addComponent(lblVentas)
 						.addComponent(lblEmpleados, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblProveedores, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))

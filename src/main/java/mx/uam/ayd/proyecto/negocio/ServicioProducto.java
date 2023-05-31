@@ -1,13 +1,17 @@
 package mx.uam.ayd.proyecto.negocio;
+
+
 import java.util.List;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
+
 /**
  * Servicio relacionado con los productos
  * 
@@ -22,6 +26,8 @@ public class ServicioProducto {
 	
     @Autowired
     private ProductoRepository productoRepository;
+
+
     public List<Producto> recuperarProductos() {
 		
         System.out.println("productoRepository ="+productoRepository);
@@ -35,9 +41,8 @@ public class ServicioProducto {
 		
 				
 		return productos;
+
     }
-
-
     
     public List<Producto> recuperarProductosInsuficentes() {
 		
@@ -95,6 +100,7 @@ public class ServicioProducto {
 		productoRepository.save(producto);
 		
 		//System.out.println("productoRepository = "+producto);
+
 			
 		return producto;
 	}//Fin
@@ -117,4 +123,5 @@ public class ServicioProducto {
 	    }
 	}//Fin de la función validarFormatoFecha 
 	
+
 }

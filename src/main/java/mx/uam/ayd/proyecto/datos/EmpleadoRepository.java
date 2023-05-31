@@ -8,6 +8,4 @@ public interface EmpleadoRepository extends CrudRepository <Empleado, Long> {
 	
 	public Empleado findById(long idEmpleado);
 
-
-
 }*/

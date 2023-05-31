@@ -5,6 +5,10 @@ import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.presentacion.EditarProveedor.ControlProveedor;
 import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
+
+import mx.uam.ayd.proyecto.presentacion.pagoProveedores.ControlPagoProveedores;
+
+
 import mx.uam.ayd.proyecto.presentacion.agregarProveedor.ControlAgregarProveedor;
 import mx.uam.ayd.proyecto.presentacion.compra.ControlCompra;
 import mx.uam.ayd.proyecto.presentacion.empleado.ControlEmpleado;
@@ -35,6 +39,9 @@ public class ControlPrincipalSistema {
 
 	@Autowired
 	private ControlAgregarProveedor controlAgregarProveedor;
+
+	@Autowired
+	private ControlPagoProveedores controlPagoProveedores;
 	
 	@Autowired
 	private ControlRealizarCorte control;
@@ -89,6 +96,11 @@ public class ControlPrincipalSistema {
 	
 	}
 
+
+	public void inciaPagoProveedor(){
+
+		controlPagoProveedores.incia();
+
 	public void iniciaEmpleado() {
 		
 		controlEmpleado.inicia();
@@ -99,6 +111,7 @@ public class ControlPrincipalSistema {
 		
 		controlCompra.inicia();
 	
+
 	}
 	
 }

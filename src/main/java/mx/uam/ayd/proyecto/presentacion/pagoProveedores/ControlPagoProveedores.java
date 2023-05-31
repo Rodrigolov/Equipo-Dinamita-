@@ -21,7 +21,11 @@ public class ControlPagoProveedores {
     
     public void incia(){
 
+
+        List <Proveedor> proveedor = servicioProveedor.recuperaProvedores();
+
         List <Proveedor> proveedor = servicioProveedor.recuperarProveedores();
+
 
         for(Proveedor proveedor2:proveedor){
 

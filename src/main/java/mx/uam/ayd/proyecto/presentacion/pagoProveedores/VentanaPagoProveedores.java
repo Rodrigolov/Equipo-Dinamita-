@@ -100,7 +100,7 @@ public class VentanaPagoProveedores extends JFrame{
     
     // Ajustar el tamaño y hacer visible la ventana principal
     pack();
-    setVisible(true);
+    setVisible(false);
     
     // Agregar un listener para detectar la selección de un renglón
 	tablaEmpleados.getSelectionModel().addListSelectionListener(new ListSelectionListener() {

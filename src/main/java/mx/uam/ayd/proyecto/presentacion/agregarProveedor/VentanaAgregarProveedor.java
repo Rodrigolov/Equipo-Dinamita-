@@ -47,7 +47,7 @@ public class VentanaAgregarProveedor extends JFrame {
 	public VentanaAgregarProveedor() {
 		setTitle("Proveedores");
 		setResizable(false);
-		setAlwaysOnTop(true);
+		//setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 402, 430);
 		contentPane = new JPanel();
@@ -65,7 +65,7 @@ public class VentanaAgregarProveedor extends JFrame {
 		btnAgregar.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\\\inventario-2.png"));
 		
 		btnLista = new JButton("");
-		//btnLista.setEnabled(false); *Aquí es donde hay que poner el codigo XD
+		//btnLista.setEnabled(false); *Aquí es donde hay que poner el codigo XD >:( yo decia el codigo de mi UH)
 		btnLista.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
 		btnLista.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnLista.setBounds(87, 209, 264, 127);
@@ -93,6 +93,12 @@ public class VentanaAgregarProveedor extends JFrame {
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.iniciaRegistro();
+			}
+		});
+
+		btnLista.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.iniciaListaProveedores();
 			}
 		});
 		

@@ -1,10 +1,8 @@
 package mx.uam.ayd.proyecto.presentacion.principalSistema;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -13,11 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
-
 import org.springframework.stereotype.Component;
-
-
-
 import javax.swing.JLabel;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -26,17 +20,12 @@ import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-
-
-
 @Component
 public class VentanaPrincipalSistema extends JFrame {
 	
 	private ControlPrincipalSistema control;
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
 	public VentanaPrincipalSistema() {
 		setResizable(false);
 		setTitle("Tienda Mary");
@@ -45,7 +34,6 @@ public class VentanaPrincipalSistema extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		
 		JLabel lblTitle = new JLabel("Tienda Mary ");
@@ -55,12 +43,10 @@ public class VentanaPrincipalSistema extends JFrame {
 		btnSales.setBackground(Color.WHITE);
 		btnSales.setFont(new Font("Gadugi", Font.PLAIN, 12));
 		btnSales.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-ventas.png"));
-
 		JButton btnEmployees = new JButton("");
 		btnEmployees.setBackground(Color.WHITE);
 		btnEmployees.setFont(new Font("Gadugi", Font.PLAIN, 12));
 		btnEmployees.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-empleado.png"));
-
 		JButton btnProviders = new JButton("");
 		btnProviders.setBackground(Color.WHITE);
 		btnProviders.setFont(new Font("Gadugi", Font.PLAIN, 12));
@@ -70,7 +56,6 @@ public class VentanaPrincipalSistema extends JFrame {
 		btnInventory.setBackground(Color.WHITE);
 		btnInventory.setFont(new Font("Gadugi", Font.PLAIN, 12));
 		btnInventory.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-inventario.png"));
-
 		JButton btnCreditShopping = new JButton("");
 		btnCreditShopping.setBackground(Color.WHITE);
 		btnCreditShopping.setFont(new Font("Gadugi", Font.PLAIN, 12));
@@ -87,7 +72,6 @@ public class VentanaPrincipalSistema extends JFrame {
 				control.principalInventario();
 			}
 		});
-
 		btnEmployees.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.iniciaPagoProveedor();
@@ -99,19 +83,16 @@ public class VentanaPrincipalSistema extends JFrame {
 				control.iniciaAgregarProveedor();
 			}
 		});
-
 		btnSales.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.venta();
 			}
 		});
-
 		btnProviders.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.iniciaAgregarProveedor();
 			}
 		});
-
 		btnEmployees.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.iniciaEmpleado();
@@ -123,8 +104,6 @@ public class VentanaPrincipalSistema extends JFrame {
 				control.realizarCorte();
 			}
 		});
-
-
 		JButton btnCreditShopping = new JButton("Compras");
 		btnCreditShopping.setFont(new Font("Gadugi", Font.PLAIN, 12));
 		btnCreditShopping.addActionListener(new ActionListener() {
@@ -132,7 +111,6 @@ public class VentanaPrincipalSistema extends JFrame {
 				control.iniciaCompra();
 			}
 		});
-
 		
 		JLabel lblVentas = new JLabel("Ventas");
 		lblVentas.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -146,7 +124,6 @@ public class VentanaPrincipalSistema extends JFrame {
 		JLabel lblInventario = new JLabel("Inventario");
 		lblInventario.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
-
 		JButton CancelarVenta = new JButton("Cancelar Venta");
 		CancelarVenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -154,10 +131,8 @@ public class VentanaPrincipalSistema extends JFrame {
 			}
 		});
 		
-
 		JLabel lblCompras = new JLabel("Compras");
 		lblCompras.setFont(new Font("Tahoma", Font.BOLD, 16));
-
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\VP-tienda.png"));
@@ -167,7 +142,6 @@ public class VentanaPrincipalSistema extends JFrame {
 		
 		JLabel lblCorteCaja = new JLabel("Corte de Caja");
 		lblCorteCaja.setFont(new Font("Tahoma", Font.BOLD, 16));
-
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -206,7 +180,6 @@ public class VentanaPrincipalSistema extends JFrame {
 									.addGap(18)
 									.addComponent(btnCorteCaja, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)))))
 					.addGap(29))
-
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(84)
 					.addComponent(lblVentas, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -216,7 +189,6 @@ public class VentanaPrincipalSistema extends JFrame {
 					.addComponent(lblLogo, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(lblTitle)
-
 					.addContainerGap(161, Short.MAX_VALUE))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addComponent(lblNewLabel)
@@ -236,11 +208,9 @@ public class VentanaPrincipalSistema extends JFrame {
 							.addGap(37)
 							.addComponent(btnProviders)))
 					.addGap(55))
-
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(lblLogo2, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(113, Short.MAX_VALUE))
-
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -261,14 +231,12 @@ public class VentanaPrincipalSistema extends JFrame {
 						.addComponent(btnSales, GroupLayout.PREFERRED_SIZE, 89, Short.MAX_VALUE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-
 						.addComponent(btnProviders)
 						.addComponent(btnEmployees)
 						.addComponent(btnSales))
 					.addGap(18)
 					.addComponent(CancelarVenta)
 					.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-
 						.addComponent(lblVentas)
 						.addComponent(lblEmpleados, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblProveedores, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
@@ -297,4 +265,3 @@ public class VentanaPrincipalSistema extends JFrame {
 		setLocationRelativeTo(null);
 	}
 }
-

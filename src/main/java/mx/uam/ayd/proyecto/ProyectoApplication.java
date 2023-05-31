@@ -106,8 +106,6 @@ public class ProyectoApplication {
         Venta venta2 = new Venta();
 
 
-		Proveedor proveedor1 = new Proveedor();
-		Proveedor proveedor2 = new Proveedor();
 
 		proveedor1.setNombre("Carlos Martinez");
 		proveedor1.setMarca("Gamesa");

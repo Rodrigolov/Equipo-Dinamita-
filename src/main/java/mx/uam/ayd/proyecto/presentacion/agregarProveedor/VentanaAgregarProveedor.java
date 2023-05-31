@@ -87,7 +87,7 @@ public class VentanaAgregarProveedor extends JFrame {
 
 		JLabel lblEliminarProveedor = new JLabel("Editar Proveedor");
 
-		JLabel lblEliminarProveedor = new JLabel("Lista de Proveedores");
+		JLabel lblListaProveedor = new JLabel("Lista de Proveedores");
 
 		lblEliminarProveedor.setEnabled(false);
 		lblEliminarProveedor.setFont(new Font("Tahoma", Font.BOLD, 18));

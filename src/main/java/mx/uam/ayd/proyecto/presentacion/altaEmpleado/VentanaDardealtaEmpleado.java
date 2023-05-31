@@ -1,4 +1,4 @@
-
+/*
 package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -171,5 +171,5 @@ public class VentanaDardealtaEmpleado extends JFrame{
 	}
 }
 
-}
 
+*/

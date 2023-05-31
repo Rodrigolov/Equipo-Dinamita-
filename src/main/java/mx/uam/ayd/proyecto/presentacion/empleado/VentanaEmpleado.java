@@ -1,4 +1,4 @@
-
+/*
 package mx.uam.ayd.proyecto.presentacion.empleado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -131,4 +131,4 @@ public class VentanaEmpleado extends JFrame{
 }
 
 }
-
+*/

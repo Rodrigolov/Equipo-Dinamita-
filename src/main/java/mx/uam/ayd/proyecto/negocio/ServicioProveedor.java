@@ -65,8 +65,6 @@ public class ServicioProveedor {
 		return proveedores;
 	}
 
-}
-
 	public boolean SaveProveedorr(Proveedor proveedor)
 	{
 		return proveedorRepository.save(proveedor) != null;

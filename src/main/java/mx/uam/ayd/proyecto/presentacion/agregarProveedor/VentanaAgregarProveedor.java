@@ -47,7 +47,7 @@ public class VentanaAgregarProveedor extends JFrame {
 	public VentanaAgregarProveedor() {
 		setTitle("Proveedores");
 		setResizable(false);
-		setAlwaysOnTop(true);
+		//setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 402, 430);
 		contentPane = new JPanel();
@@ -93,6 +93,12 @@ public class VentanaAgregarProveedor extends JFrame {
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.iniciaRegistro();
+			}
+		});
+
+		btnLista.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.iniciaListaProveedores();
 			}
 		});
 		

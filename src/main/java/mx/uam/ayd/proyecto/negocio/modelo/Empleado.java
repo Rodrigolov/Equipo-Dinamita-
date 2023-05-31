@@ -1,8 +1,8 @@
-package mx.uam.ayd.proyecto.negocio.modelo;
+/*package mx.uam.ayd.proyecto.negocio.modelo;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
+import javax.persistence.GenearatedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -28,3 +28,4 @@ public class Empleado {
 
 	private int telefono;
 }
+*/

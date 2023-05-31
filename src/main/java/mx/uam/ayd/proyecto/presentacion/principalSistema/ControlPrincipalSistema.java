@@ -72,12 +72,6 @@ public class ControlPrincipalSistema {
 		controlAgregarProveedor.inicia();
 	
 	}
-
-	public void iniciaListaProveedores() {
-		
-		controlProveedor.iniciaLista();
-	
-	}
 	
 	/**
 	 * Método que arranca la historia de usuario "realizar Corte"

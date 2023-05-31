@@ -122,6 +122,7 @@ public class VentanaEditarProveedor extends JFrame {
 
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent o) {
+				setAlwaysOnTop(false);
 					VerificarInfo(textField.getText(), textField_1.getText(), textField_2.getText(), textField_3.getText());
 			}});
 	}

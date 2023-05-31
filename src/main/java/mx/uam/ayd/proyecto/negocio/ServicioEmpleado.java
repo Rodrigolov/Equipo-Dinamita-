@@ -1,4 +1,4 @@
-/*package mx.uam.ayd.proyecto.negocio;
+package mx.uam.ayd.proyecto.negocio;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -69,4 +69,4 @@ public class ServicioEmpleado {
 		return Empleados;
 	}
 
-}*/
+}

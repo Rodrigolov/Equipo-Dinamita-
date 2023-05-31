@@ -1,10 +1,4 @@
-
-package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-
+/*package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
 import org.springframework.stereotype.Component;
 
 import javax.swing.JFrame;
@@ -173,3 +167,4 @@ public class VentanaDardealtaEmpleado extends JFrame{
 
 }
 
+}*/

@@ -1,14 +1,4 @@
-
-package mx.uam.ayd.proyecto.presentacion.empleado;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.JButton;
-
-
-
+/*package mx.uam.ayd.proyecto.presentacion.empleado;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -108,27 +98,4 @@ public class VentanaEmpleado extends JFrame{
 		JOptionPane.showMessageDialog(this , mensaje);
 	}
 
-
-	public void agregarDatosEmpleados() {
-		List<Empleado> empleados = new ArrayList<>();
-		empleadoRepository.findAll().forEach(empleados::add);
-	
-		for (Empleado empleado : empleados) {
-			String[] datosEmpleado = {
-				""+empleado.getIdEmpleado(),
-				empleado.getNombre(),
-				empleado.getApellido(),
-				empleado.getDireccion(),
-				""+empleado.getFechainico(),
-				empleado.getTelefono()
-			};
-			mod.addRow(datosEmpleado);
-		}
-	}
-	
-	
-
-}
-
-}
-
+}*/

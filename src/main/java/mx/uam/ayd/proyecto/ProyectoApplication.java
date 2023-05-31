@@ -110,6 +110,7 @@ public class ProyectoApplication {
     
         Venta venta1 = new Venta();
         Venta venta2 = new Venta();
+        Venta venta3 = new Venta();
 
 		LocalDate fecha = LocalDate.now();
 
@@ -197,12 +198,25 @@ public class ProyectoApplication {
         venta1.setCantidad(4);
         venta1.setFecha(fecha);
         venta1.setTotal(50);
+        ventaRepository.save(venta1);
         
         venta2.agregarProducto(Pan);
         venta2.setId(2);
         venta2.setCantidad(1);
         venta2.setFecha(fecha);
         venta2.setTotal(40);
+        ventaRepository.save(venta2);
+        
+        venta3.agregarProducto(Refresco);
+        venta3.agregarProducto(Pan);
+        venta3.agregarProducto(Ramen);
+        venta3.setId(3);
+        venta3.setCantidad(1);
+        venta3.setFecha(fecha);
+        venta3.setTotal(90);
+        ventaRepository.save(venta3);
+        
+        
         
 		
 		// Vamos a crear los dos grupos de usuarios

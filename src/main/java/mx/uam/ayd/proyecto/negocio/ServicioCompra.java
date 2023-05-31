@@ -1,4 +1,4 @@
-/*package mx.uam.ayd.proyecto.negocio;
+package mx.uam.ayd.proyecto.negocio;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class ServicioCompra {
 		int interes,
 		LocalDate fechavencimiento) {
 		
-		Compra Compra = CompraRepository.findByProductoAndProveedor(producto,proveedor);
+		Compra Compra = CompraRepository.findById(idcompra);
 		
 		if(Compra != null) {
 			throw new IllegalArgumentException("Ese Compra ya existe");
@@ -73,4 +73,4 @@ public class ServicioCompra {
 		return Compras;
 	}
 
-}*/
+}

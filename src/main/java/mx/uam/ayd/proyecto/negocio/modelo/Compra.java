@@ -15,11 +15,17 @@ public class Compra {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int idCompra;
-    private String Proveedor;
+
     private String Producto;
+
+    private String Proveedor;
+
     private int Precio;
+
     private int NumPagos;
+
     private int Interes;
+    
     private LocalDate FechaVencimiento;
 
 }

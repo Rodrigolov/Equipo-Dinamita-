@@ -6,8 +6,6 @@ import mx.uam.ayd.proyecto.negocio.modelo.Empleado;
 
 public interface EmpleadoRepository extends CrudRepository <Empleado, Long> {
 	
-	public Empleado findByNombreAndApellido(String nombre, String apellido);
-
-	public Empleado findById(long id);
+	public Empleado findById(long idEmpleado);
 
 }

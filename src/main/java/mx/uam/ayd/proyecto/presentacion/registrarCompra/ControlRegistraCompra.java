@@ -5,13 +5,13 @@ import java.time.format.DateTimeParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//import mx.uam.ayd.proyecto.negocio.ServicioCompra;
+import mx.uam.ayd.proyecto.negocio.ServicioCompra;
 
 @Component
 public class ControlRegistraCompra {
 
-    /*@Autowired
-	private ServicioCompra servicioCompra;*/
+    @Autowired
+	private ServicioCompra servicioCompra;
 	
 	@Autowired
 	private VentanaRegistraCompra ventanaRegistraCompra;
@@ -83,16 +83,14 @@ public class ControlRegistraCompra {
                 throw new IllegalArgumentException("El valor de Feachade vencimiento no es válido. Debe tener el formato 'yyyy-MM-dd'.");
             }
 
-            // Validación del sexto String (Telefono) no es necesaria, se asume que puede ser cualquier valor de texto
-
-            /*servicioCompra.agregaCompra(
+            servicioCompra.agregaCompra(
                 IdCompra,
                 Proveedor,
                 Producto,
                 Precio,
                 NumPagos,
                 Interes,
-                FechaVencimiento);*/
+                FechaVencimiento);
             ventanaRegistraCompra.muestraDialogoConMensaje("Usuario agregado exitosamente");
             
         } catch (IllegalArgumentException ex) {

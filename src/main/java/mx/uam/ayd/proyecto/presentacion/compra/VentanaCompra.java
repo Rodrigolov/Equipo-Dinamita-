@@ -2,6 +2,8 @@ package mx.uam.ayd.proyecto.presentacion.compra;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,12 +14,19 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import mx.uam.ayd.proyecto.datos.CompraRepository;
+import mx.uam.ayd.proyecto.negocio.modelo.Compra;
 
 @SuppressWarnings("serial")
 @Component
 
 public class VentanaCompra extends JFrame{
+
+	@Autowired
+	private CompraRepository compraRepository;
     
     private JPanel contentPane;
     private ControlCompra control;
@@ -88,4 +97,21 @@ public class VentanaCompra extends JFrame{
 		JOptionPane.showMessageDialog(this , mensaje);
 	}
 
+	public void agregarDatosCompra() {
+		List<Compra> compras = new ArrayList<>();
+		compraRepository.findAll().forEach(compras::add);
+	
+		for (Compra compra : compras) {
+			String[] datosCompra = {
+				""+compra.getIdCompra(),
+				compra.getProducto(),
+				compra.getProveedor(),
+				""+compra.getPrecio(),
+				""+compra.getNumPagos(),
+				""+compra.getInteres(),
+				""+compra.getFechaVencimiento()
+			};
+			mod.addRow(datosCompra);
+		}
+	}
 }

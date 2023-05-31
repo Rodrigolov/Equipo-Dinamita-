@@ -52,6 +52,21 @@ public class ServicioProveedor {
 		return proveedor;
 	}
 
+	public List <Proveedor> recuperarProveedores(){
+
+		System.out.println("proveedorRepository = "+proveedorRepository);
+
+		List <Proveedor> proveedores = new ArrayList<>();
+
+		for(Proveedor proveedor:proveedorRepository.findAll()){
+			proveedores.add(proveedor);
+		}
+
+		return proveedores;
+	}
+
+}
+
 	public boolean SaveProveedorr(Proveedor proveedor)
 	{
 		return proveedorRepository.save(proveedor) != null;
@@ -77,4 +92,5 @@ public class ServicioProveedor {
         proveedorRepository.save(proveedor);
     }
 }
+
 

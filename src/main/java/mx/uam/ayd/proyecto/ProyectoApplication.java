@@ -15,6 +15,12 @@ import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
 import mx.uam.ayd.proyecto.datos.GrupoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Grupo;
 import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
+
+
+//import mx.uam.ayd.proyecto.presentacion.pagoProveedores.ControlPagoProveedores;
+import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
+import mx.uam.ayd.proyecto.datos.ProveedorRepository;
+
 /**
  * 
  * Clase principal que arranca la aplicación 
@@ -29,6 +35,9 @@ import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
 public class ProyectoApplication {
 	@Autowired
 	ControlPrincipal controlPrincipal;
+
+	/*@Autowired
+	ControlPagoProveedores controlPagoProveedores;*/
 	
 	@Autowired
 	GrupoRepository grupoRepository;
@@ -36,6 +45,9 @@ public class ProyectoApplication {
 	ControlVenta controlVenta;
 	@Autowired
 	ProductoRepository productoRepository;
+
+	@Autowired
+	ProveedorRepository proveedorRepository;
 	
 	@Autowired
 	VentaRepository ventaRepository;
@@ -61,8 +73,8 @@ public class ProyectoApplication {
 	public void inicia() {
 		
 		inicializaBD();
-		
 		controlPrincipal.inicia();
+		//controlPagoProveedores.incia();
 	}
 	
 	
@@ -92,12 +104,31 @@ public class ProyectoApplication {
     
         Venta venta1 = new Venta();
         Venta venta2 = new Venta();
+
+
+		Proveedor proveedor1 = new Proveedor();
+		Proveedor proveedor2 = new Proveedor();
+
+		proveedor1.setNombre("Carlos Martinez");
+		proveedor1.setMarca("Gamesa");
+		proveedor1.setTelefono(551402197);
+		proveedor1.setCorreo("carlosgamesa@gmail.com");
+		proveedorRepository.save(proveedor1);
+
+		proveedor2.setNombre("Samara Jimenez");
+		proveedor2.setMarca("Barcel");
+		proveedor2.setTelefono(557104890);
+		proveedor2.setCorreo("samarabarcel@gmail.com");
+		proveedorRepository.save(proveedor2);
+
+
         Venta venta3 = new Venta();
+
 		LocalDate fecha = LocalDate.now();
 		Date date = Date.valueOf(fecha.toString());
 
         leche.setNombre("Galon de leche");
-=======
+
 
 		Pan1.setNombre("Pan Tostado");
 		Pan1.setIdProducto(1265);
@@ -203,6 +234,11 @@ public class ProyectoApplication {
         venta3.setTotal(60);
         ventaRepository.save(venta3);
         
+
+
+		
+		// Vamos a crear los dos grupos de usuarios
+
 		
 		Grupo grupoAdmin = new Grupo();
 		grupoAdmin.setNombre("Administradores");

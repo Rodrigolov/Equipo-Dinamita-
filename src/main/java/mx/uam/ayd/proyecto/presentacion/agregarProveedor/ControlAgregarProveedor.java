@@ -19,7 +19,7 @@ public class ControlAgregarProveedor {
 	
 	@Autowired
 	private VentanaAgregarProveedor ventana;
-	
+
 	@Autowired
 	private FormularioAgregarProveedor formulario;
 

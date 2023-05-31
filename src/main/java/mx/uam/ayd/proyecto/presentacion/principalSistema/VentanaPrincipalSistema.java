@@ -87,6 +87,12 @@ public class VentanaPrincipalSistema extends JFrame {
 				control.principalInventario();
 			}
 		});
+
+		btnEmployees.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.iniciaPagoProveedor();
+			}
+		});
 		
 		btnProviders.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

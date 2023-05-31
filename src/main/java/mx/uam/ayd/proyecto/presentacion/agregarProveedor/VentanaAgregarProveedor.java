@@ -65,7 +65,7 @@ public class VentanaAgregarProveedor extends JFrame {
 		btnAgregar.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\\\inventario-2.png"));
 		
 		btnLista = new JButton("");
-		//btnLista.setEnabled(false); *Aquí es donde hay que poner el codigo XD
+		//btnLista.setEnabled(false); *Aquí es donde hay que poner el codigo XD >:( yo decia el codigo de mi UH)
 		btnLista.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
 		btnLista.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnLista.setBounds(87, 209, 264, 127);
@@ -84,7 +84,11 @@ public class VentanaAgregarProveedor extends JFrame {
 		lblAgregarProveedor.setBounds(133, 159, 179, 39);
 		contentPane.add(lblAgregarProveedor);
 		
-		JLabel lblEliminarProveedor = new JLabel("Lista de Proveedores");
+
+		JLabel lblEliminarProveedor = new JLabel("Editar Proveedor");
+
+		JLabel lblListaProveedor = new JLabel("Lista de Proveedores");
+
 		lblEliminarProveedor.setEnabled(false);
 		lblEliminarProveedor.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblEliminarProveedor.setBounds(131, 334, 181, 39);

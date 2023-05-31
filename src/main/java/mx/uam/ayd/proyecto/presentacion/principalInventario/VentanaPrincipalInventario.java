@@ -1,5 +1,4 @@
 package mx.uam.ayd.proyecto.presentacion.principalInventario;
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -41,6 +40,7 @@ public class VentanaPrincipalInventario extends JFrame {
 		});
 	}
 
+	
 	/**
 	 * Create the frame.
 	 */

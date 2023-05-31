@@ -37,7 +37,6 @@ public class ControlPrincipalSistema {
 	
 	@Autowired
 	private ControlRealizarCorte control;
-
 	
 	/**
 	 * Inicia el flujo de control de la ventana principal
@@ -84,3 +83,4 @@ public class ControlPrincipalSistema {
 	}
 	
 }
+

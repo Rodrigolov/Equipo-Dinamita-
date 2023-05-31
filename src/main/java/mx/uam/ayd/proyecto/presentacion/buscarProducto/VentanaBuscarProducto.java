@@ -163,7 +163,6 @@ public class VentanaBuscarProducto extends JFrame {
 	            }//Fin del for
 
 	        }
-
 	    });
 	
 	}//Fin del método opciones

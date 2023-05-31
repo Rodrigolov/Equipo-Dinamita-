@@ -239,5 +239,6 @@ public class VentanaPrincipalSistema extends JFrame {
 		setVisible(true);
 		setLocationRelativeTo(null);
 	}
+	
 }
 

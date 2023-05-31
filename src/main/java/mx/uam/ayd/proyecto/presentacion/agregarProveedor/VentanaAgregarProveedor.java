@@ -84,7 +84,7 @@ public class VentanaAgregarProveedor extends JFrame {
 		lblAgregarProveedor.setBounds(133, 159, 179, 39);
 		contentPane.add(lblAgregarProveedor);
 		
-		JLabel lblEliminarProveedor = new JLabel("Eliminar Proveedor");
+		JLabel lblEliminarProveedor = new JLabel("Editar Proveedor");
 		lblEliminarProveedor.setEnabled(false);
 		lblEliminarProveedor.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblEliminarProveedor.setBounds(131, 334, 181, 39);

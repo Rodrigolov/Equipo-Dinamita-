@@ -1,5 +1,8 @@
 package mx.uam.ayd.proyecto.negocio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +49,19 @@ public class ServicioProveedor {
 		proveedorRepository.save(proveedor);
 		
 		return proveedor;
+	}
+
+	public List <Proveedor> recuperarProveedores(){
+
+		System.out.println("proveedorRepository = "+proveedorRepository);
+
+		List <Proveedor> proveedores = new ArrayList<>();
+
+		for(Proveedor proveedor:proveedorRepository.findAll()){
+			proveedores.add(proveedor);
+		}
+
+		return proveedores;
 	}
 
 }

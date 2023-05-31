@@ -18,7 +18,10 @@ import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
 import mx.uam.ayd.proyecto.datos.GrupoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Grupo;
 import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
+
 //import mx.uam.ayd.proyecto.presentacion.pagoProveedores.ControlPagoProveedores;
+import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
+import mx.uam.ayd.proyecto.datos.ProveedorRepository;
 
 /**
  * 
@@ -47,6 +50,9 @@ public class ProyectoApplication {
 
 	@Autowired
 	ProductoRepository productoRepository;
+
+	@Autowired
+	ProveedorRepository proveedorRepository;
 	
 	@Autowired
 	VentaRepository ventaRepository;
@@ -77,6 +83,7 @@ public class ProyectoApplication {
 		
 		inicializaBD();
 		controlPrincipal.inicia();
+		//controlPagoProveedores.incia();
 	}
 	
 	
@@ -94,6 +101,21 @@ public class ProyectoApplication {
         
         Venta venta1 = new Venta();
         Venta venta2 = new Venta();
+
+		Proveedor proveedor1 = new Proveedor();
+		Proveedor proveedor2 = new Proveedor();
+
+		proveedor1.setNombre("Carlos Martinez");
+		proveedor1.setMarca("Gamesa");
+		proveedor1.setTelefono(551402197);
+		proveedor1.setCorreo("carlosgamesa@gmail.com");
+		proveedorRepository.save(proveedor1);
+
+		proveedor2.setNombre("Samara Jimenez");
+		proveedor2.setMarca("Barcel");
+		proveedor2.setTelefono(557104890);
+		proveedor2.setCorreo("samarabarcel@gmail.com");
+		proveedorRepository.save(proveedor2);
 
 		LocalDate fecha = LocalDate.now();
 

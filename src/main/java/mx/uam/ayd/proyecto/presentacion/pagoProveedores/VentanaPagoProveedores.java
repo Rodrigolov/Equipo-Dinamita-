@@ -1,6 +1,10 @@
 package mx.uam.ayd.proyecto.presentacion.pagoProveedores;
 
 import org.springframework.stereotype.Component;
+
+import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
+
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,6 +15,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
@@ -39,7 +44,9 @@ public class VentanaPagoProveedores extends JFrame{
     private JLabel labelListaProveedores;
     private JTable tablaEmpleados;
     private JButton botonSalir;
+	private DefaultTableModel modeloTabla;
     private ControlPagoProveedores control;
+	
 
     public VentanaPagoProveedores(){
 
@@ -55,18 +62,6 @@ public class VentanaPagoProveedores extends JFrame{
 	labelListaProveedores.setHorizontalAlignment(SwingConstants.LEFT);
 	labelListaProveedores.setFont(new Font("Gadugi", Font.PLAIN, 15));
 	        
-	// Crear los datos de ejemplo para la JTable
-	String[][] datos = {
-	{"Proveedor 1", "Bimbo", "Telefono 1", "Correo 1"},
-	{"Proveedor 2", "Barcel", "Telefono 2", "Correo 2"},
-	{"Proveedor 3", "Lala", "Telefono 3", "Correo 3"},
-	{"Proveedor 4", "Pepsi", "Telefono 4", "Correo 4"},
-	{"Proveedor 5", "Alpura", "Telefono 5", "Correo 5"},
-	{"Proveedor 6", "Gamesa", "Telefono 6", "Correo 6"},
-	};
-	        
-	// Crear las columnas de la JTable
-	String[] columnas = {"Nombre", "Empresa", "Telefono", "Correo"};
 	
 	// Botón para salir
     botonSalir = new JButton("<----");
@@ -78,7 +73,15 @@ public class VentanaPagoProveedores extends JFrame{
     });
 	        
 	// Crear el modelo de tabla personalizado
-	DefaultTableModel modeloTabla = new DefaultTableModel(datos, columnas);
+	modeloTabla = new DefaultTableModel(
+		new Object [][]{
+
+		},
+			new String[]{
+				"Nombre","Empresa","Telefono","Correo"
+			}
+	);
+	
 	        
 	// Crear la JTable con el modelo de tabla personalizado
 	tablaEmpleados = new JTable(modeloTabla);
@@ -164,9 +167,9 @@ public class VentanaPagoProveedores extends JFrame{
 	     pagosList.setFont(new Font("Gadugi", Font.PLAIN, 11));
 	     
 	     // Simulación de carga de pagos pendientes
-	     listModel.addElement("Pago 1");
-	     listModel.addElement("Pago 2");
-	     listModel.addElement("Pago 3");
+	     listModel.addElement("200");
+	     listModel.addElement("400");
+	     listModel.addElement("600");
 	     
 	     pagosList.addMouseListener(new MouseAdapter() {
 	            @Override
@@ -294,11 +297,16 @@ public class VentanaPagoProveedores extends JFrame{
 		ventanaPagoCredito.setLocationRelativeTo(null);
 	}
 
-	public void muestra(ControlPagoProveedores control) {
+	public void muestra(ControlPagoProveedores control, List<Proveedor> proveedores) {
 			
 		this.control = control;
 		setVisible(true);
 		setLocationRelativeTo(null);
+
+		for(Proveedor p: proveedores){
+			Object[] fila = new Object[]{p.getNombre(),p.getMarca(),p.getTelefono(),p.getCorreo()};
+			modeloTabla.addRow(fila);
+		}
 		
 	}//Fin de la función muestra 
 

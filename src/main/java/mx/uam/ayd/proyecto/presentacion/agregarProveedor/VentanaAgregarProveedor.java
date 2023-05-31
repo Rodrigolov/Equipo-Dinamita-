@@ -65,7 +65,7 @@ public class VentanaAgregarProveedor extends JFrame {
 		btnAgregar.setIcon(new ImageIcon("C:\\\\Users\\\\alfon\\\\git\\\\HU-07\\\\img\\\\inventario-2.png"));
 		
 		btnLista = new JButton("");
-		btnLista.setEnabled(false);
+		//btnLista.setEnabled(false); *Aquí es donde hay que poner el codigo XD
 		btnLista.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
 		btnLista.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnLista.setBounds(87, 209, 264, 127);

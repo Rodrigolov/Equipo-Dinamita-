@@ -18,6 +18,7 @@ import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
 import mx.uam.ayd.proyecto.datos.GrupoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Grupo;
 import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
+//import mx.uam.ayd.proyecto.presentacion.pagoProveedores.ControlPagoProveedores;
 
 /**
  * 
@@ -34,6 +35,9 @@ public class ProyectoApplication {
 
 	@Autowired
 	ControlPrincipal controlPrincipal;
+
+	/*@Autowired
+	ControlPagoProveedores controlPagoProveedores;*/
 	
 	@Autowired
 	GrupoRepository grupoRepository;
@@ -72,7 +76,6 @@ public class ProyectoApplication {
 	public void inicia() {
 		
 		inicializaBD();
-		
 		controlPrincipal.inicia();
 	}
 	
@@ -136,6 +139,7 @@ public class ProyectoApplication {
         venta2.setFecha(fecha);
         venta2.setTotal(40);
         
+
 		
 		// Vamos a crear los dos grupos de usuarios
 		

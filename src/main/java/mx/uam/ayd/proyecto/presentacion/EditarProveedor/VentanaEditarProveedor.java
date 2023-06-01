@@ -195,7 +195,6 @@ public class VentanaEditarProveedor extends JFrame {
         }
     }
 
-
 	public void muestraDialogoConMensaje(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje);
 	}

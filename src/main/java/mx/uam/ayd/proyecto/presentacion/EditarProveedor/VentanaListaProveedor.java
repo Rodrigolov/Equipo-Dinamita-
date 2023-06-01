@@ -158,6 +158,7 @@ public class VentanaListaProveedor extends JFrame {
     public void termina() {
 		textField.setText("");
 		setVisible(false);	
+		
 	}
 }
 

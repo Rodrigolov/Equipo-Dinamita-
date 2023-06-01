@@ -148,7 +148,8 @@ public class VentanaCancelarVenta extends JFrame {
 
         // Agrega las filas de productos a la tabla
         for (Producto producto : venta.getListaProductos()) {
-            modeloTabla.addRow(new Object[] { producto.getNombre(), producto.getStock(), producto.getPrecio(), });
+        	Venta Venta;
+            modeloTabla.addRow(new Object[] { producto.getNombre(), venta.getCantidad(), producto.getPrecio(), });
         }
 
         // Asigna el modelo de tabla a la tabla

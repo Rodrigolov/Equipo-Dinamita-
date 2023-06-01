@@ -27,8 +27,7 @@ public class ServicioEmpleado {
 		LocalDate fechainicio,
 		String telefono) {
 		
-		Empleado Empleado = EmpleadoRepository.findByNombreAndApellido(nombre, apellido);
-		
+		Empleado Empleado = EmpleadoRepository.findById(idempleado);
 		if(Empleado != null) {
 			throw new IllegalArgumentException("Ese Empleado ya existe");
 		}

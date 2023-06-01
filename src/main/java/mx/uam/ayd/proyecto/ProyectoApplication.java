@@ -1,10 +1,15 @@
+ 
 package mx.uam.ayd.proyecto;
+
 import java.sql.Date;
 import java.time.LocalDate;
+
 import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.Venta;
 import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
@@ -12,14 +17,10 @@ import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.datos.ProveedorRepository;
 import mx.uam.ayd.proyecto.datos.VentaRepository;
 import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
+
 import mx.uam.ayd.proyecto.datos.GrupoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Grupo;
 import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
-
-
-//import mx.uam.ayd.proyecto.presentacion.pagoProveedores.ControlPagoProveedores;
-import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
-import mx.uam.ayd.proyecto.datos.ProveedorRepository;
 
 /**
  * 
@@ -33,28 +34,33 @@ import mx.uam.ayd.proyecto.datos.ProveedorRepository;
  */
 @SpringBootApplication
 public class ProyectoApplication {
+
 	@Autowired
 	ControlPrincipal controlPrincipal;
-
-	/*@Autowired
-	ControlPagoProveedores controlPagoProveedores;*/
 	
 	@Autowired
 	GrupoRepository grupoRepository;
-	@Autowired
-	ControlVenta controlVenta;
-	@Autowired
-	ProductoRepository productoRepository;
 
 	@Autowired
-	ProveedorRepository proveedorRepository;
+	ControlVenta controlVenta;
+
+	@Autowired
+	ProductoRepository productoRepository;
 	
 	@Autowired
 	VentaRepository ventaRepository;
 
-  
+	@Autowired
+	ProveedorRepository proveedorRepository;
+	
+	/**
+	 * 
+	 * Método principal
+	 *
+	 * @params args argumentos de la línea de comando
+	 * 
+	 */
 	public static void main(String[] args) {
-
 		
 		SpringApplicationBuilder builder = new SpringApplicationBuilder(ProyectoApplication.class);
 
@@ -62,10 +68,9 @@ public class ProyectoApplication {
 
 		builder.run(args);
 	}
-	
+
 	/**
-	 * 
-	 * Método principal
+	 * Metodo que arranca la aplicacion
 	 * inicializa la bd y arranca el controlador
 	 * otro comentario
 	 */
@@ -73,8 +78,8 @@ public class ProyectoApplication {
 	public void inicia() {
 		
 		inicializaBD();
+		
 		controlPrincipal.inicia();
-		//controlPagoProveedores.incia();
 	}
 	
 	
@@ -84,6 +89,7 @@ public class ProyectoApplication {
 	 * 
 	 */
 	public void inicializaBD() {
+
 		Producto leche = new Producto();
         Producto Nutella = new Producto();
         Producto Pan = new Producto();
@@ -104,31 +110,11 @@ public class ProyectoApplication {
     
         Venta venta1 = new Venta();
         Venta venta2 = new Venta();
-
-
-		Proveedor proveedor1 = new Proveedor();
-		Proveedor proveedor2 = new Proveedor();
-
-		proveedor1.setNombre("Carlos Martinez");
-		proveedor1.setMarca("Gamesa");
-		proveedor1.setTelefono(551402197);
-		proveedor1.setCorreo("carlosgamesa@gmail.com");
-		proveedorRepository.save(proveedor1);
-
-		proveedor2.setNombre("Samara Jimenez");
-		proveedor2.setMarca("Barcel");
-		proveedor2.setTelefono(557104890);
-		proveedor2.setCorreo("samarabarcel@gmail.com");
-		proveedorRepository.save(proveedor2);
-
-
         Venta venta3 = new Venta();
 
 		LocalDate fecha = LocalDate.now();
+
 		Date date = Date.valueOf(fecha.toString());
-
-        leche.setNombre("Galon de leche");
-
 
 		Pan1.setNombre("Pan Tostado");
 		Pan1.setIdProducto(1265);
@@ -152,13 +138,11 @@ public class ProyectoApplication {
         productoRepository.save(Galletas1);
         
 		leche.setNombre("Galon de leche");
-
         leche.setIdProducto(3243);
         leche.setFecha(date);
         leche.setPrecio(60);
         leche.setStock(2);
         productoRepository.save(leche);
-
         
         Galletas.setNombre("Galletas Emperador");
         Galletas.setIdProducto(2345);
@@ -167,19 +151,20 @@ public class ProyectoApplication {
         Galletas.setStock(2);
         productoRepository.save(Galletas);
 
-
         Nutella.setNombre("Nutella");
         Nutella.setIdProducto(3564);
         Nutella.setFecha(date);
         Nutella.setPrecio(80);
         Nutella.setStock(3);
         productoRepository.save(Nutella);
+
         Pan.setNombre("Pan grande");
         Pan.setIdProducto(3765);
         Pan.setFecha(date);
         Pan.setPrecio(40);
         Pan.setStock(3);
         productoRepository.save(Pan);
+
         Ramen.setNombre("Sopa ramen");
         Ramen.setIdProducto(9877);
         Ramen.setFecha(date);
@@ -209,36 +194,32 @@ public class ProyectoApplication {
         productoRepository.save(Refresco);
         
         venta1.agregarProducto(Ramen);
-        venta1.setCantidad(2);
-        venta1.setFecha(fecha);
         venta1.setId(1);
+        venta1.setCantidad(4);
+        venta1.setFecha(fecha);
         venta1.setTotal(50);
-
         ventaRepository.save(venta1);
-                
+        
         venta2.agregarProducto(Pan);
-        venta2.agregarProducto(Ramen);
-        venta2.setCantidad(2);
-        venta2.setFecha(fecha);
         venta2.setId(2);
-        venta2.setTotal(60);
+        venta2.setCantidad(1);
+        venta2.setFecha(fecha);
+        venta2.setTotal(40);
         ventaRepository.save(venta2);
         
-        
-        
+        venta3.agregarProducto(Refresco);
         venta3.agregarProducto(Pan);
         venta3.agregarProducto(Ramen);
-        venta3.setCantidad(2);
-        venta3.setFecha(fecha);
         venta3.setId(3);
-        venta3.setTotal(60);
+        venta3.setCantidad(1);
+        venta3.setFecha(fecha);
+        venta3.setTotal(90);
         ventaRepository.save(venta3);
         
-
-
+        
+        
 		
 		// Vamos a crear los dos grupos de usuarios
-
 		
 		Grupo grupoAdmin = new Grupo();
 		grupoAdmin.setNombre("Administradores");
@@ -248,6 +229,7 @@ public class ProyectoApplication {
 		grupoOps.setNombre("Operadores");
 		grupoRepository.save(grupoOps);
 
+		//Proveedores
 		proveedor1.setIdProveedor(43454);
 		proveedor1.setNombre("Juan Perez");
 		proveedor1.setMarca("Samsung");
@@ -281,10 +263,6 @@ public class ProyectoApplication {
 		proveedor5.setMarca("Motorola");
 		proveedor5.setTelefono(567890123);
 		proveedor5.setCorreo("luisamartinez@motorola.com");
-		proveedorRepository.save(proveedor5);
-
-
-	
-				
+		proveedorRepository.save(proveedor5);	
 	}
 }

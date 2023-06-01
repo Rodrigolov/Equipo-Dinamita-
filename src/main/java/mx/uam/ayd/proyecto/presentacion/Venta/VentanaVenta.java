@@ -100,6 +100,17 @@ public class VentanaVenta extends JPanel {
                 cambio = 0;
                 finalizarVenta(pagoDelCliente);
     }});
+        Button cancelarVentaButton = new Button("Cancelar Venta");
+        JPanel panelCancelarVenta = new JPanel();
+        cancelarVentaButton.setMaximumSize(new Dimension(150, 20));
+        panelCancelarVenta.add(cancelarVentaButton);
+        panelCancelarVenta.setBorder(borde2);
+        buttomPanel.add(panelCancelarVenta);
+        cancelarVentaButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                controlVenta.CancelarVenta();
+            }
+        });
         
         
         

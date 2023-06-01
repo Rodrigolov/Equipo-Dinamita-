@@ -1,7 +1,12 @@
+
 /*package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
 import org.springframework.beans.factory.annotation.Autowired;
 import mx.uam.ayd.proyecto.negocio.ServicioEmpleado;
 
+
+package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -82,5 +87,10 @@ public class ControlDardealtaEmpleado {
             termina();
 
     }
+
     
 }*/
+
+
+
+

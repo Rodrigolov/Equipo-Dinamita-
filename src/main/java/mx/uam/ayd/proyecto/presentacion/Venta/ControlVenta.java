@@ -9,6 +9,7 @@ import mx.uam.ayd.proyecto.negocio.ServicioProducto;
 import mx.uam.ayd.proyecto.negocio.ServicioVenta;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.Venta;
+import mx.uam.ayd.proyecto.presentacion.cancelarVenta.ControlCancelarVenta;
 
 @Component
 public class ControlVenta {
@@ -19,6 +20,8 @@ public class ControlVenta {
  private ServicioVenta servicioVenta;
  @Autowired
  private VentanaVenta ventanaVenta;
+ @Autowired
+ private ControlCancelarVenta control;
     
     public void inicia() {
 		
@@ -71,6 +74,10 @@ public class ControlVenta {
             cambio = 0;
         }
         return cambio;
+    }
+    
+    public void CancelarVenta() {
+    	control.inicia();
     }
 
 }

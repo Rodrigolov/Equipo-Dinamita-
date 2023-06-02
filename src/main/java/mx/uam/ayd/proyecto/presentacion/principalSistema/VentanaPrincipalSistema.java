@@ -97,7 +97,7 @@ public class VentanaPrincipalSistema extends JFrame {
 		
 		btnEmployees.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				control.inciaPagoProveedor();
+				control.iniciaPagoProveedor();
 			}
 		});
 
@@ -127,7 +127,7 @@ public class VentanaPrincipalSistema extends JFrame {
 
 		btnCreditShopping.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				control.iniciaCompra();
+				//control.iniciaCompra();
 			}
 		});
 		

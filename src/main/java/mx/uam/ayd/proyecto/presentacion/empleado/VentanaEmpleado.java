@@ -109,7 +109,7 @@ public class VentanaEmpleado extends JFrame{
 	}
 
 
-}*/
+}
 
 	public void agregarDatosEmpleados() {
 		List<Empleado> empleados = new ArrayList<>();
@@ -130,5 +130,5 @@ public class VentanaEmpleado extends JFrame{
 	
 	
 
-}
+}*/
 

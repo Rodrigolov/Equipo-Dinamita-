@@ -69,5 +69,20 @@ public class ServicioEmpleado {
 		return Empleados;
 	}
 
+	public Empleado recuperarEmpleadoPorNombre(String nombre)
+	{
+		return empleadoRepository.findByNombre(nombre);
+	}
+
+	public Empleado recuperarEmpleadoPorApellido(String nombre)
+	{
+		return empleadoRepository.findByNombre(nombre);
+	}
+
+	public Empleado recuperrarEmpleadoPorId(Long id)
+	{
+		return empleadoRepository.findByID(id);
+	}
+
 }
 

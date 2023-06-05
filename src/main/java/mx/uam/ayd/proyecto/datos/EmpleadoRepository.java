@@ -10,6 +10,10 @@ public interface EmpleadoRepository extends CrudRepository <Empleado, Long> {
 	
 	public Empleado findByID(long id);
 
+	public Empleado findByNombre(String Nombre);
+
+	public Empleado findByApellido(String Nombre);
+
 	public List <Empleado> findAll();
 
 }

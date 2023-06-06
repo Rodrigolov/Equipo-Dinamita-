@@ -297,7 +297,6 @@ public class ProyectoApplication {
         empleado1.setFechainicio(LocalDate.of(2021, 1, 1));
         empleado1.setDireccion("123 Main St");
         empleado1.setTelefono("555-1234");
-		
 
         Empleado empleado2 = new Empleado();
         empleado2.setNombre("Jane");
@@ -349,16 +348,6 @@ public class ProyectoApplication {
 		empleadoRepository.save(empleado5);
 		empleadoRepository.save(empleado6);
 		empleadoRepository.save(empleado7);
-
-		/* List <Empleado> emples = servicioEmpleado.recuperaEmpleados();
-
-		for (Empleado empleado : emples) {
-			
-
-			System.out.println(empleado.getNombre() + empleado.getID());
-		}	*/ 	
-
-		
 
 		
 	}

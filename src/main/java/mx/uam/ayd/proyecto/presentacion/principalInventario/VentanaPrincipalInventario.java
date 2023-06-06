@@ -24,31 +24,11 @@ public class VentanaPrincipalInventario extends JFrame {
 	private JPanel contentPane;
 	private ControlPrincipalInventario control;
 
-	/**
-	 * Launch the application.
-	 *
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaPrincipalInventarioII frame = new VentanaPrincipalInventarioII();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
-	/**
-	 * Create the frame.
-	 */
 	public VentanaPrincipalInventario() {
 		setAlwaysOnTop(true);
 		setResizable(false);
 		setTitle("Inventario");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 519, 462);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);

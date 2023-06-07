@@ -111,7 +111,7 @@ public class VentanaEmpleado extends JFrame{
 
 }*/
 
-	public void agregarDatosEmpleados() {
+	/*public void agregarDatosEmpleados() {
 		List<Empleado> empleados = new ArrayList<>();
 		empleadoRepository.findAll().forEach(empleados::add);
 	
@@ -130,5 +130,5 @@ public class VentanaEmpleado extends JFrame{
 	
 	
 
-}
+}*/
 

@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.empleado;
+/*package mx.uam.ayd.proyecto.presentacion.empleado;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -39,3 +39,4 @@ public class ControlEmpleado {
     }
     
 }
+*/

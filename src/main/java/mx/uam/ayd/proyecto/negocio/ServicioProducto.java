@@ -1,11 +1,13 @@
 package mx.uam.ayd.proyecto.negocio;
-import java.util.List;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 /**
@@ -117,4 +119,12 @@ public class ServicioProducto {
 	    }
 	}//Fin de la función validarFormatoFecha 
 	
+	public Producto eliminarProducto(int idProducto){
+
+		Producto producto = productoRepository.findById(idProducto);
+
+		productoRepository.delete(producto);
+		
+		return producto;
+	}
 }

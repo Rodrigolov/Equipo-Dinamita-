@@ -29,6 +29,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
@@ -55,7 +56,7 @@ public class VentanaPagoProveedores extends JFrame{
     setTitle("Tienda Mary");
 
     
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     
     labelProveedores = new JLabel("P R O V E E D O R E S ");
     labelProveedores.setFont(new Font("Gadugi", Font.BOLD, 25));
@@ -138,7 +139,7 @@ public class VentanaPagoProveedores extends JFrame{
     // Ajustar el tamaño y hacer visible la ventana principal
     pack();
 
-    //setVisible(true);
+    
     
     // Agregar un listener para detectar la selección de un renglón
     tablaEmpleados.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -170,7 +171,7 @@ public class VentanaPagoProveedores extends JFrame{
 
          JFrame ventanaPagos= new JFrame("Créditos pendientes");
          ventanaPagos.setBackground(Color.WHITE);
-         //ventanaPagos.setTitle("Pagos Pendientes");
+         ventanaPagos.setTitle("Pagos Pendientes");
          ventanaPagos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          ventanaPagos.setPreferredSize(new Dimension(350,235));
 

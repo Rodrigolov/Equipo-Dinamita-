@@ -93,6 +93,12 @@ public class VentanaPrincipalEmpleado extends JFrame {
 				control.editarEmpleado();
 			}
 		});
+
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.eliminarEmpleado();
+			}
+		});
 		
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

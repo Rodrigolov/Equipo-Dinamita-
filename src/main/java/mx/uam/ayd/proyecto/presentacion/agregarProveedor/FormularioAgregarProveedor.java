@@ -154,7 +154,7 @@ public class FormularioAgregarProveedor extends JFrame {
 		
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				control.terminaRegistro();
+				control.termina();
 			}
 		});
 		

@@ -16,9 +16,10 @@ import mx.uam.ayd.proyecto.negocio.modelo.Empleado;
 public class ServicioEmpleado {
 	
 	@Autowired
-	private EmpleadoRepository EmpleadoRepository;
+	private EmpleadoRepository empleadoRepository;
 	
 	
+
 	public Empleado agregaEmpleado(
 		int idempleado,
 		String nombre,
@@ -27,7 +28,7 @@ public class ServicioEmpleado {
 		LocalDate fechainicio,
 		String telefono) {
 		
-		Empleado Empleado = EmpleadoRepository.findById(idempleado);
+		Empleado Empleado = empleadoRepository.findByID(idempleado);
 		if(Empleado != null) {
 			throw new IllegalArgumentException("Ese Empleado ya existe");
 		}
@@ -41,14 +42,14 @@ public class ServicioEmpleado {
 		" telefono:"+telefono);
 
 		Empleado = new Empleado();
-		Empleado.setIdEmpleado(idempleado);
+		Empleado.setID(idempleado);
 		Empleado.setNombre(nombre);
 		Empleado.setApellido(apellido);
-		Empleado.setFechainico(fechainicio);
+		Empleado.setFechainicio(fechainicio);
 		Empleado.setDireccion(direccion);
 		Empleado.setTelefono(telefono);
 		
-		EmpleadoRepository.save(Empleado);
+		empleadoRepository.save(Empleado);
 		
 		return Empleado;
 		
@@ -57,11 +58,11 @@ public class ServicioEmpleado {
 	
 	public List <Empleado> recuperaEmpleados() {
 
-		System.out.println("EmpleadoRepository = "+EmpleadoRepository);
+		System.out.println("empleadoRepository = "+empleadoRepository);
 		
 		List <Empleado> Empleados = new ArrayList<>();
 		
-		for(Empleado Empleado:EmpleadoRepository.findAll()) {
+		for(Empleado Empleado:empleadoRepository.findAll()) {
 			Empleados.add(Empleado);
 		}
 				
@@ -69,3 +70,4 @@ public class ServicioEmpleado {
 	}
 
 }
+

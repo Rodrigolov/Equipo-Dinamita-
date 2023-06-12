@@ -16,12 +16,9 @@ public class ControlAgregarProveedor {
 	
 	@Autowired
 	private ServicioProveedor servicioProveedor;
-	
-	@Autowired
-	private VentanaAgregarProveedor ventana;
 
 	@Autowired
-	private FormularioAgregarProveedor formulario;
+	private FormularioAgregarProveedor ventana;
 
 
 	@Autowired
@@ -32,15 +29,9 @@ public class ControlAgregarProveedor {
 	 * 
 	 */
 	
-	public void inicia() {
-		
-		ventana.muestra(this);
-		
-	}
-	
 	public void iniciaRegistro() {
 		
-		formulario.muestra(this);
+		ventana.muestra(this);
 	}
 
 	public void agregaProveedor(String nombre, String marca, Long telefono, String correo) {
@@ -48,15 +39,15 @@ public class ControlAgregarProveedor {
 		try {
 			
 			servicioProveedor.agregaProveedor(nombre, marca, telefono, correo);
-			formulario.muestraDialogoConMensaje("Proveedor agregado exitosamente");
+			ventana.muestraDialogoConMensaje("Proveedor agregado exitosamente");
 		
 		}catch(Exception ex) {
 			
-			formulario.muestraDialogoConMensaje("Error al agregar proveedor: "+ex.getMessage());
+			ventana.muestraDialogoConMensaje("Error al agregar proveedor: "+ex.getMessage());
 		
 		}
 		
-		terminaRegistro();
+		termina();
 		
 	}
 	
@@ -67,10 +58,6 @@ public class ControlAgregarProveedor {
 	
 	public void termina() {
 		ventana.setVisible(false);		
-	}
-	
-	public void terminaRegistro() {
-		formulario.setVisible(false);		
 	}
 	
 	public void iniciaListaProveedores() {

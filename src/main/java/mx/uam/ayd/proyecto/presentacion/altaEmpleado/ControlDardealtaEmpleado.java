@@ -1,3 +1,9 @@
+
+/*package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
+import org.springframework.beans.factory.annotation.Autowired;
+import mx.uam.ayd.proyecto.negocio.ServicioEmpleado;
+
+
 package mx.uam.ayd.proyecto.presentacion.altaEmpleado;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
@@ -73,15 +79,18 @@ public class ControlDardealtaEmpleado {
                     Direccion,
                     Feachadeinicio,
                     Telefono);
-            ventanaDardealtaEmpleado.muestraDialogoConMensaje("Usuario agregado exitosamente");
+                ventana.muestraDialogoConMensaje("Usuario agregado exitosamente");
+            } catch(Exception ex) {
+                ventana.muestraDialogoConMensaje("Error al agregar usuario: "+ex.getMessage());
+            }
             
-        } catch (IllegalArgumentException ex) {
-            ventanaDardealtaEmpleado.muestraDialogoConMensaje("Error al agregar usuario: " + ex.getMessage());
-        } catch (Exception ex) {
-            ventanaDardealtaEmpleado.muestraDialogoConMensaje("Error inesperado al agregar usuario: " + ex.getMessage());
-        }
+            termina();
 
-        termina();
     }
 
-}
+    
+}*/
+
+
+
+

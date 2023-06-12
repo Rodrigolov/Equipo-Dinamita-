@@ -128,14 +128,8 @@ public class ServicioProducto {
 
     }
 	public Producto recuperarProductoId(Long id) {
-	    Optional<Producto> productoOptional = productoRepository.findById(id);
-
-	    if (productoOptional.isPresent()) {
-	        return productoOptional.get();
-	    }
-
-	    return null;
+		Optional<Producto> productoOptional = productoRepository.findById(id);
+	    return productoOptional.orElse(null);
 	}
-	
 	
 }

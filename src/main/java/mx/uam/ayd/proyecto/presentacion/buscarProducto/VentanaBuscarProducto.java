@@ -1,6 +1,5 @@
 package mx.uam.ayd.proyecto.presentacion.buscarProducto;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.DefaultComboBoxModel;
@@ -11,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,8 +19,6 @@ import org.springframework.stereotype.Component;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -37,31 +35,13 @@ public class VentanaBuscarProducto extends JFrame {
 	private JPanel contentPane;
 	private ControlBuscarProducto control;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaBuscarProducto frame = new VentanaBuscarProducto();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public VentanaBuscarProducto() {
 		setBackground(Color.WHITE);
 		setTitle("Buscar Producto");
 		setResizable(false);
 		setAlwaysOnTop(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
 		setBounds(100, 100, 523, 358);
 		contentPane = new JPanel();
 		contentPane.setForeground(Color.WHITE);
@@ -102,11 +82,7 @@ public class VentanaBuscarProducto extends JFrame {
 		contentPane.add(btnAtras);
 		btnAtras.setIcon(new ImageIcon("img/flecha-izquierda-2.png"));
 		
-		btnAtras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.termina();
-			}
-		});
+		btnAtras.addActionListener(e -> control.termina());
 		
 	}
 	
@@ -117,17 +93,13 @@ public class VentanaBuscarProducto extends JFrame {
 			String opcionSeleccionada = (String) comboBoxOpciones.getSelectedItem();
 			
 			tableModel.setRowCount(0);
-	        
 			if (opcionSeleccionada.equals("Todos los Productos")) {
 			    Set<Long> ids = new HashSet<>();
-			    
 			    for (Producto p : productos) {
 			        long idProducto = p.getIdProducto();
-			        
 			        if (!ids.contains(idProducto)) {
 			            Object[] fila = new Object[]{idProducto, p.getNombre(), p.getPrecio(), p.getStock() };
 			            tableModel.addRow(fila);
-			            
 			            ids.add(idProducto);
 			        }
 			    }
@@ -137,10 +109,8 @@ public class VentanaBuscarProducto extends JFrame {
 	        if (opcionSeleccionada.equals("Producto insuficiente")) {
 	        	
 	        	tableModel.setRowCount(0);
-	        		        	
 	        	for (Producto p : productos) {
 	        		if (p.getStock() > 0 && p.getStock() <= 2) {
-	        			
 	        			Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), p.getPrecio(), p.getStock() };
 	        			tableModel.addRow(fila);
 	        		
@@ -163,9 +133,11 @@ public class VentanaBuscarProducto extends JFrame {
 	            }//Fin del for
 
 	        }
-	    });
+	        
+	    }); //Fin del Lambda
 	
 	}//Fin del método opciones
+	
 	
 	public void muestra(ControlBuscarProducto control, List<Producto> productos) {
 		this.control = control;

@@ -1,10 +1,7 @@
 package mx.uam.ayd.proyecto.presentacion.editarEmpleado;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -14,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,6 +24,7 @@ import javax.swing.JLabel;
 @Component
 public class VentanaEditarEmpleado extends JFrame {
 
+	private static final String FONT_NAME_T = "Tahoma";
 	private JTable tableEmpleados;
 	private DefaultTableModel tableModel;
 	private JScrollPane scrollPane;
@@ -38,10 +37,10 @@ public class VentanaEditarEmpleado extends JFrame {
 	private ControlEditarEmpleado control;
 
 	public VentanaEditarEmpleado() {
-		setFont(new Font("Tahoma", Font.PLAIN, 14));
+		setFont(new Font(FONT_NAME_T, Font.PLAIN, 14));
 		setTitle("Editar Empleado");
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 484, 454);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -51,7 +50,7 @@ public class VentanaEditarEmpleado extends JFrame {
 		contentPane.setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 61, 450, 227);
+		scrollPane.setBounds(10, 73, 450, 227);
 		contentPane.add(scrollPane);
 		
 		tableModel = new DefaultTableModel(
@@ -63,7 +62,7 @@ public class VentanaEditarEmpleado extends JFrame {
 			);
 
 		tableEmpleados = new JTable(tableModel);
-		tableEmpleados.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tableEmpleados.setFont(new Font(FONT_NAME_T, Font.PLAIN, 14));
 		tableEmpleados.setSurrendersFocusOnKeystroke(true);
 		tableEmpleados.setFillsViewportHeight(true);
 		tableEmpleados.setEnabled(false);
@@ -72,49 +71,50 @@ public class VentanaEditarEmpleado extends JFrame {
 		btnAtras = new JButton("");
 		btnAtras.setBounds(21, 11, 41, 39);
 		btnAtras.setBackground(UIManager.getColor("InternalFrame.borderHighlight"));
-		btnAtras.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnAtras.setFont(new Font(FONT_NAME_T, Font.BOLD, 14));
 		contentPane.add(btnAtras);
 		btnAtras.setIcon(new ImageIcon("img/flecha-izquierda-2.png"));
 		
 		btnEditar = new JButton("");
 		btnEditar.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
 		btnEditar.setForeground(new Color(0, 0, 0));
-		btnEditar.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnEditar.setBounds(103, 299, 120, 70);
+		btnEditar.setFont(new Font(FONT_NAME_T, Font.BOLD, 18));
+		btnEditar.setBounds(110, 311, 120, 70);
 		contentPane.add(btnEditar);
 		btnEditar.setIcon(new ImageIcon("img/perfil.png"));
 		
 		btnCancelar = new JButton("");
 		btnCancelar.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
-		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnCancelar.setBounds(255, 299, 120, 70);
+		btnCancelar.setFont(new Font(FONT_NAME_T, Font.BOLD, 18));
+		btnCancelar.setBounds(255, 311, 120, 70);
 		contentPane.add(btnCancelar);
 		btnCancelar.setIcon(new ImageIcon("img/bntcancelar.png"));
 		
 		lblEditar = new JLabel("Editar Datos\r\n");
-		lblEditar.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblEditar.setBounds(125, 365, 87, 29);
+		lblEditar.setFont(new Font(FONT_NAME_T, Font.BOLD, 14));
+		lblEditar.setBounds(125, 380, 87, 29);
 		contentPane.add(lblEditar);
 		
 		lblCancelar = new JLabel("Cancelar");
-		lblCancelar.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCancelar.setBounds(275, 365, 87, 29);
+		lblCancelar.setFont(new Font(FONT_NAME_T, Font.BOLD, 14));
+		lblCancelar.setBounds(283, 380, 87, 29);
 		contentPane.add(lblCancelar);
 		
-		btnAtras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.termina();
-			}
-		});
+		JLabel lblTitulo = new JLabel("Empleados");
+		lblTitulo.setFont(new Font(FONT_NAME_T, Font.BOLD, 22));
+		lblTitulo.setBounds(173, 11, 129, 38);
+		contentPane.add(lblTitulo);
 		
-		btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.termina();
-			}
-		});
+		btnEditar.addActionListener(e -> control.editData());
+		
+		btnAtras.addActionListener(e -> control.termina());
+
+		btnCancelar.addActionListener(e -> control.termina());
+
 	}
 	
 	public void muestra(ControlEditarEmpleado control, List<Empleado> empleados) {
+		
 		this.control = control;
 		
 		tableModel.setRowCount(0);

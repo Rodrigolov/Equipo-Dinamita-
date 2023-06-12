@@ -18,8 +18,6 @@ public class ServicioEmpleado {
 	@Autowired
 	private EmpleadoRepository empleadoRepository;
 	
-	
-
 	public Empleado agregaEmpleado(
 		int idempleado,
 		String nombre,
@@ -68,6 +66,30 @@ public class ServicioEmpleado {
 				
 		return Empleados;
 	}
+	
+	/**
+	 * 
+	 * Permite guardar cambios de datos en un empleado
+	 * @author Lorena
+	 * @param empleado
+	 * @return 
+	 * 
+	 */
+	public boolean saveChanges(Empleado empleado) {
+		
+		if(empleado == null) {
+			
+			throw new IllegalArgumentException("No se han podido guardar los cambios");
+		
+		}else {
+			
+			return empleadoRepository.save(empleado) != null;
+		}
+		
+	}
+	
+	
 
 }
+
 

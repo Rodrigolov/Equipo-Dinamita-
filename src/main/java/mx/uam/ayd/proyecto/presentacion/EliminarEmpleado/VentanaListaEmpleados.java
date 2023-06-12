@@ -59,6 +59,7 @@ public class VentanaListaEmpleados extends JFrame {
 	 /**
      * Constructor de la clase VentanaListaEmpleados.
      * Inicializa y configura los componentes de la ventana.
+	 *   @Autor LuisQuiñones
      */
     public VentanaListaEmpleados() {
 			setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -190,7 +191,7 @@ public class VentanaListaEmpleados extends JFrame {
 
 	/**
      * Muestra la ventana de lista de empleados para eliminar.
-     *
+     *  @Autor LuisQuiñones
      * @param controlEliminarEmpleado Controlador de eliminación de empleados.
      * @param empleados               Lista de empleados a mostrar en la tabla.
      */
@@ -205,7 +206,7 @@ public class VentanaListaEmpleados extends JFrame {
 
 	/**
      * Establece la lista de empleados en la tabla de la ventana.
-     *
+     *  @Autor LuisQuiñones
      * @param empleados Lista de empleados a mostrar en la tabla.
      */
 	public void setEmpleados(List<Empleado> empleados)
@@ -223,7 +224,7 @@ public class VentanaListaEmpleados extends JFrame {
 
 	/**
      * Muestra un diálogo de mensaje de error.
-     *
+     *  @Autor LuisQuiñones
      * @param mensaje Mensaje de error a mostrar.
      */
 	public void muestraDialogoConMensajeError(String mensaje ) {
@@ -232,7 +233,7 @@ public class VentanaListaEmpleados extends JFrame {
 
 	/**
      * Muestra un diálogo de mensaje.
-     *
+     *  @Autor LuisQuiñones
      * @param mensaje Mensaje a mostrar.
      */
 	public void muestraDialogoConMensaje(String mensaje ) {
@@ -241,7 +242,7 @@ public class VentanaListaEmpleados extends JFrame {
 
 	/**
      * Muestra un diálogo de confirmación para eliminar un empleado.
-     *
+     *  @Autor LuisQuiñones
      * @param nombre   Nombre del empleado.
      * @param apellido Apellido del empleado.
      * @return true si el usuario confirma la eliminación, false en caso contrario.
@@ -269,6 +270,7 @@ public class VentanaListaEmpleados extends JFrame {
 	
 	/**
      * Termina la ejecución de la ventana y restablece los campos de texto.
+	 *   @Autor LuisQuiñones
      */
 
 	public void termina() {

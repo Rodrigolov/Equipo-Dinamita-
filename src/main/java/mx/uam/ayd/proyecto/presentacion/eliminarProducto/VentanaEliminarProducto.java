@@ -146,6 +146,34 @@ public class VentanaEliminarProducto extends JFrame {
         JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
+
+    /**
+     * Retorna el campo de texto txtIdProducto
+     * 
+     * @return JTextField el campo de texto txtIdProducto
+     */
+    public JTextField getTxtIdProducto() {
+        return txtIdProducto;
+    }
+
+    /**
+     * Retorna el botón btnEliminar
+     * 
+     * @return JButton el botón btnEliminar
+     */
+    public JButton getBtnEliminar() {
+        return btnEliminar;
+    }
+
+    /**
+     * Retorna el botón btnCancelar
+     * 
+     * @return JButton el botón btnCancelar
+     */
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
 }
 
 

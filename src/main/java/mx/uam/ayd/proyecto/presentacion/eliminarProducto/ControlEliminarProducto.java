@@ -60,6 +60,8 @@ public class ControlEliminarProducto {
 			ventanaEliminarProducto.muestraDialogoDeError("Error al eliminar el producto: "+ex.getMessage());
 		}
         
+        termina();
+        
     }
     
     /**

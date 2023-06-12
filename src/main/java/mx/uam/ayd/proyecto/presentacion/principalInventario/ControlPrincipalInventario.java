@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.buscarProducto.ControlBuscarProducto;
+import mx.uam.ayd.proyecto.presentacion.editarProducto.ControlEditarProducto;
 
 @Component
 public class ControlPrincipalInventario {
@@ -14,6 +15,9 @@ public class ControlPrincipalInventario {
 	
 	@Autowired
 	private ControlBuscarProducto controlBuscarProducto;
+	
+	@Autowired
+	private ControlEditarProducto controlEditarProducto;
 	
 	@Autowired
 	private VentanaPrincipalInventario ventana;
@@ -46,6 +50,12 @@ public class ControlPrincipalInventario {
 	public void termina() {
 		
 		ventana.setVisible(false);
+	
+	}
+	
+	public void editarProducto() {
+		
+		controlEditarProducto.inicia();
 	
 	}
 	

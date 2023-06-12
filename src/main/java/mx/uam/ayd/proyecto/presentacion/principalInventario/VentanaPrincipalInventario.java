@@ -110,6 +110,12 @@ public class VentanaPrincipalInventario extends JFrame {
 			}
 		});
 		
+		btnEditProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.editarProducto();
+			}
+		});
+		
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.termina();

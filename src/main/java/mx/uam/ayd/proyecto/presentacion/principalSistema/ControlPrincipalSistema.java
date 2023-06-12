@@ -15,13 +15,12 @@ import mx.uam.ayd.proyecto.presentacion.empleado.ControlEmpleado;
 import mx.uam.ayd.proyecto.presentacion.principalInventario.ControlPrincipalInventario;
 import mx.uam.ayd.proyecto.presentacion.realizarCorte.ControlRealizarCorte;
 
-<<<<<<< Updated upstream
-=======
+
 import mx.uam.ayd.proyecto.presentacion.cancelarVenta.ControlCancelarVenta;
 import mx.uam.ayd.proyecto.presentacion.editarProducto.ControlEditarProducto;
 
 
->>>>>>> Stashed changes
+
 
 /**
  * Esta clase lleva el flujo de control de la ventana principal
@@ -52,13 +51,12 @@ public class ControlPrincipalSistema {
 	
 	@Autowired
 	private ControlRealizarCorte control;
-<<<<<<< Updated upstream
-=======
+
 	@Autowired
 	private ControlCancelarVenta controlCancelar;
 	@Autowired
 	private ControlEditarProducto editar;
->>>>>>> Stashed changes
+
 
 	@Autowired
 	private ControlEmpleado controlEmpleado;

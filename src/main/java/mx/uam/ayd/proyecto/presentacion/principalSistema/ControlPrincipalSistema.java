@@ -14,14 +14,6 @@ import mx.uam.ayd.proyecto.presentacion.compra.ControlCompra;
 import mx.uam.ayd.proyecto.presentacion.empleado.ControlEmpleado;
 import mx.uam.ayd.proyecto.presentacion.principalInventario.ControlPrincipalInventario;
 import mx.uam.ayd.proyecto.presentacion.realizarCorte.ControlRealizarCorte;
-
-
-import mx.uam.ayd.proyecto.presentacion.cancelarVenta.ControlCancelarVenta;
-import mx.uam.ayd.proyecto.presentacion.editarProducto.ControlEditarProducto;
-
-
-
-
 /**
  * Esta clase lleva el flujo de control de la ventana principal
  * 
@@ -51,12 +43,6 @@ public class ControlPrincipalSistema {
 	
 	@Autowired
 	private ControlRealizarCorte control;
-
-	@Autowired
-	private ControlCancelarVenta controlCancelar;
-	@Autowired
-	private ControlEditarProducto editar;
-
 
 	@Autowired
 	private ControlEmpleado controlEmpleado;
@@ -117,12 +103,6 @@ public class ControlPrincipalSistema {
 	public void iniciaEmpleado() {
 		
 		controlEmpleado.inicia();
-	
-	}
-	
-	public void editarProducto() {
-		
-		editar.inicia();
 	
 	}
 

@@ -123,6 +123,10 @@ public class ServicioProducto {
 
 		Producto producto = productoRepository.findById(idProducto);
 
+		if(producto == null ) {
+			throw new IllegalArgumentException("Este producto no existe");
+		}
+
 		productoRepository.delete(producto);
 		
 		return producto;

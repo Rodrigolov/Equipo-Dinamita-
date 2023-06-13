@@ -34,6 +34,7 @@ public class VentanaEliminarProducto extends JFrame {
     private JButton btnCancelar;
     private ControlEliminarProducto controlEliminarProducto;
     private JPanel panel;
+    private static final String ACTION_1 = "Eliminar Producto", ACTION_2 = "Tahoma";
 
     /**
     *	Crea el frame para la ventana
@@ -42,7 +43,7 @@ public class VentanaEliminarProducto extends JFrame {
 
         setAlwaysOnTop(true);
         setResizable(false);
-        setTitle("Eliminar Producto");
+        setTitle(ACTION_1);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -53,12 +54,13 @@ public class VentanaEliminarProducto extends JFrame {
         panel.setLayout(null);
         panel.setBackground(Color.WHITE);
 
-        JLabel lblTitulo = new JLabel("Eliminar Producto");
-        lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 20));
+        JLabel lblTitulo = new JLabel(ACTION_1);
+        lblTitulo.setFont(new Font(ACTION_2, Font.BOLD, 20));
         lblTitulo.setBounds(171, 31, 200, 41);
         panel.add(lblTitulo);
 
         JLabel lblIdProducto = new JLabel("Id Producto:");
+        lblIdProducto.setFont(new Font(ACTION_2, Font.BOLD, 20));
         lblIdProducto.setBounds(20, 100, 100, 20);
         panel.add(lblIdProducto);
 
@@ -92,13 +94,13 @@ public class VentanaEliminarProducto extends JFrame {
             }
         });
 
-        JLabel lbleliminar = new JLabel("Eliminar Producto");
-        lbleliminar.setFont(new Font("Tahoma", Font.BOLD, 16));
+        JLabel lbleliminar = new JLabel(ACTION_1);
+        lbleliminar.setFont(new Font(ACTION_2, Font.BOLD, 16));
         lbleliminar.setBounds(100, 255, 155, 30);
         panel.add(lbleliminar);
 
         JLabel lblcancelar = new JLabel("Cancelar ");
-        lblcancelar.setFont(new Font("Tahoma", Font.BOLD, 16));
+        lblcancelar.setFont(new Font(ACTION_2, Font.BOLD, 16));
         lblcancelar.setBounds(270, 255, 155, 30);
         panel.add(lblcancelar);
 

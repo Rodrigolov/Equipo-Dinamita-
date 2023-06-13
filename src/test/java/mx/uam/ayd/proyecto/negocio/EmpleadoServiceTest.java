@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.negocio.modelo;
+package mx.uam.ayd.proyecto.negocio;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -14,6 +14,7 @@ import org.mockito.MockitoAnnotations;
 
 import mx.uam.ayd.proyecto.datos.EmpleadoRepository;
 import mx.uam.ayd.proyecto.negocio.ServicioEmpleado;
+import mx.uam.ayd.proyecto.negocio.modelo.Empleado;
 
 class ServicioEmpleadoTest {
 

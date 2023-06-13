@@ -28,6 +28,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
+/**
+ * 
+ * @author Lorena
+ * Inicia y da el formato a la ventana y sus componentes
+ * Así mismo accionan los botones mediante los metodos 
+ * del control
+ * 
+ */
 @SuppressWarnings("serial")
 @Component
 public class VentanaFormatoEditar extends JFrame {
@@ -185,9 +193,13 @@ public class VentanaFormatoEditar extends JFrame {
 	}//Fin de la clase Ventana
 	
 	
-	/*
-	 * Método que verifica los datos que se cambiaran y si son correctos, iniciara 
-	 * el registro de nuevos datos
+	
+	/**
+	 * 
+	 * @author Lorena
+ 	 * Método que verifica los datos que se cambiaran y si son correctos, iniciara 
+	 * el registro de nuevos datos mediante el llamado al metodo en el control
+	 * 
 	 */
 	private void verifyData() {
 		
@@ -209,7 +221,7 @@ public class VentanaFormatoEditar extends JFrame {
 	    
 	    if (camposVacios) {
 	        
-	    	muestraDialogoConMensaje("Los campos no deben estar vacíos");
+	    	muestraDialogoAdvertencia("Los campos no deben estar vacíos");
 	    
 	    } else {
 	    	
@@ -237,8 +249,14 @@ public class VentanaFormatoEditar extends JFrame {
 	}//Termina verificación de datos
 	
 	
-	/*
-	 * Inicia y muestra la ventana desde el controlador
+	/**
+	 * 
+	 * @author Lorena
+	 * @param control
+	 * @param empleados
+	 * Muestran e inician la ventana de la HU
+	 * con los datos necesarios de los empleados
+	 * 
 	 */
 	public void muestra(ControlEditarEmpleado control, List<Empleado> empleados) {
 		
@@ -286,8 +304,16 @@ public class VentanaFormatoEditar extends JFrame {
 	
 	
 	
-	/*
+	/**
+	 * 
+	 * @author Lorena
+	 * @param name
+	 * @param lastName 
+	 * @param address
+	 * @param phone
+	 * @return opcion
 	 * Método que muestra el dialogo de confirmación a la hora de editar los datos
+	 * 
 	 */
 	public  boolean confirmationDialog(String name, String lastName, String address,String phone) {
 		
@@ -304,9 +330,25 @@ public class VentanaFormatoEditar extends JFrame {
     }//Fin del mensaje de confirmación
 	
 	
-	public void muestraDialogoConMensaje(String mensaje ) {
+	/**
+	 * 
+	 * @author Lorena
+	 * @param mensaje
+	 * Los sigueintes metodos muestran un ventana con dialogo para 
+	 * notificar o advetir que los cambios se pueden o no 
+	 * realizar
+	 * 
+	 */
+	public void muestraDialogoConMensaje(String mensaje) {
 		
-		JOptionPane.showMessageDialog(this , mensaje);
+	    JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.INFORMATION_MESSAGE);
 	
 	}//Fin del método
+	
+	public void muestraDialogoAdvertencia(String mensaje) {
+	    
+		JOptionPane.showMessageDialog(this, mensaje, "Advertencia", JOptionPane.WARNING_MESSAGE);
+	
+	}//Fin del método
+
 }

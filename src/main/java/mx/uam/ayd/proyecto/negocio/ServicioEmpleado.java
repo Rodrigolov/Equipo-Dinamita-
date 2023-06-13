@@ -69,10 +69,10 @@ public class ServicioEmpleado {
 	
 	/**
 	 * 
-	 * Permite guardar cambios de datos en un empleado
 	 * @author Lorena
 	 * @param empleado
-	 * @return 
+	 * @return true
+	 * Permite guardar cambios de datos en un empleado
 	 * 
 	 */
 	public boolean saveChanges(Empleado empleado) {

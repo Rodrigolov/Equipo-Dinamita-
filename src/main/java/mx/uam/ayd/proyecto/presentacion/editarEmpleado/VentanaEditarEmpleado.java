@@ -20,6 +20,15 @@ import org.springframework.stereotype.Component;
 import mx.uam.ayd.proyecto.negocio.modelo.Empleado;
 import javax.swing.JLabel;
 
+
+/**
+ * 
+ * @author Lorena
+ * Inicia y da el formato a la ventana y sus componentes
+ * Así mismo accionan los botones mediante los metodos 
+ * del control
+ * 
+ */
 @SuppressWarnings("serial")
 @Component
 public class VentanaEditarEmpleado extends JFrame {
@@ -113,6 +122,14 @@ public class VentanaEditarEmpleado extends JFrame {
 
 	}
 	
+	/**
+	 * 
+	 * @author Lorena
+	 * @param ControlEditarEmpleado, List<Empleado>
+	 * Muestran e inician la ventana de la HU
+	 * con los datos necesarios de los empleados
+	 * 
+	 */
 	public void muestra(ControlEditarEmpleado control, List<Empleado> empleados) {
 		
 		this.control = control;

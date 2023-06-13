@@ -15,7 +15,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 

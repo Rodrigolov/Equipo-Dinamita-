@@ -3,7 +3,7 @@ package mx.uam.ayd.proyecto.presentacion.pagoProveedores;
 import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
-
+import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -50,7 +50,7 @@ public class VentanaPagoProveedores extends JFrame{
     private ControlPagoProveedores control;
     private  DefaultListModel<String> listModel;
 
-
+    
     public VentanaPagoProveedores(){
 
     setTitle("Tienda Mary");

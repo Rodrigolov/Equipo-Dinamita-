@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.buscarProducto.ControlBuscarProducto;
+
 @Component
 public class ControlPrincipalInventario {
 	

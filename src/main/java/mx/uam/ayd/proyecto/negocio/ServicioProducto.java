@@ -21,12 +21,10 @@ public class ServicioProducto {
 	
 	private Date date1;
 	
-	
     @Autowired
     private ProductoRepository productoRepository;
+
     public List<Producto> recuperarProductos() {
-		
-        System.out.println("productoRepository ="+productoRepository);
 		
 		List <Producto> productos = new ArrayList<>();
 		
@@ -43,14 +41,14 @@ public class ServicioProducto {
     
     public List<Producto> recuperarProductosInsuficentes() {
 		
-        System.out.println("productoRepository ="+productoRepository);
-		
 		List <Producto> productos = new ArrayList<>();
 		
 		for(Producto producto:productoRepository.findAll())
         {
-			if(producto.getStock()<=2)
-			productos.add(producto);
+			if(producto.getStock()<=2){
+				productos.add(producto);
+			}
+			
         }
 				
 		return productos;
@@ -75,7 +73,7 @@ public class ServicioProducto {
 		
 		Producto producto = productoRepository.findById(id);
 		
-		System.out.println("producto= "+producto);
+		
 		
 		if(validarFormatoFecha(date) != true) {
 			throw new IllegalArgumentException("Formato de fecha incorrecto (día/mes/año)");

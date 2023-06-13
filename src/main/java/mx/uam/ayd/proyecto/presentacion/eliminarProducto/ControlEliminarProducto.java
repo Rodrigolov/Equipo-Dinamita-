@@ -48,6 +48,7 @@ public class ControlEliminarProducto {
         try {
             if(string1.equals("")){
                 ventanaEliminarProducto.muestraDialogoDeAdvertencia("El ID solo debe contener números");
+                return;
             }
             if (!string1.matches("\\d+")) {
                 ventanaEliminarProducto.muestraDialogoDeAdvertencia("El ID solo debe contener números");

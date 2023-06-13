@@ -172,7 +172,7 @@ public class VentanaListaEmpleados extends JFrame {
 				Empleado empleado;
 				if(txtNombre.getText().isEmpty() ||txtApellido.getText().isEmpty())
 				{
-					muestraDialogoConMensajeError("Los campos de nombre y apellido no deben estar vacios");
+					muestraDialogoConMensajeWarning("Los campos de nombre y apellido no deben estar vacios");
 				}else{
 					empleado = control.recuperarEmpleadoPorNombreYApellido(txtNombre.getText(), txtApellido.getText());
 					if (empleado == null) {
@@ -232,6 +232,15 @@ public class VentanaListaEmpleados extends JFrame {
      */
 	public void muestraDialogoConMensajeError(String mensaje ) {
 		JOptionPane.showMessageDialog(this , mensaje,"Error",JOptionPane.ERROR_MESSAGE);
+	}
+
+	/**
+     * Muestra un diálogo de mensaje de warning.
+     *  @Autor LuisQuiñones
+     * @param mensaje Mensaje de error a mostrar.
+     */
+	public void muestraDialogoConMensajeWarning(String mensaje ) {
+		JOptionPane.showMessageDialog(this , mensaje,"Error",JOptionPane.WARNING_MESSAGE);
 	}
 
 	/**

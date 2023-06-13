@@ -3,8 +3,8 @@ package mx.uam.ayd.proyecto.presentacion.principalEmpleado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import mx.uam.ayd.proyecto.presentacion.EliminarEmpleado.ControlEliminarEmpleado;
 import mx.uam.ayd.proyecto.presentacion.editarEmpleado.ControlEditarEmpleado;
+import mx.uam.ayd.proyecto.presentacion.eliminarEmpleado.ControlEliminarEmpleado;
 
 @Component
 public class ControlPrincipalEmpleado {

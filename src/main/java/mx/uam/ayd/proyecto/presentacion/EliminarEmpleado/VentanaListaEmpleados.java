@@ -1,9 +1,6 @@
-package mx.uam.ayd.proyecto.presentacion.EliminarEmpleado;
+package mx.uam.ayd.proyecto.presentacion.eliminarEmpleado;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -44,7 +41,7 @@ public class VentanaListaEmpleados extends JFrame {
      * Launch the application.
      */
 
-    public static void main(String[] args) {
+ /**  public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -55,7 +52,8 @@ public class VentanaListaEmpleados extends JFrame {
                 }
             }
         });
-    }
+    }*/
+
 	 /**
      * Constructor de la clase VentanaListaEmpleados.
      * Inicializa y configura los componentes de la ventana.
@@ -172,16 +170,21 @@ public class VentanaListaEmpleados extends JFrame {
 			
 			btnBusca.addActionListener(e -> {
 				Empleado empleado;
-				empleado = control.recuperarEmpleadoPorNombreYApellido(txtNombre.getText(), txtApellido.getText());
-				if (empleado == null) {
-					muestraDialogoConMensajeError("No se encontró el empleado");
-				} else {
-					DefaultTableModel model = (DefaultTableModel) tableEmpleados.getModel();
-					model.setRowCount(0);
+				if(txtNombre.getText().isEmpty() ||txtApellido.getText().isEmpty())
+				{
+					muestraDialogoConMensajeError("Los campos de nombre y apellido no deben estar vacios");
+				}else{
+					empleado = control.recuperarEmpleadoPorNombreYApellido(txtNombre.getText(), txtApellido.getText());
+					if (empleado == null) {
+						muestraDialogoConMensajeError("No se encontró el empleado");
+					} else {
+						DefaultTableModel model = (DefaultTableModel) tableEmpleados.getModel();
+						model.setRowCount(0);
 
-					model.addRow(new Object[] {
-						empleado.getNombre(), empleado.getApellido(), empleado.getID(), empleado.getTelefono()
-					});
+						model.addRow(new Object[] {
+							empleado.getNombre(), empleado.getApellido(), empleado.getID(), empleado.getTelefono()
+						});
+					}
 				}
 			});
 

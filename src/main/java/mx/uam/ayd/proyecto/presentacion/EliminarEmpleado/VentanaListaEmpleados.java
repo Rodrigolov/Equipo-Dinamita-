@@ -21,7 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-@SuppressWarnings("serial")
+@SuppressWarnings("all")
 @Component
 public class VentanaListaEmpleados extends JFrame {
 

@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import mx.uam.ayd.proyecto.datos.EmpleadoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Empleado;
 
+
+@SuppressWarnings("all")
 @Slf4j
 @Service
 public class ServicioEmpleado {

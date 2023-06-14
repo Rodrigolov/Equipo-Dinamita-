@@ -38,9 +38,6 @@ import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
 public class ProyectoApplication {
 	@Autowired
 	ControlPrincipal controlPrincipal;
-
-	/*@Autowired
-	ControlPagoProveedores controlPagoProveedores;*/
 	
 	@Autowired
 	GrupoRepository grupoRepository;
@@ -80,7 +77,6 @@ public class ProyectoApplication {
 		
 		inicializaBD();
 		controlPrincipal.inicia();
-		//controlPagoProveedores.incia();
 	}
 	
 	

@@ -132,7 +132,8 @@ public class VentanaPrincipalInventario extends JFrame {
     btnDeleteProduct.addActionListener(e -> control.eliminarProducto());
 
 		btnAtras.addActionListener(e -> control.termina());
-	
+	 
+		btnEditProduct.addActionListener(e->control.editarProducto());
 
 	}
 		

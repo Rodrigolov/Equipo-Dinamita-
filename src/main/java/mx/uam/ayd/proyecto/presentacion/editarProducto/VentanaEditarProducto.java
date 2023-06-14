@@ -1,4 +1,6 @@
 package mx.uam.ayd.proyecto.presentacion.editarProducto;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,6 +10,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import org.springframework.stereotype.Component;
@@ -33,6 +37,7 @@ import java.util.List;
 @SuppressWarnings("serial")
 @Component
 public class VentanaEditarProducto extends JFrame {
+    private static final String FONT_NAME_T = "Tahoma";
     private ControlEditarProducto control;
     private DefaultTableModel modeloTabla;
     private JTable tablaProductos;
@@ -62,6 +67,8 @@ public class VentanaEditarProducto extends JFrame {
         setSize(482, 454);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         // Panel de búsqueda
+
+        
         FlowLayout fl_panelBuscar = new FlowLayout(FlowLayout.LEADING);
         fl_panelBuscar.setAlignOnBaseline(true);
         fl_panelBuscar.setHgap(10);
@@ -69,16 +76,28 @@ public class VentanaEditarProducto extends JFrame {
         campoBuscar = new JTextField(20);
         botonBuscar = new JButton("Buscar");
         panelBuscar.setBackground(Color.WHITE);
-        
-        JButton btnSalir = new JButton("<----");
+        JButton btnSalir = new JButton("");
         btnSalir.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		dispose();
         	}
         });
+
+        btnSalir.setIcon(new ImageIcon("img/flecha-izquierda-2.png"));
         panelBuscar.add(btnSalir);
         panelBuscar.add(campoBuscar);
         panelBuscar.add(botonBuscar);
+
+        JLabel lblTitulo = new JLabel("Editar Producto");
+        lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 20));
+        lblTitulo.setForeground(Color.BLACK);
+        lblTitulo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        JPanel panelTitulo = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        panelTitulo.setBackground(Color.WHITE);
+        panelTitulo.add(lblTitulo);
+
+        getContentPane().add(panelTitulo, BorderLayout.NORTH);
         // Tabla de productos
         modeloTabla = new DefaultTableModel();
         modeloTabla.addColumn("ID");
@@ -90,10 +109,19 @@ public class VentanaEditarProducto extends JFrame {
         tablaProductos.setFillsViewportHeight(true);
         JScrollPane scrollPane = new JScrollPane(tablaProductos);
         // Panel de botones
-        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        botonEditar = new JButton("Editar");
+        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER));
         panelBotones.setBackground(Color.WHITE);
-        panelBotones.add(botonEditar);
+        JPanel panelBotonEditar = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        panelBotonEditar.setBackground(Color.WHITE);
+        botonEditar = new JButton(new ImageIcon("img/carpeta.png"));
+        botonEditar.setVerticalTextPosition(SwingConstants.BOTTOM);
+        botonEditar.setHorizontalTextPosition(SwingConstants.CENTER);
+        botonEditar.setText("Editar");
+        botonEditar.setFont(new Font(FONT_NAME_T, Font.BOLD, 13));
+        panelBotonEditar.add(botonEditar);
+        
+        
+        panelBotones.add(panelBotonEditar);
         
         // Panel principal
         JPanel panelPrincipal = new JPanel(new BorderLayout());
@@ -228,16 +256,36 @@ public class VentanaEditarProducto extends JFrame {
             campoCantidad.setPreferredSize(new Dimension(200, 25));
             campoCantidad.setFont(new Font("Tahoma", Font.PLAIN, 13));
             panelEdicion.add(campoCantidad, gbc);
+
+             JLabel lblTitulo = new JLabel("Edicion de Producto");
+        lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 20));
+        lblTitulo.setForeground(Color.BLACK);
+        lblTitulo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        JPanel panelTitulo = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        panelTitulo.setBackground(Color.WHITE);
+        panelTitulo.add(lblTitulo);
+
+        getContentPane().add(panelTitulo, BorderLayout.NORTH);
             // Panel de botones
-            JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+            JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER));
             panelBotones.setBackground(Color.WHITE);
+
             JButton botonAceptar = new JButton("Aceptar");
-            botonAceptar.setPreferredSize(new Dimension(80, 25));
-            botonAceptar.setFont(new Font("Tahoma", Font.PLAIN, 13));
+            botonAceptar.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
+            botonAceptar.setFont(new Font(FONT_NAME_T, Font.BOLD, 18));
+            botonAceptar.setBounds(110, 311, 120, 70);
             panelBotones.add(botonAceptar);
+            botonAceptar.setIcon(new ImageIcon("img/acept.png"));
+
             JButton botonCancelar = new JButton("Cancelar");
-            botonCancelar.setPreferredSize(new Dimension(80, 25));
-            botonCancelar.setFont(new Font("Tahoma", Font.PLAIN, 13));
+            botonCancelar.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
+            botonCancelar.setFont(new Font(FONT_NAME_T, Font.BOLD, 18));
+            botonCancelar.setBounds(255, 311, 120, 70);
+            panelBotones.add(botonCancelar);
+            botonCancelar.setIcon(new ImageIcon("img/bntcancelar.png"));
+
+            panelBotones.add(botonAceptar);
             panelBotones.add(botonCancelar);
             // Panel principal
             JPanel panelPrincipal = new JPanel(new BorderLayout());

@@ -9,7 +9,7 @@ import mx.uam.ayd.proyecto.negocio.ServicioProducto;
 import mx.uam.ayd.proyecto.negocio.ServicioVenta;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 import mx.uam.ayd.proyecto.negocio.modelo.Venta;
-import mx.uam.ayd.proyecto.presentacion.cancelarVenta.ControlCancelarVenta;
+//import mx.uam.ayd.proyecto.presentacion.cancelarVenta.ControlCancelarVenta;
 
 @Component
 public class ControlVenta {
@@ -20,15 +20,15 @@ public class ControlVenta {
  private ServicioVenta servicioVenta;
  @Autowired
  private VentanaVenta ventanaVenta;
- @Autowired
- private ControlCancelarVenta control;
+ /*@Autowired
+ private ControlCancelarVenta control;*/
     
     public void inicia() {
 		
         List <Producto> productos = servicioProducto.recuperarProductos();
-        Venta venta = servicioVenta.CrearVenta();
+        //Venta venta = servicioVenta.CrearVenta();
 
-        ventanaVenta.muestra(this, productos,venta);
+        //ventanaVenta.muestra(this, productos,venta);
 
 	}
 
@@ -48,7 +48,7 @@ public class ControlVenta {
     public void agregarProducto(Producto producto,Venta venta)
     {
         try {
-            servicioVenta.agregarProducto(producto,venta);
+            //servicioVenta.agregarProducto(producto,venta);
         }catch(Exception ex) 
         {
             ventanaVenta.muestraDialogoConMensaje("Se Ha acabado el stock del producto deceado");
@@ -57,14 +57,14 @@ public class ControlVenta {
 
     public void quitaProducto(Producto producto,int productLoc,Venta venta)
     {
-        servicioVenta.quitarProducto(producto, productLoc,venta);
+        //ervicioVenta.quitarProducto(producto, productLoc,venta);
     }
 
     public int completarVenta(int pagoCliente,Venta venta)
     {
         int cambio=0;
         try {
-         cambio = servicioVenta.finalizarVenta(pagoCliente, venta);
+         //cambio = servicioVenta.finalizarVenta(pagoCliente, venta);
          ventanaVenta.muestraDialogoConMensaje("Venta realizada exitosamente el cambio del cliente es : " + cambio);
          ventanaVenta.termina();
     }
@@ -77,7 +77,7 @@ public class ControlVenta {
     }
     
     public void CancelarVenta() {
-    	control.inicia();
+    	//control.inicia();
     }
 
 }

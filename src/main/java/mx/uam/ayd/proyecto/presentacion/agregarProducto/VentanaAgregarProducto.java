@@ -268,8 +268,9 @@ public class VentanaAgregarProducto extends JFrame{
 			{
 				if(revisaCamposVacios()== true) {//Llama a la función revisaCamposvacios() para verificar que los campos no estén vacios 
 					
-					muestraDialogoConMensaje("Favor de llenar todos los campos obligatorios");
-					//JOptionPane.showMessageDialog(null, "Favor de llenar todos los campos obligatorios");
+					//muestraDialogoConMensaje("Favor de llenar todos los campos obligatorios");
+					JOptionPane.showMessageDialog(null, "Favor de llenar todos los campos obligatorios", "Javadesde0.com", JOptionPane.WARNING_MESSAGE);
+					//(null, "Favor de llenar todos los campos obligatorios",JOptionPane.QUESTION_MESSAGE);
 				}
 				else {
 					

@@ -3,6 +3,8 @@ package mx.uam.ayd.proyecto.presentacion.principalInventario;
 import javax.swing.WindowConstants;
 
 
+import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -28,6 +30,7 @@ public class VentanaPrincipalInventario extends JFrame {
 	
 
 	public VentanaPrincipalInventario() {
+		
 		setAlwaysOnTop(true);
 		setResizable(false);
 		setTitle("Inventario");
@@ -41,29 +44,36 @@ public class VentanaPrincipalInventario extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblInventario = new JLabel("INVENTARIO");
-		lblInventario.setFont(new Font(FONT_NAME_T, Font.BOLD, 24));
-		lblInventario.setBounds(171, 31, 165, 41);
+
+		lblInventario.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblInventario.setBounds(169, 11, 165, 41);
 		contentPane.add(lblInventario);
 		
 		JButton btnAddProduct = new JButton("");
-		btnAddProduct.setBounds(72, 114, 145, 82);
+		btnAddProduct.setBounds(72, 79, 145, 82);
 		contentPane.add(btnAddProduct);
 		btnAddProduct.setIcon(new ImageIcon("img/VI-agregar.png"));
 		
 		JButton btnEditProduct = new JButton("");
-		btnEditProduct.setBounds(291, 114, 145, 82);
+		btnEditProduct.setBounds(291, 79, 145, 82);
 		contentPane.add(btnEditProduct);
 		btnEditProduct.setIcon(new ImageIcon("img/VI-editar.png"));
 		
 		JButton btnDeleteProduct = new JButton("");
-		btnDeleteProduct.setBounds(72, 244, 145, 82);
+		btnDeleteProduct.setBounds(72, 195, 145, 82);
 		contentPane.add(btnDeleteProduct);
 		btnDeleteProduct.setIcon(new ImageIcon("img/VI-eliminar.png"));
 		
 		JButton btnSeachProduct = new JButton("");
-		btnSeachProduct.setBounds(291, 244, 145, 82);
+		btnSeachProduct.setBounds(291, 195, 145, 82);
 		contentPane.add(btnSeachProduct);
 		btnSeachProduct.setIcon(new ImageIcon("img/VI-buscar.png"));
+
+		JButton btnSearchProduct2 = new JButton("");
+		btnSearchProduct2.setBounds(169, 316, 145, 82);
+		contentPane.add(btnSearchProduct2);
+		btnSearchProduct2.setIcon(new ImageIcon("img/buscarP.png"));
+
 		
 		JButton btnAtras = new JButton("");
 		btnAtras.setBackground(UIManager.getColor("InternalFrame.borderHighlight"));
@@ -72,65 +82,47 @@ public class VentanaPrincipalInventario extends JFrame {
 		btnAtras.setIcon(new ImageIcon("img/flecha-izquierda-2.png"));
 		
 		JLabel lblAdd = new JLabel("Agregar Producto");
-		lblAdd.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
-		lblAdd.setBounds(72, 199, 145, 28);
+		lblAdd.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblAdd.setBounds(72, 156, 145, 28);
 		contentPane.add(lblAdd);
 		
 		JLabel lblEdit = new JLabel("Editar Producto");
-		lblEdit.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
-		lblEdit.setBounds(301, 199, 133, 28);
+		lblEdit.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblEdit.setBounds(301, 156, 133, 28);
 		contentPane.add(lblEdit);
 		
 		JLabel lblDelete = new JLabel("Eliminar Producto");
-		lblDelete.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
-		lblDelete.setBounds(72, 326, 145, 28);
+		lblDelete.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblDelete.setBounds(72, 275, 145, 28);
 		contentPane.add(lblDelete);
 		
 		JLabel lblSeach = new JLabel("Inventario Productos");
-		lblSeach.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
-		lblSeach.setBounds(280, 326, 177, 28);
+		lblSeach.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblSeach.setBounds(280, 275, 160, 28);
 		contentPane.add(lblSeach);
 		
 		JLabel lblIcon = new JLabel("");
-		lblIcon.setBounds(376, 21, 66, 60);
+		lblIcon.setBounds(376, 11, 66, 60);
 		contentPane.add(lblIcon);
 		lblIcon.setIcon(new ImageIcon("img/VI-producto.png"));
 		
 		JLabel lblIcon2 = new JLabel("");
-		lblIcon2.setBounds(72, 21, 66, 60);
+		lblIcon2.setBounds(72, 11, 66, 60);
 		contentPane.add(lblIcon2);
 		lblIcon2.setIcon(new ImageIcon("img/VI-producto.png"));
 
-		btnAddProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.agregarProducto();
-			}
-		});
 		
-		btnSeachProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.buscarProducto();
-			}
-		});
-		
-		btnEditProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.editarProducto();
-			}
-		});
-		
-		btnAtras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.termina();
-			}
-		});
+		JLabel lblSearchProduct2 = new JLabel("Buscar Producto");
+		lblSearchProduct2.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblSearchProduct2.setBounds(179, 395, 145, 28);
+		contentPane.add(lblSearchProduct2);
 
-		btnAddProduct.addActionListener(e -> control.agregarProducto());
-
+		btnAddProduct.addActionListener(e-> control.agregarProducto());
+		
 		btnSeachProduct.addActionListener(e -> control.buscarProducto());
-    
-    btnDeleteProduct.addActionListener(e -> control.eliminarProducto());
 
+		btnSearchProduct2.addActionListener(e -> control.buscarProducto2());
+		
 		btnAtras.addActionListener(e -> control.termina());
 	 
 		btnEditProduct.addActionListener(e->control.editarProducto());

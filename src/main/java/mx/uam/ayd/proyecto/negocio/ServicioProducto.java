@@ -12,10 +12,11 @@ import org.springframework.stereotype.Service;
 
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
+
 /**
  * Servicio relacionado con los productos
  * 
- * @author humbertocervantes
+ * @author Rodrigo 
  *
  */
 @Service
@@ -25,7 +26,6 @@ public class ServicioProducto {
 	
     @Autowired
     private ProductoRepository productoRepository;
-    
 
     public List<Producto> recuperarProductos() {
 		
@@ -40,7 +40,47 @@ public class ServicioProducto {
 		return productos;
     }
 
+
+    /**
+     * buscaProductosNombre: busca productos por nombre 
+     * @param nombre del producto
+     * @return lista de productos con ese nombre o null si no hay productos con ese nombre
+     * 
+     */
+    public List<Producto> buscaProductosNombre(String nameProduct){
+
+      List <Producto> productos = new ArrayList<>();
+
+      for(Producto producto:productoRepository.findAll())
+      {
+        String nombreProducto = producto.getNombre();
+        String primer = nombreProducto.split(" ")[0];
+
+        if(primer.equals(nameProduct))
+              {
+                  productos.add(producto);
+              }
+
+      }//Fin del for 
+
+      return productos;
+    }
+
     
+    /**
+     * buscaProductoID: busca productos por ID
+     * @param id del producto
+     * @return producto si lo econtro o null si no existe  
+     * 
+     */
+    public Producto buscaProductoID(String idProduct){
+
+      long idproducto = Long.parseLong(idProduct);
+      return productoRepository.findById(idproducto);
+    }
+
+	
+
     public List<Producto> recuperarProductosInsuficentes() {
 		
 		List <Producto> productos = new ArrayList<>();

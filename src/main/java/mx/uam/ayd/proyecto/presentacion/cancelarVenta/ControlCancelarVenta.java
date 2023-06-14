@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.cancelarVenta;
+/*package mx.uam.ayd.proyecto.presentacion.cancelarVenta;
 
 
 import java.time.LocalDate;
@@ -25,7 +25,7 @@ public class ControlCancelarVenta {
 	 */
 	
 	
-	public void inicia() {
+/*  public void inicia() {
         ventana.muestra(this, servicioVenta.obtenerTodasLasVentas());
     }
 
@@ -42,8 +42,9 @@ public class ControlCancelarVenta {
 	 * Termina la historia de usuario
 	 * 
 	 */
-	public void termina() {
+	/*public void termina() {
 		ventana.setVisible(false);		
 	}
 
 }
+*/

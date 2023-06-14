@@ -1,35 +1,26 @@
 package mx.uam.ayd.proyecto.presentacion.buscarProducto2;
 
-import java.awt.EventQueue;
 import java.awt.Font;
-
-//import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-//import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
-import mx.uam.ayd.proyecto.presentacion.buscarProducto.ControlBuscarProducto;
+import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 
 import java.awt.Color;
-//import java.util.HashSet;
-//import java.util.List;
-//import java.util.Set;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-//import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
 
 @SuppressWarnings("serial")
 @Component
@@ -41,27 +32,12 @@ public class VentanaBuscarProducto2 extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JComboBox <String> comboBox;
-	private ControlBuscarProducto control;
+	private ControlBuscarProducto2 control;
 
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaBuscarProducto2 frame = new VentanaBuscarProducto2();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
+	 * @author: Rodrigo Lovera
+	 * 
 	 */
 	public VentanaBuscarProducto2() {
 
@@ -126,68 +102,77 @@ public class VentanaBuscarProducto2 extends JFrame {
 		comboBox.addItem("");
 		comboBox.addItem("ID Producto");
 		comboBox.addItem("Nombre");
-		comboBox.addItem("Precio");
-		comboBox.addItem("Stock");
 		comboBox.setBounds(10, 54, 94, 28);
 		contentPane.add(comboBox);
 
         textField.setEditable(false);
-		
+		btnBuscar.setEnabled(false);
+
         //ActionListeners
-		comboBox.addActionListener(new ActionListener() {
+		comboBox.addActionListener(e-> {
 			
-			@Override
-			public void actionPerformed(ActionEvent e) {
+			textField.setText("");
+			String opcion = (String) comboBox.getSelectedItem();
 				
-				textField.setText("");
-				String opcion = (String) comboBox.getSelectedItem();
-				
-				System.out.print(opcion);
-				if(opcion.equals("Nombre")) {
+			if(opcion.equals("Nombre")) {
+				textField.setEditable(true);
+				btnBuscar.setEnabled(true);
+			}
+			else
+			{
+				if(opcion.equals("ID Producto")) {
 					textField.setEditable(true);
+					btnBuscar.setEnabled(true);
 				}
 				else
 				{
-					if(opcion.equals("ID Producto")|| opcion.equals("Precio")|| opcion.equals("Stock")) {
-						textField.setEditable(true);
-						textField.addKeyListener(new KeyAdapter() {
-							public void keyTyped(KeyEvent e) {
-								char carcater =e.getKeyChar();
-								if(!Character.isDigit(carcater)) {
-									e.consume();
-								}
-							}
-						});
-					}
-					else
-					{
-						textField.setEditable(false);
-					}
-
+					textField.setEditable(false);
+					btnBuscar.setEnabled(false);
 				}
+
 			}
 		});
-		
-		//Listeners
 
-		btnAtras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.termina();
+		btnAtras.addActionListener(e -> control.termina());
+
+		btnBuscar.addActionListener(e-> {
+
+			if(textField.getText().equals("")){
+				JOptionPane.showMessageDialog(null, "Favor de llenar el campo", "Warning", JOptionPane.WARNING_MESSAGE);
 			}
+			else{
+				String opcion = (String) comboBox.getSelectedItem();
+				
+				if(opcion.equals("ID Producto")){
+					control.buscaProductoID(textField.getText());
+				}
+				else{
+					control.buscaProductoNombre(textField.getText());
+				}
+
+				}
 		});
 
 	}
 
-	/*public void muestra(ControlBuscarProducto control){
+	public void llenaTabla(List <Producto> productos){
 
-			this.control = control;
-			setVisible(true);
-			setLocationRelativeTo(null);
-		}
+			tableModel.setRowCount(0);
+			for (Producto p : productos) {
+            Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), p.getPrecio(), p.getStock() };
+            tableModel.addRow(fila);
+        }
+	}
+	public void muestra(ControlBuscarProducto2 control){
+
+		this.control = control;
+		setVisible(true);
+		setLocationRelativeTo(null);
+	}
 
 	public void muestraDialogoConMensaje(String mensaje){
 			
 		JOptionPane.showMessageDialog(this,mensaje);
 		
-	}*/
+	}
 }

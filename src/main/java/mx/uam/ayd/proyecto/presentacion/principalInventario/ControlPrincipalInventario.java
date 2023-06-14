@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.buscarProducto.ControlBuscarProducto;
 import mx.uam.ayd.proyecto.presentacion.editarProducto.ControlEditarProducto;
+import mx.uam.ayd.proyecto.presentacion.eliminarProducto.ControlEliminarProducto;
 
 @Component
 public class ControlPrincipalInventario {
@@ -21,6 +22,9 @@ public class ControlPrincipalInventario {
 	
 	@Autowired
 	private VentanaPrincipalInventario ventana;
+
+	@Autowired
+	private ControlEliminarProducto controlEliminarProducto;
 	
 	/**
 	 * Inicia el flujo de control de la ventana principal
@@ -38,7 +42,7 @@ public class ControlPrincipalInventario {
 	
 	public void agregarProducto() {
 		
-		 controlAgregaProducto.inicia();
+		controlAgregaProducto.inicia();
 	}
 	
 	public void buscarProducto() {
@@ -52,6 +56,11 @@ public class ControlPrincipalInventario {
 		ventana.setVisible(false);
 	
 	}
+
+    public void eliminarProducto() {
+
+		controlEliminarProducto.inicia();
+    }
 	
 	public void editarProducto() {
 		

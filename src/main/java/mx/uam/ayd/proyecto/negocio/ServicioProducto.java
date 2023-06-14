@@ -5,8 +5,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 /**
@@ -20,13 +23,11 @@ public class ServicioProducto {
 	
 	private Date date1;
 	
-	
     @Autowired
     private ProductoRepository productoRepository;
     
+
     public List<Producto> recuperarProductos() {
-		
-        System.out.println("productoRepository ="+productoRepository);
 		
 		List <Producto> productos = new ArrayList<>();
 		
@@ -40,17 +41,16 @@ public class ServicioProducto {
     }
 
     
-    
     public List<Producto> recuperarProductosInsuficentes() {
-		
-        System.out.println("productoRepository ="+productoRepository);
 		
 		List <Producto> productos = new ArrayList<>();
 		
 		for(Producto producto:productoRepository.findAll())
         {
-			if(producto.getStock()<=2)
-			productos.add(producto);
+			if(producto.getStock()<=2){
+				productos.add(producto);
+			}
+			
         }
 				
 		return productos;
@@ -71,18 +71,13 @@ public class ServicioProducto {
 		int cantidad = Integer.parseInt(stock);
 		
 		
-		//Regla de negocio: No se permite agregar un producto que ya existe 
-		
-		
-		
-		Producto producto = productoRepository.findById(id);
-		
-		System.out.println("producto= "+producto);
+		//Regla de negocio: No se permite agregar un producto que ya existe
 		
 		if(validarFormatoFecha(date) != true) {
 			throw new IllegalArgumentException("Formato de fecha incorrecto (día/mes/año)");
 		}
 		
+		Producto producto = productoRepository.findById(id);
 		if(producto != null ) {
 			throw new IllegalArgumentException("Este producto ya existe");
 		}
@@ -132,4 +127,17 @@ public class ServicioProducto {
 	    return productoOptional.orElse(null);
 	}
 	
+
+	public Producto eliminarProducto(int idProducto) {
+		Producto producto = productoRepository.findById(idProducto);
+
+		if (producto == null) {
+			throw new IllegalArgumentException("Este producto no existe");
+		}
+
+		productoRepository.delete(producto);
+
+		return producto;
+	}
+
 }

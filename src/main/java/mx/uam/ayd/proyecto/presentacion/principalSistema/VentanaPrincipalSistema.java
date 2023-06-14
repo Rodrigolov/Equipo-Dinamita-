@@ -2,8 +2,6 @@ package mx.uam.ayd.proyecto.presentacion.principalSistema;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -13,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import org.springframework.stereotype.Component;
@@ -23,12 +22,14 @@ public class VentanaPrincipalSistema extends JFrame {
 	
 	private ControlPrincipalSistema control;
 	private static final long serialVersionUID = 1L;
+	private static final String FONT_NAME = "Gadugi";
+	private static final String FONT_NAME_T = "Tahoma";
 	private JPanel contentPane;
 
 	public VentanaPrincipalSistema() {
 		setResizable(false);
 		setTitle("Tienda Mary");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 482, 454);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -37,95 +38,68 @@ public class VentanaPrincipalSistema extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblTitle = new JLabel("Tienda Mary ");
-		lblTitle.setFont(new Font("Gadugi", Font.BOLD, 30));
+		lblTitle.setFont(new Font(FONT_NAME, Font.BOLD, 30));
 		
 		JButton btnSales = new JButton("");
 		btnSales.setBackground(Color.WHITE);
-		btnSales.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnSales.setFont(new Font(FONT_NAME, Font.PLAIN, 12));
 		btnSales.setIcon(new ImageIcon("img/VP-ventas.png"));
 
 		JButton btnEmployees = new JButton("");
 		btnEmployees.setBackground(Color.WHITE);
-		btnEmployees.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnEmployees.setFont(new Font(FONT_NAME, Font.PLAIN, 12));
 		btnEmployees.setIcon(new ImageIcon("img/VP-empleado.png"));
 
 		JButton btnProviders = new JButton("");
 		btnProviders.setBackground(Color.WHITE);
-		btnProviders.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnProviders.setFont(new Font(FONT_NAME, Font.PLAIN, 12));
 		btnProviders.setIcon(new ImageIcon("img/VP-proveedor.png"));
 		
 		JButton btnInventory = new JButton("");
 		btnInventory.setBackground(Color.WHITE);
-		btnInventory.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnInventory.setFont(new Font(FONT_NAME, Font.PLAIN, 12));
 		btnInventory.setIcon(new ImageIcon("img/VP-inventario.png"));
 
 		JButton btnCreditShopping = new JButton("");
 		btnCreditShopping.setBackground(Color.WHITE);
-		btnCreditShopping.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnCreditShopping.setFont(new Font(FONT_NAME, Font.PLAIN, 12));
 		btnCreditShopping.setIcon(new ImageIcon("img/VP-credito.png"));
 		
 		JButton btnCorteCaja = new JButton("");
 		btnCorteCaja.setBackground(Color.WHITE);
-		btnCorteCaja.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnCorteCaja.setFont(new Font(FONT_NAME, Font.PLAIN, 12));
 		btnCorteCaja.setIcon(new ImageIcon("img/cajero.png"));
 		
 		
-		btnInventory.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.principalInventario();
-			}
-		});
-		
-		btnEmployees.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.principalEmpleado();
-			}
+		btnInventory.addActionListener(e -> control.principalInventario());
+
+		btnEmployees.addActionListener(e -> control.principalEmpleado());
+
+		btnSales.addActionListener(e -> control.venta());
+
+		btnProviders.addActionListener(e -> control.principalProveedor());
+
+		btnCorteCaja.addActionListener(e -> control.realizarCorte());
+
+		btnCreditShopping.addActionListener(e -> {
+		    //control.iniciaCompra();
 		});
 
-		btnSales.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.venta();
-			}
-		});
-
-		btnProviders.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.principalProveedor();
-			}
-		});
-
-		/*btnEmployees.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.iniciaEmpleado();
-			}
-		});*/
-		
-		btnCorteCaja.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.realizarCorte();
-			}
-		});
-
-		btnCreditShopping.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//control.iniciaCompra();
-			}
-		});
 		
 		JLabel lblVentas = new JLabel("Ventas");
-		lblVentas.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblVentas.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
 		
 		JLabel lblEmpleados = new JLabel("Empleados");
-		lblEmpleados.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblEmpleados.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
 		
 		JLabel lblProveedores = new JLabel("Proveedores");
-		lblProveedores.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblProveedores.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
 		
 		JLabel lblInventario = new JLabel("Inventario");
-		lblInventario.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblInventario.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
 		
 		JLabel lblCompras = new JLabel("Compras");
-		lblCompras.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblCompras.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon("img/VP-tienda.png"));
@@ -134,7 +108,7 @@ public class VentanaPrincipalSistema extends JFrame {
 		lblLogo2.setIcon(new ImageIcon("img/VP-abarrotes.png"));
 		
 		JLabel lblCorteCaja = new JLabel("Corte de Caja");
-		lblCorteCaja.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblCorteCaja.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
 
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(

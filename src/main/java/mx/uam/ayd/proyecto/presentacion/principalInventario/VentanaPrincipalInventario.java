@@ -1,26 +1,26 @@
 package mx.uam.ayd.proyecto.presentacion.principalInventario;
-import java.awt.EventQueue;
 
+import javax.swing.WindowConstants;
+
+
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import org.springframework.stereotype.Component;
 
-import java.awt.Color;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-
 @SuppressWarnings("serial")
 @Component
 public class VentanaPrincipalInventario extends JFrame {
 
+	private static final String FONT_NAME_T = "Tahoma";
 	private JPanel contentPane;
 	private ControlPrincipalInventario control;
 
@@ -28,7 +28,7 @@ public class VentanaPrincipalInventario extends JFrame {
 		setAlwaysOnTop(true);
 		setResizable(false);
 		setTitle("Inventario");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 519, 462);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -38,7 +38,7 @@ public class VentanaPrincipalInventario extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblInventario = new JLabel("INVENTARIO");
-		lblInventario.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblInventario.setFont(new Font(FONT_NAME_T, Font.BOLD, 24));
 		lblInventario.setBounds(171, 31, 165, 41);
 		contentPane.add(lblInventario);
 		
@@ -69,22 +69,22 @@ public class VentanaPrincipalInventario extends JFrame {
 		btnAtras.setIcon(new ImageIcon("img/flecha-izquierda-2.png"));
 		
 		JLabel lblAdd = new JLabel("Agregar Producto");
-		lblAdd.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblAdd.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
 		lblAdd.setBounds(72, 199, 145, 28);
 		contentPane.add(lblAdd);
 		
 		JLabel lblEdit = new JLabel("Editar Producto");
-		lblEdit.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblEdit.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
 		lblEdit.setBounds(301, 199, 133, 28);
 		contentPane.add(lblEdit);
 		
 		JLabel lblDelete = new JLabel("Eliminar Producto");
-		lblDelete.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblDelete.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
 		lblDelete.setBounds(72, 326, 145, 28);
 		contentPane.add(lblDelete);
 		
 		JLabel lblSeach = new JLabel("Inventario Productos");
-		lblSeach.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblSeach.setFont(new Font(FONT_NAME_T, Font.BOLD, 16));
 		lblSeach.setBounds(280, 326, 177, 28);
 		contentPane.add(lblSeach);
 		
@@ -121,6 +121,16 @@ public class VentanaPrincipalInventario extends JFrame {
 				control.termina();
 			}
 		});
+
+		btnAddProduct.addActionListener(e -> control.agregarProducto());
+
+		btnSeachProduct.addActionListener(e -> control.buscarProducto());
+    
+    btnDeleteProduct.addActionListener(e -> control.eliminarProducto());
+
+		btnAtras.addActionListener(e -> control.termina());
+	
+
 	}
 		
 	

@@ -22,7 +22,8 @@ public class VentanaVenta extends JPanel {
     JPanel buttomPanel;
     JPanel centerPanel;
     Venta ventaCurso = new Venta();
-    int pagoDelCliente,cambio;
+    int pagoDelCliente;
+    int cambio;
    //TODO ponel el pago del cliente
     DefaultTableModel tablaVenta = new DefaultTableModel();
     JComboBox<String>  comboBoxProd;

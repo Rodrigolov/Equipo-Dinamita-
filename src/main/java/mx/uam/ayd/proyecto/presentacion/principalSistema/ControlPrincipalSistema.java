@@ -17,6 +17,10 @@ import mx.uam.ayd.proyecto.presentacion.agregarProveedor.ControlAgregarProveedor
 import mx.uam.ayd.proyecto.presentacion.cancelarVenta.ControlCancelarVenta;
 import mx.uam.ayd.proyecto.presentacion.principalInventario.ControlPrincipalInventario;
 import mx.uam.ayd.proyecto.presentacion.realizarCorte.ControlRealizarCorte;
+
+
+
+
 /**
  * Esta clase lleva el flujo de control de la ventana principal
  * 

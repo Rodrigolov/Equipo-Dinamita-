@@ -35,6 +35,7 @@ public class ServicioVenta {
 		
 		return productos;
 	}
+}
 	
 	/*public float recuperaImporte(LocalDate fecha) {
 		float importeTotal = 0f;
@@ -103,6 +104,6 @@ public void eliminaVenta(Venta venta){
 }
    
 }
-
+*/
 
  

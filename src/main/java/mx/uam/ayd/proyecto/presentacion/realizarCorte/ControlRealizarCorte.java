@@ -32,7 +32,7 @@ public class ControlRealizarCorte {
 	        float importeTotal = 0;
 
 	        LocalDate fecha = LocalDate.now();
-	        importeTotal = servicioVenta.recuperaImporte(fecha);
+	        //importeTotal = servicioVenta.recuperaImporte(fecha);
 	        efectivo.muestra(this);
 	        return importeTotal;
 	    }

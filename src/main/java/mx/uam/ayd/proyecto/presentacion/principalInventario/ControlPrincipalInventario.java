@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.buscarProducto.ControlBuscarProducto;
-import mx.uam.ayd.proyecto.presentacion.buscarProducto2.ControlBuscarProducto2
+import mx.uam.ayd.proyecto.presentacion.buscarProducto2.ControlBuscarProducto2;
 import mx.uam.ayd.proyecto.presentacion.editarProducto.ControlEditarProducto;
 import mx.uam.ayd.proyecto.presentacion.eliminarProducto.ControlEliminarProducto;
 

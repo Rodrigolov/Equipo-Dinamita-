@@ -81,7 +81,7 @@ public class VentanaPrincipalInventario extends JFrame {
 		contentPane.add(btnAtras);
 		btnAtras.setIcon(new ImageIcon("img/flecha-izquierda-2.png"));
 		
-		JLabel lblAdd = new JLabel("Agregar 
+		JLabel lblAdd = new JLabel("Agregar Producto");
 		lblAdd.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblAdd.setBounds(72, 156, 145, 28);
 		contentPane.add(lblAdd);
@@ -98,7 +98,7 @@ public class VentanaPrincipalInventario extends JFrame {
 		
 		JLabel lblSeach = new JLabel("Inventario Productos");
 		lblSeach.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblSeach.setBounds(280
+		lblSeach.setBounds(280, 275, 160, 28);
 		contentPane.add(lblSeach);
 		
 		JLabel lblIcon = new JLabel("");
@@ -125,7 +125,7 @@ public class VentanaPrincipalInventario extends JFrame {
 		
 		btnAtras.addActionListener(e -> control.termina());
 		
-    btnEditProduct.addActionListener(e -> control..editarProducto());
+    	btnEditProduct.addActionListener(e -> control.editarProducto());
 		
 	}
 		

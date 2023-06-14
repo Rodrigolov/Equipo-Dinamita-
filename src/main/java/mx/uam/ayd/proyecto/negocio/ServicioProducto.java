@@ -1,4 +1,6 @@
 package mx.uam.ayd.proyecto.negocio;
+import java.util.List;
+import java.util.Optional;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class ServicioProducto {
 	
     @Autowired
     private ProductoRepository productoRepository;
+    
 
     public List<Producto> recuperarProductos() {
 		
@@ -56,8 +59,10 @@ public class ServicioProducto {
 
     public Producto recuperarProducto(String nombre)
     {
+    	
         return productoRepository.findByNombre(nombre);
     }
+    
     
     public Producto agregarProducto(String productID, String name, String price, String date, String stock ) {
 		
@@ -110,6 +115,18 @@ public class ServicioProducto {
 	        return false;
 	    }
 	}//Fin de la función validarFormatoFecha 
+	
+	public void actualizarProducto(Producto producto) {
+	       
+
+        productoRepository.save(producto);
+
+    }
+	public Producto recuperarProductoId(Long id) {
+		Optional<Producto> productoOptional = productoRepository.findById(id);
+	    return productoOptional.orElse(null);
+	}
+	
 
 	public Producto eliminarProducto(int idProducto) {
 		Producto producto = productoRepository.findById(idProducto);

@@ -98,6 +98,29 @@ public class VentanaPrincipalInventario extends JFrame {
 		contentPane.add(lblIcon2);
 		lblIcon2.setIcon(new ImageIcon("img/VI-producto.png"));
 
+		btnAddProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.agregarProducto();
+			}
+		});
+		
+		btnSeachProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.buscarProducto();
+			}
+		});
+		
+		btnEditProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.editarProducto();
+			}
+		});
+		
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.termina();
+			}
+		});
 
 		btnAddProduct.addActionListener(e -> control.agregarProducto());
 

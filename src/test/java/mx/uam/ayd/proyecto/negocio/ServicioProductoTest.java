@@ -18,7 +18,9 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
+import mx.uam.ayd.proyecto.negocio.ServicioProducto;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
+
 
 class ServicioProductoTest {
 
@@ -29,8 +31,63 @@ class ServicioProductoTest {
     private ServicioProducto servicioProducto;
 
     @BeforeEach
-    public void setup() {
+    void setUp() {
         MockitoAnnotations.openMocks(this);
+    }
+    @Test
+    void testRecuperarProductoIdExistente() {
+        // Datos de prueba
+        Long idExistente = 1L;
+        Producto productoExistente = new Producto();
+        productoExistente.setIdProducto(idExistente);
+
+        // Configurar el comportamiento esperado del repositorio mock
+        when(productoRepository.findById(idExistente)).thenReturn(Optional.of(productoExistente));
+
+        // Ejecutar el método a probar
+        Producto resultado = servicioProducto.recuperarProductoId(idExistente);
+
+        // Verificar el resultado
+        assertNotNull(resultado);
+        assertEquals(idExistente, resultado.getIdProducto());
+
+        // Verificar que el método findById del repositorio fue invocado
+        verify(productoRepository, times(1)).findById(idExistente);
+    }
+  
+    @Test
+    void testRecuperarProductoIdNoExistente() {
+        // Datos de prueba
+        Long idNoExistente = 1L;
+
+        // Configurar el comportamiento esperado del repositorio mock
+        when(productoRepository.findById(idNoExistente)).thenReturn(Optional.empty());
+
+        // Ejecutar el método a probar
+        Producto resultado = servicioProducto.recuperarProductoId(idNoExistente);
+
+        // Verificar el resultado
+        assertNull(resultado);
+
+        // Verificar que el método findById del repositorio fue invocado
+        verify(productoRepository, times(1)).findById(idNoExistente);
+    }
+
+    @Test
+    void testActualizarProducto() {
+        // Datos de prueba
+        Producto producto = new Producto();
+        producto.setIdProducto(1);
+        producto.setNombre("Producto 1");
+        producto.setPrecio(100);
+        producto.setFecha(new Date());
+        producto.setStock(10);
+
+        // Ejecutar el método a probar
+        servicioProducto.actualizarProducto(producto);
+
+        // Verificar que el método save del repositorio fue invocado
+        verify(productoRepository, times(1)).save(producto);
     }
 
     @Test

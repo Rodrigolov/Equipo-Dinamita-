@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.eliminarEmpleado;
+package mx.uam.ayd.proyecto.presentacion.EliminarEmpleado;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.List;

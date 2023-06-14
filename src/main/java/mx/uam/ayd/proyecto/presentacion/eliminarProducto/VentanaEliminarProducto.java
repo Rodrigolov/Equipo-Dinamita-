@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import org.springframework.stereotype.Component;
@@ -60,7 +61,7 @@ public class VentanaEliminarProducto extends JFrame {
         panel.add(lblTitulo);
 
         JLabel lblIdProducto = new JLabel("Id Producto:");
-        lblIdProducto.setFont(new Font(ACTION_2, Font.BOLD, 20));
+        lblIdProducto.setFont(new Font(ACTION_2, Font.BOLD, 10));
         lblIdProducto.setBounds(20, 100, 100, 20);
         panel.add(lblIdProducto);
 
@@ -89,7 +90,7 @@ public class VentanaEliminarProducto extends JFrame {
         btnCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controlEliminarProducto.cancelar();
+                limpia();
                 //llama al metodo de control que cierra la ventana 
             }
         });
@@ -103,6 +104,17 @@ public class VentanaEliminarProducto extends JFrame {
         lblcancelar.setFont(new Font(ACTION_2, Font.BOLD, 16));
         lblcancelar.setBounds(270, 255, 155, 30);
         panel.add(lblcancelar);
+
+        JButton btnAtras = new JButton("");
+		btnAtras.setBackground(UIManager.getColor("InternalFrame.borderHighlight"));
+		btnAtras.setBounds(72, 375, 41, 39);
+		panel.add(btnAtras);
+		btnAtras.setIcon(new ImageIcon("img/flecha-izquierda-2.png"));
+        btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlEliminarProducto.termina();
+			}
+		});
 
         add(panel);
     }

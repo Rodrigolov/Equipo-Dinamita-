@@ -67,14 +67,5 @@ public class ControlEliminarProducto {
         termina();
         
     }
-    
-    /**
-    *	Cancelar: llama al metodo termina
-    */
-    public void cancelar() {
-
-        termina();
-
-    }
 
 }

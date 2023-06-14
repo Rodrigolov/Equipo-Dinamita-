@@ -37,7 +37,6 @@ public class ServicioProducto {
 		return productos;
     }
 
-
     
     public List<Producto> recuperarProductosInsuficentes() {
 		
@@ -67,18 +66,13 @@ public class ServicioProducto {
 		int cantidad = Integer.parseInt(stock);
 		
 		
-		//Regla de negocio: No se permite agregar un producto que ya existe 
-		
-		
-		
-		Producto producto = productoRepository.findById(id);
-		
-		
+		//Regla de negocio: No se permite agregar un producto que ya existe
 		
 		if(validarFormatoFecha(date) != true) {
 			throw new IllegalArgumentException("Formato de fecha incorrecto (día/mes/año)");
 		}
 		
+		Producto producto = productoRepository.findById(id);
 		if(producto != null ) {
 			throw new IllegalArgumentException("Este producto ya existe");
 		}
@@ -116,17 +110,17 @@ public class ServicioProducto {
 	        return false;
 	    }
 	}//Fin de la función validarFormatoFecha 
-	
-	public Producto eliminarProducto(int idProducto){
 
+	public Producto eliminarProducto(int idProducto) {
 		Producto producto = productoRepository.findById(idProducto);
 
-		if(producto == null ) {
+		if (producto == null) {
 			throw new IllegalArgumentException("Este producto no existe");
 		}
 
 		productoRepository.delete(producto);
-		
+
 		return producto;
 	}
+
 }

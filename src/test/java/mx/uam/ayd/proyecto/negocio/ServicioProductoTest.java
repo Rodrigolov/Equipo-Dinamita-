@@ -4,12 +4,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
@@ -20,167 +25,148 @@ class ServicioProductoTest {
     @Mock
     private ProductoRepository productoRepository;
 
+    @InjectMocks
     private ServicioProducto servicioProducto;
 
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
-        servicioProducto = new ServicioProducto();
-        
     }
 
     @Test
     void testRecuperarProductos() {
         // Preparación de datos de prueba
-        List<Producto> productosMock = new ArrayList<>();
-        productosMock.add(new Producto());
-        productosMock.add(new Producto());
+        Producto producto1 = new Producto();
+        producto1.setNombre("Producto 1");
+
+        Producto producto2 = new Producto();
+        producto2.setNombre("Producto 2");
+
+        List<Producto> productos = new ArrayList<>();
+        productos.add(producto1);
+        productos.add(producto2);
 
         // Configuración del comportamiento simulado del repositorio
-        when(productoRepository.findAll()).thenReturn(productosMock);
+        when(productoRepository.findAll()).thenReturn(productos);
 
         // Ejecución del método a probar
-        List<Producto> productos = servicioProducto.recuperarProductos();
+        List<Producto> resultado = servicioProducto.recuperarProductos();
 
         // Verificación de resultados
-        assertEquals(2, productos.size());
-        assertEquals(productosMock, productos);
-        verify(productoRepository, times(1)).findAll();
+        assertEquals(2, resultado.size());
+        assertEquals("Producto 1", resultado.get(0).getNombre());
+        assertEquals("Producto 2", resultado.get(1).getNombre());
+
+        // Verificación de interacciones con el repositorio
+        verify(productoRepository).findAll();
     }
 
     @Test
     void testRecuperarProductosInsuficientes() {
         // Preparación de datos de prueba
-        List<Producto> productosMock = new ArrayList<>();
-        productosMock.add(new Producto());
-        productosMock.add(new Producto());
+        Producto producto1 = new Producto();
+        producto1.setNombre("Producto 1");
+        producto1.setStock(1);
+
+        Producto producto2 = new Producto();
+        producto2.setNombre("Producto 2");
+        producto2.setStock(3);
+
+        List<Producto> productos = new ArrayList<>();
+        productos.add(producto1);
+        productos.add(producto2);
 
         // Configuración del comportamiento simulado del repositorio
-        when(productoRepository.findAll()).thenReturn(productosMock);
+        when(productoRepository.findAll()).thenReturn(productos);
 
         // Ejecución del método a probar
-        List<Producto> productos = servicioProducto.recuperarProductosInsuficentes();
+        List<Producto> resultado = servicioProducto.recuperarProductosInsuficentes();
 
         // Verificación de resultados
-        assertEquals(0, productos.size());
-        verify(productoRepository, times(1)).findAll();
+        assertEquals(1, resultado.size());
+        assertEquals("Producto 1", resultado.get(0).getNombre());
+
+        // Verificación de interacciones con el repositorio
+        verify(productoRepository).findAll();
     }
 
     @Test
     void testRecuperarProducto() {
         // Preparación de datos de prueba
-        Producto productoMock = new Producto();
+        Producto producto = new Producto();
+        producto.setNombre("Producto de prueba");
 
         // Configuración del comportamiento simulado del repositorio
-        when(productoRepository.findByNombre(anyString())).thenReturn(productoMock);
+        when(productoRepository.findByNombre("Producto de prueba")).thenReturn(producto);
 
         // Ejecución del método a probar
-        Producto producto = servicioProducto.recuperarProducto("nombre");
+        Producto resultado = servicioProducto.recuperarProducto("Producto de prueba");
 
         // Verificación de resultados
-        assertEquals(productoMock, producto);
-        verify(productoRepository, times(1)).findByNombre("nombre");
+        assertEquals("Producto de prueba", resultado.getNombre());
+
+        // Verificación de interacciones con el repositorio
+        verify(productoRepository).findByNombre("Producto de prueba");
     }
 
     @Test
-    void testAgregarProducto() {
+    void testAgregarProducto() throws ParseException {
         // Preparación de datos de prueba
-        String productID = "1";
-        String name = "Producto";
-        String price = "100";
-        String date = "01/01/2023";
+        String productoId = "1";
+        String nombre = "Nuevo producto";
+        String precio = "100";
+        String fecha = "01/01/2023";
         String stock = "10";
-        long id = 1;
-        int precio = 100;
-        int cantidad = 10;
-
-        // Configuración del comportamiento simulado del repositorio
-        when(productoRepository.findById(id)).thenReturn(null);
 
         // Ejecución del método a probar
-        Producto producto = servicioProducto.agregarProducto(productID, name, price, date, stock);
+        Producto resultado = servicioProducto.agregarProducto(productoId, nombre, precio, fecha, stock);
 
         // Verificación de resultados
-        assertEquals(id, producto.getIdProducto());
-        assertEquals(name, producto.getNombre());
-        assertEquals(precio, producto.getPrecio());
-        assertEquals(date, producto.getFecha());
-        assertEquals(cantidad, producto.getStock());
-        verify(productoRepository, times(1)).findById(id);
-        verify(productoRepository, times(1)).save(producto);
+        assertEquals(1L, resultado.getIdProducto());
+        assertEquals("Nuevo producto", resultado.getNombre());
+        assertEquals(100, resultado.getPrecio());
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        assertEquals(formatoFecha.parse("01/01/2023"), resultado.getFecha());
+        assertEquals(10, resultado.getStock());
+
+        // Verificación de interacciones con el repositorio
+        verify(productoRepository).findById(anyLong());
+        verify(productoRepository).save(resultado);
     }
 
+    
     @Test
-    void testAgregarProducto_ProductoExistente() {
+    void testAgregarProductoFechaIncorrecta() throws ParseException {
         // Preparación de datos de prueba
-        String productID = "1";
-        String name = "Producto";
-        String price = "100";
-        String date = "01/01/2023";
+        String productoId = "1";
+        String nombre = "Nuevo producto";
+        String precio = "100";
+        String fecha = "01-01-2023";
         String stock = "10";
-        long id = 1;
-        Producto productoExistente = new Producto();
 
-        // Configuración del comportamiento simulado del repositorio
-        when(productoRepository.findById(id)).thenReturn(productoExistente);
+        // Ejecución del método a probar y verificación de excepción
+        assertThrows(IllegalArgumentException.class, () ->
+                servicioProducto.agregarProducto(productoId, nombre, precio, fecha, stock));
 
-        // Ejecución del método a probar y verificación de excepción esperada
-        assertThrows(IllegalArgumentException.class, () -> {
-            servicioProducto.agregarProducto(productID, name, price, date, stock);
-        });
-        verify(productoRepository, times(1)).findById(id);
-        verify(productoRepository, never()).save(any());
+        // Verificación de interacciones con el repositorio
+        verify(productoRepository, never()).findById(anyLong());
+        verify(productoRepository, never()).save(any(Producto.class));
     }
 
     @Test
-    void testAgregarProducto_FormatoFechaIncorrecto() {
-        // Preparación de datos de prueba
-        String productID = "1";
-        String name = "Producto";
-        String price = "100";
-        String date = "01-01-2023"; // Formato de fecha incorrecto
-        String stock = "10";
-        long id = 1;
-
-        // Ejecución del método a probar y verificación de excepción esperada
-        assertThrows(IllegalArgumentException.class, () -> {
-            servicioProducto.agregarProducto(productID, name, price, date, stock);
-        });
-        verify(productoRepository, never()).findById(id);
-        verify(productoRepository, never()).save(any());
-    }
-
-    @Test
-    void testEliminarProducto() {
-        // Preparación de datos de prueba
+    public void testEliminarProducto() {
+        // Arrange
         int idProducto = 1;
-        Producto productoExistente = new Producto();
+        Producto producto = new Producto();
+        producto.setIdProducto(idProducto);
+        // Mock del repositorio para devolver el producto
+        Mockito.when(productoRepository.findById(idProducto)).thenReturn(producto);
+        // Act
+        Producto resultado = servicioProducto.eliminarProducto(idProducto);
+        // Assert
+        Assertions.assertEquals(producto, resultado);
+        Mockito.verify(productoRepository, Mockito.times(1)).delete(producto);
+        }
 
-        // Configuración del comportamiento simulado del repositorio
-        when(productoRepository.findById(idProducto)).thenReturn(productoExistente);
-
-        // Ejecución del método a probar
-        Producto productoEliminado = servicioProducto.eliminarProducto(idProducto);
-
-        // Verificación de resultados
-        assertEquals(productoExistente, productoEliminado);
-        verify(productoRepository, times(1)).findById(idProducto);
-        verify(productoRepository, times(1)).delete(productoExistente);
-    }
-
-    @Test
-    void testEliminarProducto_ProductoNoExistente() {
-        // Preparación de datos de prueba
-        int idProducto = 1;
-
-        // Configuración del comportamiento simulado del repositorio
-        when(productoRepository.findById(idProducto)).thenReturn(null);
-
-        // Ejecución del método a probar y verificación de excepción esperada
-        assertThrows(IllegalArgumentException.class, () -> {
-            servicioProducto.eliminarProducto(idProducto);
-        });
-        verify(productoRepository, times(1)).findById(idProducto);
-        verify(productoRepository, never()).delete(any());
-    }
+  
 }

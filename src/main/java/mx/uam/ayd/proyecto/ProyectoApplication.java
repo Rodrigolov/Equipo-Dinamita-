@@ -4,29 +4,29 @@ import java.time.LocalDate;
 
 import javax.annotation.PostConstruct;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import mx.uam.ayd.proyecto.negocio.modelo.Producto;
-import mx.uam.ayd.proyecto.negocio.modelo.Venta;
-import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
-import mx.uam.ayd.proyecto.negocio.ServicioEmpleado;
-import mx.uam.ayd.proyecto.negocio.modelo.Empleado;
+
+import mx.uam.ayd.proyecto.datos.EmpleadoRepository;
+import mx.uam.ayd.proyecto.datos.GrupoRepository;
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.datos.ProveedorRepository;
 import mx.uam.ayd.proyecto.datos.VentaRepository;
-import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
-import mx.uam.ayd.proyecto.datos.EmpleadoRepository;
-import mx.uam.ayd.proyecto.datos.GrupoRepository;
+import mx.uam.ayd.proyecto.negocio.ServicioEmpleado;
+import mx.uam.ayd.proyecto.negocio.modelo.Empleado;
 import mx.uam.ayd.proyecto.negocio.modelo.Grupo;
+import mx.uam.ayd.proyecto.negocio.modelo.Producto;
+import mx.uam.ayd.proyecto.negocio.modelo.Proveedor;
+import mx.uam.ayd.proyecto.negocio.modelo.Venta;
+import mx.uam.ayd.proyecto.presentacion.Venta.ControlVenta;
 import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
 
 
 /**
- * 
- * Clase principal que arranca la aplicación 
- * construida usando el principio de 
+ *
+ * Clase principal que arranca la aplicación
+ * construida usando el principio de
  * inversión de control
  * 
  * 

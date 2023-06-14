@@ -1,19 +1,20 @@
 package mx.uam.ayd.proyecto.presentacion.principalInventario;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
 import javax.swing.WindowConstants;
-import javax.swing.border.EmptyBorder;
 
-import org.springframework.stereotype.Component;
 
 import java.awt.Color;
-import javax.swing.JLabel;
 import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
+
+import org.springframework.stereotype.Component;
 
 @SuppressWarnings("serial")
 @Component
@@ -97,12 +98,16 @@ public class VentanaPrincipalInventario extends JFrame {
 		contentPane.add(lblIcon2);
 		lblIcon2.setIcon(new ImageIcon("img/VI-producto.png"));
 
+
 		btnAddProduct.addActionListener(e -> control.agregarProducto());
 
 		btnSeachProduct.addActionListener(e -> control.buscarProducto());
+    
+    btnDeleteProduct.addActionListener(e -> control.eliminarProducto());
 
 		btnAtras.addActionListener(e -> control.termina());
 	
+
 	}
 		
 	

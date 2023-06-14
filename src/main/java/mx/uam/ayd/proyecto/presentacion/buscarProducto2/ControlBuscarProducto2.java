@@ -38,6 +38,13 @@ public class ControlBuscarProducto2 {
 		ventana.muestra(this);
     }
 
+    /**
+     * buscaProductoID: metodo que muestra los productos encontrados por el ID llamando al servicio,
+     * para que haga lo busqueda 
+     * 
+     * @param idProduct Id del producto 
+     * @return ninguno 
+     */
     public void buscaProductoID(String idProduct){
 
         List <Producto> productos = new ArrayList<>();
@@ -46,20 +53,27 @@ public class ControlBuscarProducto2 {
 
         try{
             producto = servicioProducto.buscaProductoID(idProduct);
-            if(producto == null){
-                JOptionPane.showMessageDialog(null, "El producto no existe", "Warning", JOptionPane.ERROR_MESSAGE);
-            }
-            else{
+            /*if(producto == null){
+                ventana.muestraDialogoConMensaje2("No existe el producto");
+            }*/
+            
                 productos.add(producto);
                 ventana.llenaTabla(productos);
                 ventana.muestraDialogoConMensaje("Producto encontrado");
-            }
             
         }
         catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "El producto no existe", "Warning", JOptionPane.ERROR_MESSAGE);
+            ventana.muestraDialogoConMensaje2("No existe el producto");
         }
     }
+
+     /**
+     * buscaProductoNombre: metodo que muestra los productos encontrados por el Nombre llamando al servicio,
+     * para que haga lo busqueda 
+     * 
+     * @param nameProduct nombre del producto 
+     * @return ninguno 
+     */
 
     public void buscaProductoNombre(String nameProduct){
 
@@ -71,7 +85,7 @@ public class ControlBuscarProducto2 {
             ventana.muestraDialogoConMensaje("Producto encontrado");
         }
         catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "El producto no existe", "Warning", JOptionPane.ERROR_MESSAGE);
+            ventana.muestraDialogoConMensaje2("No existe el producto");
         }
     }
 

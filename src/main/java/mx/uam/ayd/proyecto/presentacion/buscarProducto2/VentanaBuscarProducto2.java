@@ -37,7 +37,7 @@ public class VentanaBuscarProducto2 extends JFrame {
 
 	/**
 	 * @author: Rodrigo Lovera
-	 * 
+	 * Compone todos los elementos de la HU 
 	 */
 	public VentanaBuscarProducto2() {
 
@@ -133,13 +133,26 @@ public class VentanaBuscarProducto2 extends JFrame {
 			}
 		});
 
+		/**
+		 * Botón que regresa al menú anterior 
+		 * 
+		 */
 		btnAtras.addActionListener(e -> control.termina());
 
+		/**
+		 * Botón que verifica los campos vacios y llama al control 
+		 * para iniciar la busque de un producto por ID o nombre del producto 
+		 * 
+		 */
 		btnBuscar.addActionListener(e-> {
 
 			if(textField.getText().equals("")){
-				JOptionPane.showMessageDialog(null, "Favor de llenar el campo", "Warning", JOptionPane.WARNING_MESSAGE);
+
+				String texto = "Favor de llenar el campo";
+				tableModel.setRowCount(0);
+				muestraDialogoConMensaje2(texto);
 			}
+
 			else{
 				String opcion = (String) comboBox.getSelectedItem();
 				
@@ -155,6 +168,12 @@ public class VentanaBuscarProducto2 extends JFrame {
 
 	}
 
+	/**
+	 * llenaTabla: metodo que llena la tabla con una lista de productos 
+	 * @param Lista de productos
+	 * @return: 
+	 * 
+	 */
 	public void llenaTabla(List <Producto> productos){
 
 			tableModel.setRowCount(0);
@@ -163,6 +182,12 @@ public class VentanaBuscarProducto2 extends JFrame {
             tableModel.addRow(fila);
         }
 	}
+
+	/**
+	 * muestra: metodo que llama al control para iniciar la HU
+	 * @param: control
+	 * @return 
+	 */
 	public void muestra(ControlBuscarProducto2 control){
 
 		this.control = control;
@@ -170,9 +195,20 @@ public class VentanaBuscarProducto2 extends JFrame {
 		setLocationRelativeTo(null);
 	}
 
+	/**
+	 * muestraDialogoConMensajes: metodo que muestra mensajes en la pantalla 
+	 * @param: mensaje a mostrar 
+	 * @return 
+	 */
+	
 	public void muestraDialogoConMensaje(String mensaje){
 			
-		JOptionPane.showMessageDialog(this,mensaje);
+		JOptionPane.showMessageDialog(this,mensaje,"Accion",JOptionPane.INFORMATION_MESSAGE);
 		
+	}
+
+	public void muestraDialogoConMensaje2(String mensaje){
+			
+		JOptionPane.showMessageDialog(this,mensaje,"Accion",JOptionPane.WARNING_MESSAGE);
 	}
 }

@@ -1,10 +1,14 @@
 package mx.uam.ayd.proyecto.negocio;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -66,4 +70,106 @@ class ServicioEmpleadoTest {
         }
         verifyNoInteractions(empleadoRepository);
     }
+
+    @Test
+	void testRecuperaEmpleados() {
+		// Datos de prueba
+		Empleado empleado1 = new Empleado();
+		Empleado empleado2 = new Empleado();
+		List<Empleado> empleadosMock = new ArrayList<>();
+		empleadosMock.add(empleado1);
+		empleadosMock.add(empleado2);
+		
+		// Mock del comportamiento del repositorio
+		when(empleadoRepository.findAll()).thenReturn(empleadosMock);
+		
+		// Ejecución del método a probar
+		List<Empleado> empleados = empleadoService.recuperaEmpleados();
+		
+		// Verificación
+		assertEquals(2, empleados.size());
+		assertSame(empleado1, empleados.get(0));
+		assertSame(empleado2, empleados.get(1));
+	}
+	
+	@Test
+	void testRecuperarEmpleadoPorNombre() {
+		// Datos de prueba
+		String nombre = "Juan";
+			Empleado empleadoMock = new Empleado();
+		
+		// Mock del comportamiento del repositorio
+		when(empleadoRepository.findByNombre(nombre)).thenReturn(empleadoMock);
+		
+		// Ejecución del método a probar
+		Empleado empleado = empleadoService.recuperarEmpleadoPorNombre(nombre);
+		
+		// Verificación
+		assertSame(empleadoMock, empleado);
+	}
+	
+	@Test
+	void testRecuperarEmpleadoPorApellido() {
+		// Datos de prueba
+		String apellido = "Pérez";
+		Empleado empleadoMock = new Empleado();
+		
+		// Mock del comportamiento del repositorio
+		when(empleadoRepository.findByNombre(apellido)).thenReturn(empleadoMock);
+		
+		// Ejecución del método a probar
+		Empleado empleado = empleadoService.recuperarEmpleadoPorApellido(apellido);
+		
+		// Verificación
+		assertSame(empleadoMock, empleado);
+	}
+	
+	@Test
+	void testRecuperarEmpleadoPorNombreYApellido() {
+		// Datos de prueba
+		String nombre = "Juan";
+		String apellido = "Pérez";
+		Empleado empleadoMock = new Empleado();
+		
+		// Mock del comportamiento del repositorio
+		when(empleadoRepository.findByNombreAndApellido(nombre, apellido)).thenReturn(empleadoMock);
+		
+		// Ejecución del método a probar
+		Empleado empleado = empleadoService.recuperarEmpleadoPorNombreYApellido(nombre, apellido);
+		
+		// Verificación
+		assertSame(empleadoMock, empleado);
+	}
+	
+	@Test
+	void testEliminarEmpleado() {
+		// Datos de prueba
+		Empleado empleadoMock = new Empleado();
+		
+		// Mock del comportamiento del repositorio
+		doNothing().when(empleadoRepository).delete(empleadoMock);
+		
+		 // Ejecución del método a probar
+		boolean resultado = empleadoService.eliminarEmpleado(empleadoMock);
+		
+		// Verificación
+		assertTrue(resultado);
+		verify(empleadoRepository).delete(empleadoMock);
+	}
+	
+	@Test
+	void testRecuperrarEmpleadoPorId() {
+		// Datos de prueba
+		Long id = 1L;
+		Empleado empleadoMock = new Empleado();
+		
+		// Mock del comportamiento del repositorio
+		when(empleadoRepository.findByID(id)).thenReturn(empleadoMock);
+		
+		// Ejecución del método a probar
+		Empleado empleado = empleadoService.recuperrarEmpleadoPorId(id);
+		
+		// Verificación
+		assertSame(empleadoMock, empleado);
+	}
 }

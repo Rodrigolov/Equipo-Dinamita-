@@ -3,8 +3,6 @@ package mx.uam.ayd.proyecto.presentacion.buscarProducto2;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import mx.uam.ayd.proyecto.negocio.ServicioProducto;
@@ -49,17 +47,13 @@ public class ControlBuscarProducto2 {
 
         List <Producto> productos = new ArrayList<>();
         Producto producto = new Producto();
-       
 
         try{
             producto = servicioProducto.buscaProductoID(idProduct);
-            /*if(producto == null){
-                ventana.muestraDialogoConMensaje2("No existe el producto");
-            }*/
-            
-                productos.add(producto);
-                ventana.llenaTabla(productos);
-                ventana.muestraDialogoConMensaje("Producto encontrado");
+           
+            productos.add(producto);
+            ventana.llenaTabla(productos);
+            //ventana.muestraDialogoConMensaje("Producto encontrado");
             
         }
         catch(Exception ex){
@@ -76,13 +70,10 @@ public class ControlBuscarProducto2 {
      */
 
     public void buscaProductoNombre(String nameProduct){
-
-        List <Producto> productos = new ArrayList<>();
         
         try{
-            productos = servicioProducto.buscaProductosNombre(nameProduct);
-            ventana.llenaTabla(productos);
-            ventana.muestraDialogoConMensaje("Producto encontrado");
+            ventana.llenaTabla(servicioProducto.buscaProductosNombre(nameProduct));
+            //ventana.muestraDialogoConMensaje("Producto encontrado");
         }
         catch(Exception ex){
             ventana.muestraDialogoConMensaje2("No existe el producto");

@@ -13,7 +13,6 @@ import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 
 import java.awt.Color;
@@ -177,11 +176,20 @@ public class VentanaBuscarProducto2 extends JFrame {
 	public void llenaTabla(List <Producto> productos){
 
 			tableModel.setRowCount(0);
-			for (Producto p : productos) {
-            Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), p.getPrecio(), p.getStock() };
-            tableModel.addRow(fila);
+			if(!productos.isEmpty()){
+
+				muestraDialogoConMensaje("Producto encontrado");
+				
+				for (Producto p : productos) {
+            	Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), p.getPrecio(), p.getStock() };
+            	tableModel.addRow(fila);
+				}
+			}
+			else {
+				muestraDialogoConMensaje2("No existe el producto");
+			}
+			
         }
-	}
 
 	/**
 	 * muestra: metodo que llama al control para iniciar la HU

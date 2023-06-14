@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
-import java.util.Scanner;
 
-import javax.swing.JOptionPane;
 /**
  * Servicio relacionado con los productos
  * 
@@ -28,8 +26,6 @@ public class ServicioProducto {
 
 
     public List<Producto> recuperarProductos() {
-		
-        System.out.println("productoRepository ="+productoRepository);
 		
 		List <Producto> productos = new ArrayList<>();
 		
@@ -55,16 +51,12 @@ public class ServicioProducto {
 		for(Producto producto:productoRepository.findAll())
 		{
 			String nombreProducto = producto.getNombre();
+			String primer = nombreProducto.split(" ")[0];
 
-			if(nombreProducto.equals(nameProduct+""))
+			if(primer.equals(nameProduct))
             {
                 productos.add(producto);
             }
-			else
-			{
-				productos.add(null);
-			}
-
 
 		}//Fin del for 
 

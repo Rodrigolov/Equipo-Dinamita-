@@ -76,6 +76,7 @@ public class VentanaEditarProducto extends JFrame {
         campoBuscar = new JTextField(20);
         botonBuscar = new JButton("Buscar");
         panelBuscar.setBackground(Color.WHITE);
+        botonBuscar = new JButton(new ImageIcon("img/lupa.png"));
         JButton btnSalir = new JButton("");
         btnSalir.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {

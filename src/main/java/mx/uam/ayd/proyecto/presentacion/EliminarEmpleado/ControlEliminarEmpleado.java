@@ -1,4 +1,4 @@
-package mx.uam.ayd.proyecto.presentacion.eliminarEmpleado;
+package mx.uam.ayd.proyecto.presentacion.EliminarEmpleado;
 
 import java.util.List;
 

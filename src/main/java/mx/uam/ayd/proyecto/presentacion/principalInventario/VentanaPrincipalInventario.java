@@ -7,6 +7,8 @@ import javax.swing.border.EmptyBorder;
 
 import org.springframework.stereotype.Component;
 
+import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -130,29 +132,14 @@ public class VentanaPrincipalInventario extends JFrame {
 		lblSearchProduct2.setBounds(179, 395, 145, 28);
 		contentPane.add(lblSearchProduct2);
 
-		btnAddProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.agregarProducto();
-			}
-		});
+		btnAddProduct.addActionListener(e-> control.agregarProducto());
 		
-		btnSeachProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.buscarProducto();
-			}
-		});
+		btnSeachProduct.addActionListener(e -> control.buscarProducto());
 
-		btnSearchProduct2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.buscarProducto2();
-			}
-		});
+		btnSearchProduct2.addActionListener(e -> control.buscarProducto2());
 		
-		btnAtras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.termina();
-			}
-		});
+		btnAtras.addActionListener(e -> control.termina());
+		
 	}
 		
 	

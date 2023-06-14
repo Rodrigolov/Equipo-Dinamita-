@@ -1,6 +1,6 @@
 package mx.uam.ayd.proyecto.presentacion.cancelarVenta;
 
-import javax.swing.DefaultListCellRenderer;
+/*import javax.swing.DefaultListCellRenderer;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
@@ -163,4 +163,4 @@ public class VentanaCancelarVenta extends JFrame {
         frame.getContentPane().add(panelTabla);
         frame.setVisible(true);
     }
-}
+}*/

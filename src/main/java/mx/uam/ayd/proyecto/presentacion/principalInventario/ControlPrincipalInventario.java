@@ -5,8 +5,10 @@ import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 import mx.uam.ayd.proyecto.presentacion.buscarProducto.ControlBuscarProducto;
+import mx.uam.ayd.proyecto.presentacion.buscarProducto2.ControlBuscarProducto2
 import mx.uam.ayd.proyecto.presentacion.editarProducto.ControlEditarProducto;
 import mx.uam.ayd.proyecto.presentacion.eliminarProducto.ControlEliminarProducto;
+
 
 @Component
 public class ControlPrincipalInventario {
@@ -16,7 +18,10 @@ public class ControlPrincipalInventario {
 	
 	@Autowired
 	private ControlBuscarProducto controlBuscarProducto;
-	
+
+	@Autowired
+	private ControlBuscarProducto2 controlBuscarProducto2;
+		
 	@Autowired
 	private ControlEditarProducto controlEditarProducto;
 	
@@ -50,7 +55,14 @@ public class ControlPrincipalInventario {
 		controlBuscarProducto.inicia();
 	}
 	
-	
+	/*
+	 * Método que arranca la historia de usuario "Buscar producto"
+	 * 
+	 */
+	public void buscarProducto2(){
+
+		controlBuscarProducto2.inicia();
+	}
 	public void termina() {
 		
 		ventana.setVisible(false);

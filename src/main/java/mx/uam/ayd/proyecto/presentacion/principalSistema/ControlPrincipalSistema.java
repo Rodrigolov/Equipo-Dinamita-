@@ -50,6 +50,9 @@ public class ControlPrincipalSistema {
 
 	@Autowired
 	private ControlRealizarCorte control;
+
+	@Autowired
+	private ControlEmpleado controlEmpleado;
 	
 	@Autowired
 	private ControlCancelarVenta controlCancelar;

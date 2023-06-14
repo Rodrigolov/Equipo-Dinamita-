@@ -88,6 +88,7 @@ public class VentanaRealizarCorte extends JFrame {
 	public void muestra(ControlRealizarCorte control, List<Producto> productos) {
 		this.control = control;
         for (Producto p : productos) {
+
             Object[] fila = new Object[]{p.getIdProducto(), p.getNombre(), p.getPrecio(), p.getStock() };
             tableModel.addRow(fila);
         }

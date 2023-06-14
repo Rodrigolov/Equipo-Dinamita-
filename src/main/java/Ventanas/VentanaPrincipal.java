@@ -1,9 +1,8 @@
 package Ventanas;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.GroupLayout;
@@ -15,35 +14,13 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class VentanaPrincipal extends JFrame {
 
-	/**
-	 * 
-	 */
+	private static final String FONT_NAME_G = "Gadugi";
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaPrincipal frame = new VentanaPrincipal();
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public VentanaPrincipal() {
 		setTitle("Tienda Mary");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 490, 350);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -52,25 +29,25 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblTitle = new JLabel("Tienda Mary ");
-		lblTitle.setFont(new Font("Gadugi", Font.BOLD, 25));
+		lblTitle.setFont(new Font(FONT_NAME_G, Font.BOLD, 25));
 		
 		JButton btnSales = new JButton("Ventas");
-		btnSales.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnSales.setFont(new Font(FONT_NAME_G, Font.PLAIN, 12));
 		
 		JButton btnEmployees = new JButton("Empleados");
-		btnEmployees.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnEmployees.setFont(new Font(FONT_NAME_G, Font.PLAIN, 12));
 		
 		JButton btnProviders = new JButton("Proveedores");
-		btnProviders.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnProviders.setFont(new Font(FONT_NAME_G, Font.PLAIN, 12));
 		
 		JButton btnInventory = new JButton("Inventario");
-		btnInventory.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnInventory.setFont(new Font(FONT_NAME_G, Font.PLAIN, 12));
 		
 		JButton btnCreditShopping = new JButton("Compras");
-		btnCreditShopping.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnCreditShopping.setFont(new Font(FONT_NAME_G, Font.PLAIN, 12));
 		
 		JLabel lblNewLabel = new JLabel("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		lblNewLabel.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		lblNewLabel.setFont(new Font(FONT_NAME_G, Font.PLAIN, 12));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

@@ -1,23 +1,16 @@
 package mx.uam.ayd.proyecto.presentacion.realizarCorte;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import org.springframework.stereotype.Component;
 
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 import java.awt.BorderLayout;
 import java.awt.Container;

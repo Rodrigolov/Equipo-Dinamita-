@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
@@ -13,10 +14,8 @@ import org.springframework.stereotype.Component;
 import javax.swing.JLabel;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 @Component
@@ -24,34 +23,15 @@ public class VentanaPrincipal extends JFrame {
 	
 	private ControlPrincipal control;
 	
+	private static final String FONT_NAME_T = "Gadugi";
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textUser;
 	private JPasswordField passwordField;
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaPrincipal frame = new VentanaPrincipal();
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the frame.
-	 */
 	public VentanaPrincipal() {
 		setTitle("Tienda Mary");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 350);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -60,29 +40,25 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblTitle = new JLabel("Tienda Mary ");
-		lblTitle.setFont(new Font("Gadugi", Font.BOLD, 25));
+		lblTitle.setFont(new Font(FONT_NAME_T, Font.BOLD, 25));
 		
 		JButton btnLogin = new JButton("Ingresar");
-		btnLogin.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		btnLogin.setFont(new Font(FONT_NAME_T, Font.PLAIN, 12));
 		
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				control.principalSistema();
-			}
-		});
+		btnLogin.addActionListener(e -> control.principalSistema());
 		
 		JLabel lblUser = new JLabel("Usuario: ");
-		lblUser.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		lblUser.setFont(new Font(FONT_NAME_T, Font.PLAIN, 12));
 		
 		textUser = new JTextField();
-		textUser.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		textUser.setFont(new Font(FONT_NAME_T, Font.PLAIN, 12));
 		textUser.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Contraseña:");
-		lblPassword.setFont(new Font("Gadugi", Font.PLAIN, 12));
+		lblPassword.setFont(new Font(FONT_NAME_T, Font.PLAIN, 12));
 		
 		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		passwordField.setFont(new Font(FONT_NAME_T, Font.PLAIN, 12));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

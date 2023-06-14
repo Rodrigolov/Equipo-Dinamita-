@@ -15,4 +15,5 @@ public interface  ProductoRepository extends CrudRepository<Producto, Long>{
     public Producto findById(long id);
     public Producto findByStock(int stock);
 
+
 }

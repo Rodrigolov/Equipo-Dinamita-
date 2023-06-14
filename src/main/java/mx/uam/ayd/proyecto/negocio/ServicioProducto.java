@@ -1,11 +1,15 @@
 package mx.uam.ayd.proyecto.negocio;
 import java.util.List;
+import java.util.Optional;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import mx.uam.ayd.proyecto.datos.ProductoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Producto;
 
@@ -20,10 +24,8 @@ public class ServicioProducto {
 	
 	private Date date1;
 	
-	
     @Autowired
     private ProductoRepository productoRepository;
-
 
     public List<Producto> recuperarProductos() {
 		
@@ -38,55 +40,57 @@ public class ServicioProducto {
 		return productos;
     }
 
-	/**
-	 * buscaProductosNombre: busca productos por nombre 
-	 * @param nombre del producto
-	 * @return lista de productos con ese nombre o null si no hay productos con ese nombre
-	 * 
-	 */
-	public List<Producto> buscaProductosNombre(String nameProduct){
 
-		List <Producto> productos = new ArrayList<>();
+    /**
+     * buscaProductosNombre: busca productos por nombre 
+     * @param nombre del producto
+     * @return lista de productos con ese nombre o null si no hay productos con ese nombre
+     * 
+     */
+    public List<Producto> buscaProductosNombre(String nameProduct){
 
-		for(Producto producto:productoRepository.findAll())
-		{
-			String nombreProducto = producto.getNombre();
-			String primer = nombreProducto.split(" ")[0];
+      List <Producto> productos = new ArrayList<>();
 
-			if(primer.equals(nameProduct))
-            {
-                productos.add(producto);
-            }
+      for(Producto producto:productoRepository.findAll())
+      {
+        String nombreProducto = producto.getNombre();
+        String primer = nombreProducto.split(" ")[0];
 
-		}//Fin del for 
+        if(primer.equals(nameProduct))
+              {
+                  productos.add(producto);
+              }
 
-		return productos;
-	}
+      }//Fin del for 
+
+      return productos;
+    }
+
     
-	/**
-	 * buscaProductoID: busca productos por ID
-	 * @param id del producto
-	 * @return producto si lo econtro o null si no existe  
-	 * 
-	 */
-	public Producto buscaProductoID(String idProduct){
+    /**
+     * buscaProductoID: busca productos por ID
+     * @param id del producto
+     * @return producto si lo econtro o null si no existe  
+     * 
+     */
+    public Producto buscaProductoID(String idProduct){
 
-		long idproducto = Long.parseLong(idProduct);
-		return productoRepository.findById(idproducto);
-	}
+      long idproducto = Long.parseLong(idProduct);
+      return productoRepository.findById(idproducto);
+    }
 
 	
 
     public List<Producto> recuperarProductosInsuficentes() {
 		
-        System.out.println("productoRepository ="+productoRepository);
-		
 		List <Producto> productos = new ArrayList<>();
 		
 		for(Producto producto:productoRepository.findAll())
         {
-			if(producto.getStock()<=2)
-			productos.add(producto);
+			if(producto.getStock()<=2){
+				productos.add(producto);
+			}
+			
         }
 				
 		return productos;
@@ -95,8 +99,10 @@ public class ServicioProducto {
 
     public Producto recuperarProducto(String nombre)
     {
+    	
         return productoRepository.findByNombre(nombre);
     }
+    
     
     public Producto agregarProducto(String productID, String name, String price, String date, String stock ) {
 		
@@ -105,18 +111,13 @@ public class ServicioProducto {
 		int cantidad = Integer.parseInt(stock);
 		
 		
-		//Regla de negocio: No se permite agregar un producto que ya existe 
-		
-		
-		
-		Producto producto = productoRepository.findById(id);
-		
-		System.out.println("producto= "+producto);
+		//Regla de negocio: No se permite agregar un producto que ya existe
 		
 		if(validarFormatoFecha(date) != true) {
 			throw new IllegalArgumentException("Formato de fecha incorrecto (día/mes/año)");
 		}
 		
+		Producto producto = productoRepository.findById(id);
 		if(producto != null ) {
 			throw new IllegalArgumentException("Este producto ya existe");
 		}
@@ -155,4 +156,28 @@ public class ServicioProducto {
 	    }
 	}//Fin de la función validarFormatoFecha 
 	
+	public void actualizarProducto(Producto producto) {
+	       
+
+        productoRepository.save(producto);
+
+    }
+	public Producto recuperarProductoId(Long id) {
+		Optional<Producto> productoOptional = productoRepository.findById(id);
+	    return productoOptional.orElse(null);
+	}
+	
+
+	public Producto eliminarProducto(int idProducto) {
+		Producto producto = productoRepository.findById(idProducto);
+
+		if (producto == null) {
+			throw new IllegalArgumentException("Este producto no existe");
+		}
+
+		productoRepository.delete(producto);
+
+		return producto;
+	}
+
 }

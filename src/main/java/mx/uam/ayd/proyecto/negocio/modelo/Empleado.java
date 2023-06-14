@@ -13,14 +13,13 @@ import lombok.Data;
 public class Empleado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
-	private int idEmpleado;
+	private long ID;
 	
 	private String nombre;
 	
 	private String apellido;
 	
-	private LocalDate fechainico;
+	private LocalDate fechainicio;
 
 	private String direccion;
 

@@ -1,56 +1,40 @@
 package mx.uam.ayd.proyecto.presentacion.principalInventario;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.border.EmptyBorder;
+import javax.swing.WindowConstants;
 
-import org.springframework.stereotype.Component;
 
 import mx.uam.ayd.proyecto.presentacion.agregarProducto.ControlAgregarProducto;
 
 import java.awt.Color;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
+
+import org.springframework.stereotype.Component;
 
 @SuppressWarnings("serial")
 @Component
 public class VentanaPrincipalInventario extends JFrame {
 
+	private static final String FONT_NAME_T = "Tahoma";
 	private JPanel contentPane;
 	private ControlPrincipalInventario control;
-
-	/**
-	 * Launch the application.
-	 *
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaPrincipalInventarioII frame = new VentanaPrincipalInventarioII();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	
-	/**
-	 * Create the frame.
-	 */
+
 	public VentanaPrincipalInventario() {
 		
 		setAlwaysOnTop(true);
 		setResizable(false);
 		setTitle("Inventario");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 519, 462);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -60,6 +44,7 @@ public class VentanaPrincipalInventario extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblInventario = new JLabel("INVENTARIO");
+
 		lblInventario.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblInventario.setBounds(169, 11, 165, 41);
 		contentPane.add(lblInventario);
@@ -96,7 +81,7 @@ public class VentanaPrincipalInventario extends JFrame {
 		contentPane.add(btnAtras);
 		btnAtras.setIcon(new ImageIcon("img/flecha-izquierda-2.png"));
 		
-		JLabel lblAdd = new JLabel("Agregar Producto");
+		JLabel lblAdd = new JLabel("Agregar 
 		lblAdd.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblAdd.setBounds(72, 156, 145, 28);
 		contentPane.add(lblAdd);
@@ -113,7 +98,7 @@ public class VentanaPrincipalInventario extends JFrame {
 		
 		JLabel lblSeach = new JLabel("Inventario Productos");
 		lblSeach.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblSeach.setBounds(280, 275, 177, 28);
+		lblSeach.setBounds(280
 		contentPane.add(lblSeach);
 		
 		JLabel lblIcon = new JLabel("");
@@ -139,6 +124,8 @@ public class VentanaPrincipalInventario extends JFrame {
 		btnSearchProduct2.addActionListener(e -> control.buscarProducto2());
 		
 		btnAtras.addActionListener(e -> control.termina());
+		
+    btnEditProduct.addActionListener(e -> control..editarProducto());
 		
 	}
 		

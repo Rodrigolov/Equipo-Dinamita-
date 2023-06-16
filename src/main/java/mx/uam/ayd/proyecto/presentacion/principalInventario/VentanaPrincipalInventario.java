@@ -31,7 +31,7 @@ public class VentanaPrincipalInventario extends JFrame {
 
 	public VentanaPrincipalInventario() {
 		
-		setAlwaysOnTop(true);
+		setAlwaysOnTop(false);
 		setResizable(false);
 		setTitle("Inventario");
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -126,6 +126,8 @@ public class VentanaPrincipalInventario extends JFrame {
 		btnAtras.addActionListener(e -> control.termina());
 	 
 		btnEditProduct.addActionListener(e->control.editarProducto());
+
+		btnDeleteProduct.addActionListener( e -> control.eliminarProducto() );
 
 	}
 		

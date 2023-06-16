@@ -38,6 +38,14 @@ class ServicioProductoTest {
 
     @InjectMocks
     private ServicioProducto servicio;
+    
+    @InjectMocks
+    private ServicioProducto servicioProducto;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
 
     @BeforeEach
     void setUP() throws Exception{
@@ -117,14 +125,7 @@ class ServicioProductoTest {
         assertEquals(listaProductos,resultado2);
     }
 
-    
 
-    private ServicioProducto servicioProducto;
-
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
     @Test
     void testRecuperarProductoIdExistente() {
         // Datos de prueba

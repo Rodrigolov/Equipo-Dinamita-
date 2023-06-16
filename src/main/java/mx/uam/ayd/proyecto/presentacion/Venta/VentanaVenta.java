@@ -160,6 +160,10 @@ public class VentanaVenta extends JPanel {
     {
         this.controlVenta = control;     
         //Logica de agregar producto a la lista y venta
+        if(producto.getStock() == 0)
+        {
+            muestraDialogoConMensaje("Ya no hay existencias de ese producto");
+        }
         if(producto.getStock()!= 0){
             control.agregarProducto(producto,ventaCurso); 
             if(table.getRowCount()==0){}

@@ -66,6 +66,21 @@ public class ServicioProducto {
       return productos;
     }
 
+	public List<String> getProductNames(){
+
+      List <String> productos = new ArrayList<>();
+
+      for(Producto producto:productoRepository.findAll())
+      {
+        String nombreProducto = producto.getNombre();
+
+        productos.add(nombreProducto);
+
+      }//Fin del for 
+
+      return productos;
+    }
+
     
     /**
      * buscaProductoID: busca productos por ID

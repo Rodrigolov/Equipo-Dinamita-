@@ -2,6 +2,8 @@ package mx.uam.ayd.proyecto.presentacion.Venta;
 
 import java.util.List;
 
+import javax.swing.JComboBox;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,16 +28,16 @@ public class ControlVenta {
     public void inicia() {
 		
         List <Producto> productos = servicioProducto.recuperarProductos();
-        //Venta venta = servicioVenta.CrearVenta();
+        Venta venta = servicioVenta.CrearVenta();
 
-        //ventanaVenta.muestra(this, productos,venta);
+        ventanaVenta.muestra(this, productos,venta);
 
 	}
 
-    /*public JComboBox<String> getNametoCombobox()
+    public JComboBox<String> getNametoCombobox()
     {
-        //return (JComboBox<String>)servicioProducto.getProductNames();
-    }*/
+        return (JComboBox<String>)servicioProducto.getProductNames();
+    }
 
     public void recuperarProducto(String nombre)
     {
@@ -48,7 +50,7 @@ public class ControlVenta {
     public void agregarProducto(Producto producto,Venta venta)
     {
         try {
-            //servicioVenta.agregarProducto(producto,venta);
+            servicioVenta.agregarProducto(producto,venta);
         }catch(Exception ex) 
         {
             ventanaVenta.muestraDialogoConMensaje("Se Ha acabado el stock del producto deceado");
@@ -57,14 +59,14 @@ public class ControlVenta {
 
     public void quitaProducto(Producto producto,int productLoc,Venta venta)
     {
-        //ervicioVenta.quitarProducto(producto, productLoc,venta);
+        servicioVenta.quitarProducto(producto, productLoc,venta);
     }
 
     public int completarVenta(int pagoCliente,Venta venta)
     {
         int cambio=0;
         try {
-         //cambio = servicioVenta.finalizarVenta(pagoCliente, venta);
+         cambio = servicioVenta.finalizarVenta(pagoCliente, venta);
          ventanaVenta.muestraDialogoConMensaje("Venta realizada exitosamente el cambio del cliente es : " + cambio);
          ventanaVenta.termina();
     }

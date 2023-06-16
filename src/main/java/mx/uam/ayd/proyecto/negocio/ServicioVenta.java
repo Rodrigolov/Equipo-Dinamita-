@@ -35,9 +35,9 @@ public class ServicioVenta {
 		
 		return productos;
 	}
-}
+
 	
-	/*public float recuperaImporte(LocalDate fecha) {
+public float recuperaImporte(LocalDate fecha) {
 		float importeTotal = 0f;
 	    List<Producto> productosVendidos = recuperaProductosDeVenta(fecha);
 	    for (Producto producto : productosVendidos) {
@@ -104,6 +104,6 @@ public void eliminaVenta(Venta venta){
 }
    
 }
-*/
+
 
  

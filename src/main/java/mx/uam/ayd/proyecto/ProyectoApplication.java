@@ -54,7 +54,7 @@ public class ProyectoApplication {
 	
 	@Autowired
 	VentaRepository ventaRepository;
-
+    
   
 	public static void main(String[] args) {
 
